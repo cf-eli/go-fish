@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package gofish;
-import java.util.Random;
+import java.util.Random;//example
 /**
  *
  * @author Vuilk
