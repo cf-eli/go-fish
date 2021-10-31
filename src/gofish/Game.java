@@ -10,8 +10,8 @@ package gofish;
  * 
  */
 public class Game {
-    String playerturn;
-    Boolean isgameover;
+    private String playerturn;
+    private Boolean isgameover;
     public Game(){//constructor for the game class, might need player ids or something
     
     }
