@@ -4,17 +4,21 @@
  * and open the template in the editor.
  */
 package gofish;
-import java.util.Random;//example
+import java.util.*;//example\
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.Collections;
 /**
  *
  * @author Vuilk
  */
 public class Deck {
-    private Card[] cards;
     private int cardsInDeck; //use this to keep place in the deck when populating, increment when card is changed, in theory anyway
+    private final ArrayList<Card> decklist = new ArrayList<>();
+    
     
     public Deck(){
-        cards = new Card[52]; // makes 52 null cards, gotta make a method that resets the deck(fill the values)  
+        
     }
     
     public void reset(){ //populate the deck in this method
@@ -23,35 +27,36 @@ public class Deck {
        for(int i = 0; i < 4; i++){ //4 suits
             for(int j = 1; j<14; j++) //13 cards per suit
             {
-                cards[cardsInDeck] = new Card(j, i);
+                this.decklist.add(new Card(j,i));
                 cardsInDeck++;
+                //System.out.println(decklist.size());
             }
        }
-       //for(int i = 0; i<52; i++){ //test
-        //   System.out.println(cards[i]);
-       //}
 
 
     }
     
     public void shuffle(){
-        Random gen = new Random(); 
-        int loc1, loc2;
-        Card [] temp = new Card[1]; //create a temperory deck of 1 card
-        for (int i = 0; i < 300; i++) //shuffle the array(deck) 300 times
-        {
-            //Pick two random locations in the array(deck)
-            loc1 = gen.nextInt(52);
-            loc2 = gen.nextInt(52);
-            //swap them
-            temp[0] = cards[loc1];
-            cards[loc1] = cards[loc2];
-            cards[loc2] = temp[0];
+        Collections.shuffle(this.decklist);
+        
+        
         }
-
-        for(int i = 0; i<52; i++){ //test
-            System.out.println(cards[i]);
-        }
+    public Card draw(){
+        cardsInDeck = decklist.size()-1;
+        return this.decklist.remove(0);
+        
+        
+        
+        
+        
+        
+    
+    }
+    @Override
+    public String toString(){// prints out the values of the decklist
+        String a = this.decklist.toString();
+        return a;
+    
     }
     
 }
