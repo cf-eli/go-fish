@@ -30,6 +30,8 @@ public class GoFish {
        testp.addCard(test2.draw());
        System.out.println(test2.toString());
        System.out.println(testp.toString());
+       
+ 
     }
     
 }

@@ -26,6 +26,7 @@ public class Player {
     }
     public void addCard(Card c){//takes in a card object and places it in the hand.
         this.hand.add(c);
+        //System.out.println(c.getImg()); test
     }
     public void removeCard(Card c){//removes a specific card from the hand, should always be pairs with a addCard function on another
         this.hand.remove(c);
