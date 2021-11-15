@@ -20,6 +20,15 @@ public class GoFish {
      */
     public static void main(String[] args) {
        // TODO code application logic here
+       StartPage s = new StartPage();
+       s.setVisible(true);
+       
+       
+       
+       
+       
+       
+       
        //Card test = new Card(12,0); //test for card class
        Deck test2 = new Deck();
        test2.reset();
