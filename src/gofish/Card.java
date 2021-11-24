@@ -12,7 +12,7 @@ package gofish;
 public class Card {
           
     public static final String[] RANK = {null, "Ace", "2", "3", "4", "5", "6",
-        "7", "8", "9", "8", "9", "10", "Jack", "Queen", "King"};
+        "7", "8", "9", "10", "Jack", "Queen", "King"};
     
     public static final String[] SUIT = {"Clubs", "Diamonds",
         "Hearts", "Spades"};

@@ -42,6 +42,8 @@ public class Game {
                 System.out.println(players.get(j).toString());
             }
         System.out.println(deck.toString());
+        //below is a test
+        players.get(currentplayerturn).checkDeck();
         
     }
     public void endGame(){}
