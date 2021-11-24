@@ -11,7 +11,7 @@ import java.util.*;
  * 
  */
 public class Game {
-    private String currentplayerturn;
+    private int currentplayerturn = 0; //automatically make player go first(change later?)
     private String lastplayerturn;
     private String nextplayerturn;
     private Boolean isgameover;
@@ -38,7 +38,7 @@ public class Game {
                 players.get(j).addCard(deck.draw());
             }
         }
-        for(int j=0;j<players.size();j++){
+        for(int j=0;j<players.size();j++){   //test, make sure players hands working correctly
                 System.out.println(players.get(j).toString());
             }
         System.out.println(deck.toString());
@@ -55,11 +55,15 @@ public class Game {
         }
             
     }
-    public String getPlayerTurn(){
+    public int getPlayerTurn(){
         return this.currentplayerturn;
     }
     
-    public void setPlayerTurn(){
+    public void setPlayerTurn(){//set the next player as current player
+        if (currentplayerturn==0)//can do players.size() instead if we want to do more than 2 players
+            currentplayerturn--;
+        else
+            currentplayerturn++;
         //need this to check the last player before setting the next person in the arrylist as the currentplayer turn. should always check to be sure its not doubleing up a turn or something.
         //this might be involed. we need to decide if we want to just move the arraylist of players around, and designateing the first slot as the "current" turn, or storeing the turns seporately in variables or something, not sure which is better. 
         
