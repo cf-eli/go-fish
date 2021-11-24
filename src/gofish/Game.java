@@ -16,6 +16,7 @@ public class Game {
     private String nextplayerturn;
     private Boolean isgameover;
     private ArrayList<Player> players = new ArrayList<Player>();
+    private Deck deck = new Deck();
     
     
     
@@ -29,8 +30,19 @@ public class Game {
         
         
     }
-    public void startGame(){//method to start the game
-    
+    public void startGame(){
+        deck.reset(); //place all cards in deck
+        deck.shuffle();//shuffle deck
+        for(int i=0;i<7;i++){
+            for(int j=0;j<players.size();j++){
+                players.get(j).addCard(deck.draw());
+            }
+        }
+        for(int j=0;j<players.size();j++){
+                System.out.println(players.get(j).toString());
+            }
+        System.out.println(deck.toString());
+        
     }
     public void endGame(){}
     

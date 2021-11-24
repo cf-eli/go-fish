@@ -30,15 +30,18 @@ public class GoFish {
        
        
        //Card test = new Card(12,0); //test for card class
-       Deck test2 = new Deck();
-       test2.reset();
-       System.out.println(test2.toString());
-       test2.shuffle();
-       System.out.println(test2.toString());
-       Player testp = new Player("main");
-       testp.addCard(test2.draw());
-       System.out.println(test2.toString());
-       System.out.println(testp.toString());
+       //Deck test2 = new Deck();
+       //test2.reset();
+       //System.out.println(test2.toString());
+       //test2.shuffle();
+       //System.out.println(test2.toString());
+       Player mainP = new Player("main");
+       Ai ai = new Ai();
+       Game game = new Game(mainP, ai);
+       game.startGame();
+       //testp.addCard(test2.draw());
+       //System.out.println(test2.toString());
+       //System.out.println(testp.toString());
        
  
     }
