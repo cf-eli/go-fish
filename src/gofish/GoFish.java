@@ -5,6 +5,9 @@
  */
 package gofish;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  *
  * @author Vuilk
@@ -30,18 +33,32 @@ public class GoFish {
        
        
        //Card test = new Card(12,0); //test for card class
-       //Deck test2 = new Deck();
-       //test2.reset();
+       Deck test2 = new Deck();
+       test2.reset();
        //System.out.println(test2.toString());
-       //test2.shuffle();
+       test2.shuffle();
        //System.out.println(test2.toString());
-       Player mainP = new Player("main");
-       Ai ai = new Ai();
-       Game game = new Game(mainP, ai);
-       game.startGame();
-       //testp.addCard(test2.draw());
-       //System.out.println(test2.toString());
-       //System.out.println(testp.toString());
+       
+       
+       
+       Player testp = new Player("player1");
+       Player testd = new Player("player2");
+       testp.addCard(test2.draw());
+       System.out.println(test2.toString());
+       System.out.println(testp.toString());
+       ArrayList<Player> test = new ArrayList<Player>();
+       test.add(testp);
+       test.add(testd);
+       System.out.println(testp.getName());
+       System.out.println(test.toString());
+       System.out.println(test.get(test.size()-1));
+       test.add(test.remove(0));
+       System.out.println(test.get(test.size()-1));
+       double rand = Math.random();
+       
+       System.out.println(rand);
+       
+       
        
  
     }
