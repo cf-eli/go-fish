@@ -37,18 +37,18 @@ public class Player {
     public void increaseScore(){//increments the score, if someone reaches 8 the game should be set to over
         this.score ++;
     }
-    public void checkHand(){//this is set to only match 2 cards, change to match 4----------------------------------------
+    public void checkHand(){//this is set to only match 4 cards-----------------------------------
         ArrayList<Integer> temp = new ArrayList<>();
         for(int i=0;i<hand.size();i++){ //add all ranks in hand to a temp array
             temp.add(hand.get(i).getRank());
         }
         System.out.println(temp);//This is just a test
-        //check from rank 0-13 and see if theres 2(change to 4 later) of the same matches, if so, remove that array and call the 
+        //check from rank 0-13 and see if theres 4 of the same matches, if so, remove that array and call the 
         //increaseScore() function
         for(int i=0;i<13;i++){ 
             int occurrences = Collections.frequency(temp, i);
             System.out.printf("\n%d: %d",i,occurrences);//Also test(delete)
-            if (occurrences==2){
+            if (occurrences==4){
                 int rank = i;
                 for(int j=0;j<hand.size();j++){
                     if (hand.get(j).getRank()==rank){

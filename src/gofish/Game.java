@@ -29,7 +29,8 @@ public class Game {
         players.add(b);
         isgameover = false;
         playercount = 2;
-        deck = new Deck();        
+        deck = new Deck();
+        deck.reset();
         
         double rand = Math.random();
         if(rand >.05){//if the random number is greater than .5, set the AI as the first player
@@ -48,18 +49,23 @@ public class Game {
         if(playercount <= 3 ){
             for(int i = 0; i <=6; i++){
                 //put 7 cards in  players hands
-                for(int j = 0; j <= players.size()-1; j++){
+                for(int j = 0; j < players.size(); j++){
                     players.get(j).addCard(deck.draw());
                 }
             }        
         }else{
             for(int i = 0; i <=4; i++){
                 //put 5 cards in each players hand
-                for(int j = 0; j <= players.size()-1; j++){
+                for(int j = 0; j < players.size(); j++){
                     players.get(j).addCard(deck.draw());                    
                 }
             }
         }
+        //Below is a test
+        for(int j=0;j<players.size();j++){
+                System.out.println(players.get(j).toString());
+            }
+        System.out.println(deck.toString());
         
     }
     

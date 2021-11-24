@@ -25,11 +25,14 @@ public class GoFish {
        // TODO code application logic here
        StartPage s = new StartPage();
        s.setVisible(true);
+       Player player1 = new Player("Player1");
+       Ai ai = new Ai();
+       Game game = new Game(player1, ai);
+       game.startGame();
        
        
        
-       
-       
+       /*
        
        
        //Card test = new Card(12,0); //test for card class
@@ -57,7 +60,7 @@ public class GoFish {
        double rand = Math.random();
        
        System.out.println(rand);
-       
+       */
        
        
  
