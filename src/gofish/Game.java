@@ -22,24 +22,45 @@ public class Game {
     
     
     
-    public Game(Player a, Ai b){//constructor for the game class, need to input the player string entered from the GUI for first perameter 
+    public Game(){//constructor for the game class
         
         
-        players.add(a);
-        players.add(b);
+        //players.add(a);
+        //players.add(b);
         isgameover = false;
         playercount = 2;
         deck = new Deck();
         deck.reset();
         
+        /*double rand = Math.random();
+        if(rand >.05){//if the random number is greater than .5, set the AI as the first player
+            players.add(players.remove(0));
+        }*/
+        
+        
+        
+        
+    }
+    //create new player using a string input
+    public void addPlayer(String a){
+        Player b = new Player(a);       
+        players.add(b);
+    
+    };
+    
+    //create new Ai using a string input
+    public void addAi(String a){
+        
+        Ai b = new Ai();
+        players.add(b);
+    }
+    //this sets the turn order in the array list. *check later: currently only works with one Ai, modify if we make more ai's a final decision*
+    public void setTurnOrder(){
         double rand = Math.random();
         if(rand >.05){//if the random number is greater than .5, set the AI as the first player
             players.add(players.remove(0));
         }
-        
-        
-        
-        
+    
     }
     //this needs to be tested
     public void startGame(){//method to start the game

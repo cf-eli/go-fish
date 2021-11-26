@@ -23,17 +23,42 @@ public class GoFish {
      */
     public static void main(String[] args) {
        // TODO code application logic here
-       StartPage s = new StartPage();
-       s.setVisible(true);
-       Player player1 = new Player("Player1");
-       Ai ai = new Ai();
-       Game game = new Game(player1, ai);
-       game.startGame();
+       StartPage start = new StartPage();
+       Game game = new Game();
+       Controller control = new Controller(start, game);
+       start.setVisible(true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       //StartPage s = new StartPage();
+       //s.setVisible(true);
+       
+       
+       
        
        
        
        /*
+       Player player1 = new Player("Player1");
+       Ai ai = new Ai();
+       Game game = new Game(player1, ai);
+       game.startGame();
+       */
        
+       
+       /*
+       //testing for the game methods
        
        //Card test = new Card(12,0); //test for card class
        Deck test2 = new Deck();

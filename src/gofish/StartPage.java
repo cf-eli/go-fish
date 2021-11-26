@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package gofish;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -108,9 +110,9 @@ public class StartPage extends javax.swing.JFrame {
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         // TODO add your handling code here:
-        MainGui g = new MainGui();
-        g.setVisible(true);
-        dispose();
+        //MainGui g = new MainGui();
+        //g.setVisible(true);
+        //dispose();
     }//GEN-LAST:event_startButtonActionPerformed
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
@@ -119,10 +121,19 @@ public class StartPage extends javax.swing.JFrame {
 
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
         // TODO add your handling code here:
-        HelpScreen g = new HelpScreen();
-        g.setVisible(true);
+        //HelpScreen g = new HelpScreen();
+        //g.setVisible(true);
     }//GEN-LAST:event_helpButtonActionPerformed
-
+    //getters/setters/actions here
+    void addStartGameListener(ActionListener StartgameListener){
+        startButton.addActionListener(StartgameListener);
+    
+    }
+    void addHelpGameListener(ActionListener helpListener){
+        helpButton.addActionListener(helpListener);
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
