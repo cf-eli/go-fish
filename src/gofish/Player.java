@@ -64,7 +64,7 @@ public class Player {
     }
     @Override
     public String toString(){// puts the name of the player and the current cards in "hand"
-        String a = this.playername+""+hand.toString();
+        String a = this.playername+" "+hand.toString();
         return a;
     
     

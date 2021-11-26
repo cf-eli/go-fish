@@ -125,6 +125,18 @@ public class StartPage extends javax.swing.JFrame {
         //g.setVisible(true);
     }//GEN-LAST:event_helpButtonActionPerformed
     //getters/setters/actions here
+    public String getPlayerName(){
+        return nameField.getText();
+    
+    }
+    public String getPlayerNumbers(){
+        return playerNumber.getSelectedItem().toString();
+    
+    }
+    public String getDifficulty(){
+        return difficultySelect.getSelectedItem().toString();
+    }
+    
     void addStartGameListener(ActionListener StartgameListener){
         startButton.addActionListener(StartgameListener);
     

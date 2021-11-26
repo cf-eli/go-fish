@@ -24,31 +24,108 @@ public class Controller{
             this.maingame = model;
             
             //these are are calling the methods in the ui file with the actionlistioner class from below, whatever is passed is the function that button will be assigned
-            this.startview.addStartGameListener(new ButtonListener());
-            this.startview.addHelpGameListener(new ButtonListener2());
+            this.startview.addStartGameListener(new StartButtonListener());
+            this.startview.addHelpGameListener(new HelpButtonListener());
             }
         
         
         
       //actions for ActionListoner, each class is a new button function, add a new one for each interactable button. they can be reused if they do the same thing
-        class ButtonListener implements ActionListener{
-
+        //startgame buttons
+        class StartButtonListener implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("test1");
+                //start button functions here
+                //this should start start the game, add players, and set difficulty, then take away the start page and pull up the main page
+                
+                //gonna keep this at 2, add more later if needed
+                if(startview.getPlayerNumbers() == "2"){
+                    maingame.addPlayer(startview.getPlayerName());
+                    maingame.addAi("computer1");
+                    ((Ai)maingame.getPlayer(1)).setDifficulty(startview.getDifficulty());
+                }
+                //set the main view as visible and dispose of the startview
+                mainview.setVisible(true);
+                startview.dispose();
+                
+                //add game listeners here
+                mainview.addHelpGameListener(new HelpButtonListener());
+                mainview.addCloseGameListener(new CloseButtonListener());
+                mainview.addResetGameListener(new ResetButtonListener());
+                mainview.addDeckListener(new DeckButtonListener());
+                
+                System.out.println(maingame.getPlayer(0));               
+                System.out.println(maingame.getPlayer(1));
+                
+                System.out.println("startbutton click");
             }
-            
         }
-        class ButtonListener2 implements ActionListener{
-
+        class HelpButtonListener implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Test2");
-            }
-            
-            
+                //help button functions here
+                
+                helpview.setVisible(true);
+                helpview.addHelpCloseListener(new HelpCloseButtonListener());
+                
+                System.out.println("helpbutton click");
+            } 
         }
         
+        //help screen
+       class HelpCloseButtonListener implements ActionListener{
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //functions here
+                helpview.dispose();              
+
+            }
+        }
+       
+        //game buttons
+        class CloseButtonListener implements ActionListener{
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //functions here
+                System.exit(0);
+                
+            } 
+        }
+        class ResetButtonListener implements ActionListener{
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //functions here
+                mainview.dispose();
+                StartPage start = new StartPage();
+                Game game = new Game();
+                Controller control = new Controller(start, game);
+                start.setVisible(true);                
+
+            } 
+        }
+        class DeckButtonListener implements ActionListener{
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //functions here
+
+            } 
+        }
+        class HandButtonListener implements ActionListener{
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //functions here
+
+            } 
+        }
+        
+        //button template
+        class Listener implements ActionListener{
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //functions here
+
+            } 
+        }
         
         
     

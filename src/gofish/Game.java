@@ -41,6 +41,12 @@ public class Game {
         
         
     }
+    
+    
+    public Player getPlayer(int a){
+        return players.get(a);
+    
+    }
     //create new player using a string input
     public void addPlayer(String a){
         Player b = new Player(a);       
@@ -51,7 +57,7 @@ public class Game {
     //create new Ai using a string input
     public void addAi(String a){
         
-        Ai b = new Ai();
+        Ai b = new Ai(a);
         players.add(b);
     }
     //this sets the turn order in the array list. *check later: currently only works with one Ai, modify if we make more ai's a final decision*

@@ -29,9 +29,9 @@ public class MainGui extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        closeButtonGUI = new javax.swing.JButton();
+        closeGameGUI = new javax.swing.JButton();
         resetButtonGUI = new javax.swing.JButton();
-        menuButtonGUI = new javax.swing.JButton();
+        helpButtonGUI = new javax.swing.JButton();
         handButton8 = new javax.swing.JButton();
         handButton12 = new javax.swing.JButton();
         handButton11 = new javax.swing.JButton();
@@ -64,15 +64,15 @@ public class MainGui extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        closeButtonGUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/X_Button.png"))); // NOI18N
-        closeButtonGUI.setBorderPainted(false);
-        closeButtonGUI.setContentAreaFilled(false);
-        closeButtonGUI.addActionListener(new java.awt.event.ActionListener() {
+        closeGameGUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/X_Button.png"))); // NOI18N
+        closeGameGUI.setBorderPainted(false);
+        closeGameGUI.setContentAreaFilled(false);
+        closeGameGUI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeButtonGUIActionPerformed(evt);
+                closeGameGUIActionPerformed(evt);
             }
         });
-        jPanel1.add(closeButtonGUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 0, 40, 40));
+        jPanel1.add(closeGameGUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 0, 40, 40));
 
         resetButtonGUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Reset Button.png"))); // NOI18N
         resetButtonGUI.setToolTipText("");
@@ -85,15 +85,15 @@ public class MainGui extends javax.swing.JFrame {
         });
         jPanel1.add(resetButtonGUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 40, 40, 40));
 
-        menuButtonGUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Menu_Button.png"))); // NOI18N
-        menuButtonGUI.setBorderPainted(false);
-        menuButtonGUI.setContentAreaFilled(false);
-        menuButtonGUI.addActionListener(new java.awt.event.ActionListener() {
+        helpButtonGUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Menu_Button.png"))); // NOI18N
+        helpButtonGUI.setBorderPainted(false);
+        helpButtonGUI.setContentAreaFilled(false);
+        helpButtonGUI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuButtonGUIActionPerformed(evt);
+                helpButtonGUIActionPerformed(evt);
             }
         });
-        jPanel1.add(menuButtonGUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 40, 40));
+        jPanel1.add(helpButtonGUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 40, 40));
 
         handButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/1h.png"))); // NOI18N
         handButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -267,17 +267,17 @@ public class MainGui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonGUIActionPerformed
+    private void helpButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonGUIActionPerformed
         // TODO add your handling code here:
-        HelpScreen g = new HelpScreen();
-        g.setVisible(true);
-    }//GEN-LAST:event_menuButtonGUIActionPerformed
+        //HelpScreen g = new HelpScreen();
+        //g.setVisible(true);
+    }//GEN-LAST:event_helpButtonGUIActionPerformed
 
     private void resetButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonGUIActionPerformed
         // TODO add your handling code here:
-        MainGui g = new MainGui();
-        g.setVisible(true);
-        dispose();
+        //MainGui g = new MainGui();
+        //g.setVisible(true);
+        //dispose();
         
         //prolly need to reset deck and hands later lol
     }//GEN-LAST:event_resetButtonGUIActionPerformed
@@ -334,10 +334,10 @@ public class MainGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_handButton1ActionPerformed
 
-    private void closeButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonGUIActionPerformed
+    private void closeGameGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeGameGUIActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_closeButtonGUIActionPerformed
+        //System.exit(0);
+    }//GEN-LAST:event_closeGameGUIActionPerformed
 
     private void handButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_handButton9ActionPerformed
         // TODO add your handling code here:
@@ -348,7 +348,22 @@ public class MainGui extends javax.swing.JFrame {
         Win_LossScreen g = new Win_LossScreen();
         g.setVisible(true);
     }//GEN-LAST:event_goFishButtonActionPerformed
-
+    void addHelpGameListener(ActionListener helpListener){
+        helpButtonGUI.addActionListener(helpListener);        
+    }
+    void addCloseGameListener(ActionListener helpListener){
+        closeGameGUI.addActionListener(helpListener);
+        
+    }
+    void addResetGameListener(ActionListener helpListener){
+        resetButtonGUI.addActionListener(helpListener);
+        
+    }
+    void addDeckListener(ActionListener helpListener){
+        deckButton.addActionListener(helpListener);
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -401,7 +416,7 @@ public class MainGui extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton closeButtonGUI;
+    private javax.swing.JButton closeGameGUI;
     private javax.swing.JButton deckButton;
     private javax.swing.JButton goFishButton;
     private javax.swing.JButton handButton1;
@@ -417,6 +432,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JButton handButton7;
     private javax.swing.JButton handButton8;
     private javax.swing.JButton handButton9;
+    private javax.swing.JButton helpButtonGUI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -429,7 +445,6 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton menuButtonGUI;
     private javax.swing.JButton resetButtonGUI;
     // End of variables declaration//GEN-END:variables
 }

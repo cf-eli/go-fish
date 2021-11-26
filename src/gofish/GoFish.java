@@ -27,6 +27,7 @@ public class GoFish {
        Game game = new Game();
        Controller control = new Controller(start, game);
        start.setVisible(true);
+       
 
 
 
