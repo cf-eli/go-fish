@@ -34,10 +34,10 @@ public class Card {
     }
     public String getImg(){//return img string
         String[] imgRank = {"back", "1", "2", "3", "4", "5", "6","7", "8", "9", 
-            "8","9", "10", "11", "12", "13"};
+            "10", "11", "12", "13"};
         String[] imgSuit = {"c", "d", "h", "s"};
         String img = String.format("/%s%s.png", imgRank[this.rank], 
-                imgSuit[this.rank]);//String cardresults = System.out.println(card + suit);    
+                imgSuit[this.suit]);//String cardresults = System.out.println(card + suit);    
         return img; //return img string
     }
     @Override

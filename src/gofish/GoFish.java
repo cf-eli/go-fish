@@ -25,12 +25,10 @@ public class GoFish {
        // TODO code application logic here
        StartPage s = new StartPage();
        s.setVisible(true);
-       Player player1 = new Player("Player1");
-       Ai ai = new Ai();
-       Game game = new Game(player1, ai);
-       game.startGame();
-       
-       
+       //Player player = new Player("Player1");
+      // Ai ai = new Ai();
+      // Game game = new Game(player, ai);
+      // game.startGame();
        
        /*
        

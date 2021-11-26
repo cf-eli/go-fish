@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package gofish;
+import java.util.*;
+import javax.swing.JButton;
 
 /**
  *
@@ -10,11 +12,20 @@ package gofish;
  */
 public class MainGui extends javax.swing.JFrame {
 
+       Game game;
+       ArrayList<JButton> pButtons = new ArrayList<JButton>();
+      // game.startGame();
     /**
      * Creates new form MainGui
      */
     public MainGui() {
-        initComponents();
+       initComponents();
+       Player player1 = new Player("Player1");
+       Ai ai = new Ai();
+       game = new Game(player1, ai);
+       populateButtons();
+       game.startGame();
+       setButtonIcon();
     }
 
     /**
@@ -30,20 +41,20 @@ public class MainGui extends javax.swing.JFrame {
         closeButtonGUI = new javax.swing.JButton();
         resetButtonGUI = new javax.swing.JButton();
         menuButtonGUI = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        pButton8 = new javax.swing.JButton();
+        pButton12 = new javax.swing.JButton();
+        pButton11 = new javax.swing.JButton();
+        pButton10 = new javax.swing.JButton();
+        pButton7 = new javax.swing.JButton();
+        pButton6 = new javax.swing.JButton();
+        pButton5 = new javax.swing.JButton();
+        pButton4 = new javax.swing.JButton();
+        pButton3 = new javax.swing.JButton();
+        pButton2 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
+        pButton13 = new javax.swing.JButton();
+        pButton1 = new javax.swing.JButton();
+        pButton9 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -93,78 +104,78 @@ public class MainGui extends javax.swing.JFrame {
         });
         jPanel1.add(menuButtonGUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 40, 40));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/1h.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        pButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/1h.png"))); // NOI18N
+        pButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                pButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 510, 70, 90));
+        jPanel1.add(pButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 510, 70, 90));
 
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        pButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                pButton12ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 510, 70, 90));
+        jPanel1.add(pButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 510, 70, 90));
 
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        pButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                pButton11ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 510, 70, 90));
+        jPanel1.add(pButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 510, 70, 90));
 
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        pButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                pButton10ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, 70, 90));
+        jPanel1.add(pButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, 70, 90));
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/11h.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        pButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/11h.png"))); // NOI18N
+        pButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                pButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 70, 90));
+        jPanel1.add(pButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 70, 90));
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/10c.png"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        pButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/10c.png"))); // NOI18N
+        pButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                pButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 70, 90));
+        jPanel1.add(pButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 70, 90));
 
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        pButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                pButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 70, 90));
+        jPanel1.add(pButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 70, 90));
 
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        pButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                pButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 70, 90));
+        jPanel1.add(pButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 70, 90));
 
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        pButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                pButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, 70, 90));
+        jPanel1.add(pButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, 70, 90));
 
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        pButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                pButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 70, 90));
+        jPanel1.add(pButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 70, 90));
 
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -174,26 +185,26 @@ public class MainGui extends javax.swing.JFrame {
         });
         jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 70, 90));
 
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        pButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                pButton13ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 510, 70, 90));
+        jPanel1.add(pButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 510, 70, 90));
 
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        pButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                pButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 70, 90));
+        jPanel1.add(pButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 70, 90));
 
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        pButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                pButton9ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 510, 70, 90));
+        jPanel1.add(pButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 510, 70, 90));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
@@ -264,7 +275,30 @@ public class MainGui extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void setButtonIcon(){
+        ArrayList<String> img = new ArrayList<>();
+        img = game.getImg();
+        for (int i =0; i<img.size();i++){
+            pButtons.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + img.get(i)))); 
+        }
+    
+    }
+    public void populateButtons(){
+        pButtons.add(pButton1);
+        pButtons.add(pButton2);
+        pButtons.add(pButton3);
+        pButtons.add(pButton4);
+        pButtons.add(pButton5);
+        pButtons.add(pButton6);
+        pButtons.add(pButton7);
+        pButtons.add(pButton8);
+        pButtons.add(pButton9);
+        pButtons.add(pButton10);
+        pButtons.add(pButton11);
+        pButtons.add(pButton12);
+        pButtons.add(pButton13);
+    }
     private void menuButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonGUIActionPerformed
         // TODO add your handling code here:
         HelpScreen g = new HelpScreen();
@@ -280,66 +314,66 @@ public class MainGui extends javax.swing.JFrame {
         //prolly need to reset deck and hands later lol
     }//GEN-LAST:event_resetButtonGUIActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void pButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_pButton8ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void pButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_pButton12ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void pButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton11ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_pButton11ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void pButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_pButton10ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void pButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_pButton7ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void pButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_pButton6ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void pButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_pButton5ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void pButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_pButton4ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void pButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_pButton3ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void pButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_pButton2ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton12ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void pButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton13ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }//GEN-LAST:event_pButton13ActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+    private void pButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton1ActionPerformed
+        pButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/10c.png")));// TODO add your handling code here:
+    }//GEN-LAST:event_pButton1ActionPerformed
 
     private void closeButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonGUIActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_closeButtonGUIActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void pButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_pButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -386,20 +420,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel background;
     private javax.swing.JButton closeButtonGUI;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -413,6 +434,19 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menuButtonGUI;
+    private javax.swing.JButton pButton1;
+    private javax.swing.JButton pButton10;
+    private javax.swing.JButton pButton11;
+    private javax.swing.JButton pButton12;
+    private javax.swing.JButton pButton13;
+    private javax.swing.JButton pButton2;
+    private javax.swing.JButton pButton3;
+    private javax.swing.JButton pButton4;
+    private javax.swing.JButton pButton5;
+    private javax.swing.JButton pButton6;
+    private javax.swing.JButton pButton7;
+    private javax.swing.JButton pButton8;
+    private javax.swing.JButton pButton9;
     private javax.swing.JButton resetButtonGUI;
     // End of variables declaration//GEN-END:variables
 }

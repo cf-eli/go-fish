@@ -26,7 +26,7 @@ public class Player {
     }
     public void addCard(Card c){//takes in a card object and places it in the hand.
         this.hand.add(c);
-        //System.out.println(c.getImg()); test
+        //System.out.println(c.getImg()); //test
     }
     public void removeCard(Card c){//removes a specific card from the hand, should always be pairs with a addCard function on another
         this.hand.remove(c);
@@ -58,10 +58,21 @@ public class Player {
                 increaseScore();
             }
         }
-        System.out.println(hand);//test
-        
+        System.out.println(hand);//test   
           
     }
+    public ArrayList<String> getImg(){
+        ArrayList<String> img = new ArrayList<>();
+        for(int i =0;i<hand.size();i++){
+            //ystem.out.println(hand.get(i));
+            img.add(hand.get(i).getImg());
+        }
+        System.out.println(img);//test
+        return img;
+        
+        
+        
+    } 
     @Override
     public String toString(){// puts the name of the player and the current cards in "hand"
         String a = this.playername+""+hand.toString();

@@ -32,10 +32,10 @@ public class Game {
         deck = new Deck();
         deck.reset();
         
-        double rand = Math.random();
-        if(rand >.05){//if the random number is greater than .5, set the AI as the first player
-            players.add(players.remove(0));
-        }
+       // double rand = Math.random();
+        //if(rand >.05){//if the random number is greater than .5, set the AI as the first player
+          //  players.add(players.remove(0));
+        //}
         
         
         
@@ -66,7 +66,11 @@ public class Game {
                 System.out.println(players.get(j).toString());
             }
         System.out.println(deck.toString());
-        
+        //System.out.println(players.get(0).toString());
+        //ArrayList<String> test = new ArrayList<>();
+        //test = players.get(0).getImg();//getRank());
+        //for(int i = 0;players.get(1).size()<0;i++){
+        //}
     }
     
     
@@ -103,7 +107,11 @@ public class Game {
     public String getCurrentTurnName(){ //return the current player's name
         return players.get(0).getName();
     }
-    
+    public ArrayList<String> getImg(){
+       ArrayList<String> img = new ArrayList<>();
+       img = players.get(0).getImg();//getRank());
+       return img;
+    }
     
     
 }
