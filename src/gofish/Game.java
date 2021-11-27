@@ -117,7 +117,9 @@ public class Game {
         freq = players.get(0).getHandFreq();//getHand freq
         return freq;
     }
-    
+    public void inHand(Card card){
+        players.get(0).inHand(card);
+    }
     
 }
 

@@ -6,6 +6,8 @@ package gofish;
 import java.util.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 /**
  *
@@ -444,7 +446,34 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_pButton13ActionPerformed
 
     private void pButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton1ActionPerformed
-        pButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/10c.png")));// TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        img = game.getImg();
+        String find = img.get(0);
+        Pattern p = Pattern.compile("[^\\[\\/.png\\]]+");
+        Matcher m = p.matcher(find);
+        m.find();
+        //System.out.println(m);//test
+        String url = m.group(0);
+        System.out.println(url);
+        p = Pattern.compile("([\\d]+)([hcds])");
+        m = p.matcher(url);
+        m.find();
+        int rank = Integer.parseInt(m.group(1));
+        String suitS = m.group(2);
+        int suit;
+        if (suitS.equals("c"))
+            suit = 0;
+        else if (suitS.equals("d"))
+            suit = 1;
+        else if (suitS.equals("h"))
+            suit = 2;
+        else 
+            suit = 3;
+        Card card = new Card(rank, suit);
+        System.out.println(card);
+        game.inHand(card);
+        
+        // TODO add your handling code here:
     }//GEN-LAST:event_pButton1ActionPerformed
 
     private void closeButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonGUIActionPerformed

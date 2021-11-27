@@ -61,7 +61,7 @@ public class Player {
         System.out.println(hand);//test   
           
     }
-    public ArrayList<String> getImg(){
+    public ArrayList<String> getImg(){//player only
         ArrayList<String> img = new ArrayList<>();
         ArrayList<Integer> occurred = new ArrayList<>();
         for(int i =0;i<hand.size();i++){
@@ -73,7 +73,7 @@ public class Player {
         return img;
     }
     
-    public ArrayList<Integer> getHandFreq(){
+    public ArrayList<Integer> getHandFreq(){//player only
         ArrayList<Integer> freq = new ArrayList<>();
         ArrayList<Integer> temp = new ArrayList<>();
         
@@ -94,7 +94,18 @@ public class Player {
         System.out.println(freq);
         return freq;
     }    
-        
+    public void inHand(Card card){//player only
+        for(int i=0;i<hand.size();i++){
+            //System.out.println(card);
+            //System.out.println(hand.get(i));
+            //System.out.println(card);
+            if(hand.get(i).getRank()==card.getRank() && hand.get(i).getSuit()==card.getSuit()){
+                System.out.println(card.toString());
+                System.out.println("match");
+                System.out.println(hand.get(i).toString());
+            }
+        }
+    }   
         
      
     @Override
