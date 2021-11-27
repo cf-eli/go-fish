@@ -109,8 +109,13 @@ public class Game {
     }
     public ArrayList<String> getImg(){
        ArrayList<String> img = new ArrayList<>();
-       img = players.get(0).getImg();//getRank());
+       img = players.get(0).getImg();
        return img;
+    }
+    public ArrayList<Integer> getFreq(){
+        ArrayList<Integer> freq = new ArrayList<>();
+        freq = players.get(0).getHandFreq();//getHand freq
+        return freq;
     }
     
     

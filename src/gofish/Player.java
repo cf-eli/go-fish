@@ -43,7 +43,7 @@ public class Player {
             temp.add(hand.get(i).getRank());
         }
         System.out.println(temp);//This is just a test
-        //check from rank 0-13 and see if theres 4 of the same matches, if so, remove that array and call the 
+        //check from rank 0-13 and see if theres 4 of the same matches, if so, remove those cards and call the 
         //increaseScore() function
         for(int i=0;i<13;i++){ 
             int occurrences = Collections.frequency(temp, i);
@@ -63,16 +63,40 @@ public class Player {
     }
     public ArrayList<String> getImg(){
         ArrayList<String> img = new ArrayList<>();
+        ArrayList<Integer> occurred = new ArrayList<>();
         for(int i =0;i<hand.size();i++){
-            //ystem.out.println(hand.get(i));
-            img.add(hand.get(i).getImg());
+            if(!occurred.contains(hand.get(i).getRank())) //check if the array already have an image with a similar rank
+                img.add(hand.get(i).getImg());
+            occurred.add(hand.get(i).getRank());
         }
         System.out.println(img);//test
         return img;
+    }
+    
+    public ArrayList<Integer> getHandFreq(){
+        ArrayList<Integer> freq = new ArrayList<>();
+        ArrayList<Integer> temp = new ArrayList<>();
+        
+        for(int i=0;i<hand.size();i++){ //add all ranks in hand to a temp array
+            temp.add(hand.get(i).getRank());
+        }
+        
+        ArrayList<Integer> occurred = new ArrayList<>();
+        
+        for(int i=0;i<temp.size();i++){ 
+            int occurrences = Collections.frequency(temp, temp.get(i));
+            if(!occurred.contains(temp.get(i))){
+                occurred.add(temp.get(i));
+                freq.add(occurrences);
+            }
+        }
+        System.out.println(occurred);
+        System.out.println(freq);
+        return freq;
+    }    
         
         
-        
-    } 
+     
     @Override
     public String toString(){// puts the name of the player and the current cards in "hand"
         String a = this.playername+""+hand.toString();

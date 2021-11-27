@@ -5,6 +5,7 @@
 package gofish;
 import java.util.*;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -14,6 +15,7 @@ public class MainGui extends javax.swing.JFrame {
 
        Game game;
        ArrayList<JButton> pButtons = new ArrayList<JButton>();
+       ArrayList<JLabel> pLabels = new ArrayList<JLabel>();
       // game.startGame();
     /**
      * Creates new form MainGui
@@ -24,8 +26,10 @@ public class MainGui extends javax.swing.JFrame {
        Ai ai = new Ai();
        game = new Game(player1, ai);
        populateButtons();
+       populateLabels();
        game.startGame();
        setButtonIcon();
+       setLabelText();
     }
 
     /**
@@ -59,14 +63,25 @@ public class MainGui extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        pLabel1 = new javax.swing.JLabel();
+        pLabel6 = new javax.swing.JLabel();
+        pLabel3 = new javax.swing.JLabel();
+        pLabel13 = new javax.swing.JLabel();
+        pLabel2 = new javax.swing.JLabel();
+        pLabel5 = new javax.swing.JLabel();
+        pLabel4 = new javax.swing.JLabel();
+        pLabel12 = new javax.swing.JLabel();
+        pLabel11 = new javax.swing.JLabel();
+        pLabel10 = new javax.swing.JLabel();
+        pLabel9 = new javax.swing.JLabel();
+        pLabel8 = new javax.swing.JLabel();
+        pLabel7 = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -218,14 +233,6 @@ public class MainGui extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, -1));
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("2");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
-
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("3");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 10, -1));
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Score: 0");
@@ -258,6 +265,58 @@ public class MainGui extends javax.swing.JFrame {
         jLabel11.setText("NAME");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, -1, -1));
 
+        pLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel1.setText("3");
+        jPanel1.add(pLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 10, -1));
+
+        pLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel6.setText("3");
+        jPanel1.add(pLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 10, -1));
+
+        pLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel3.setText("3");
+        jPanel1.add(pLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 490, 10, -1));
+
+        pLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel13.setText("2");
+        jPanel1.add(pLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 490, -1, -1));
+
+        pLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel2.setText("3");
+        jPanel1.add(pLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, 10, -1));
+
+        pLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel5.setText("2");
+        jPanel1.add(pLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, -1));
+
+        pLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel4.setText("2");
+        jPanel1.add(pLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, -1, -1));
+
+        pLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel12.setText("2");
+        jPanel1.add(pLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, -1, -1));
+
+        pLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel11.setText("2");
+        jPanel1.add(pLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 490, -1, -1));
+
+        pLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel10.setText("2");
+        jPanel1.add(pLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 490, -1, -1));
+
+        pLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel9.setText("2");
+        jPanel1.add(pLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, -1, -1));
+
+        pLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel8.setText("2");
+        jPanel1.add(pLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
+
+        pLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        pLabel7.setText("2");
+        jPanel1.add(pLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, -1, -1));
+
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         background.setText("jLabel2");
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 690));
@@ -284,6 +343,13 @@ public class MainGui extends javax.swing.JFrame {
         }
     
     }
+    public void setLabelText(){
+        ArrayList<Integer> freq = new ArrayList<>();
+        freq = game.getFreq();
+        for (int i=0;i<freq.size();i++){
+            pLabels.get(i).setText("" + freq.get(i));
+        }
+    }
     public void populateButtons(){
         pButtons.add(pButton1);
         pButtons.add(pButton2);
@@ -298,6 +364,21 @@ public class MainGui extends javax.swing.JFrame {
         pButtons.add(pButton11);
         pButtons.add(pButton12);
         pButtons.add(pButton13);
+    }
+    public void populateLabels(){
+        pLabels.add(pLabel1);
+        pLabels.add(pLabel2);
+        pLabels.add(pLabel3);
+        pLabels.add(pLabel4);
+        pLabels.add(pLabel5);
+        pLabels.add(pLabel6);
+        pLabels.add(pLabel7);
+        pLabels.add(pLabel8);
+        pLabels.add(pLabel9);
+        pLabels.add(pLabel10);
+        pLabels.add(pLabel11);
+        pLabels.add(pLabel12);
+        pLabels.add(pLabel13);
     }
     private void menuButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonGUIActionPerformed
         // TODO add your handling code here:
@@ -427,8 +508,6 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -447,6 +526,19 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JButton pButton7;
     private javax.swing.JButton pButton8;
     private javax.swing.JButton pButton9;
+    private javax.swing.JLabel pLabel1;
+    private javax.swing.JLabel pLabel10;
+    private javax.swing.JLabel pLabel11;
+    private javax.swing.JLabel pLabel12;
+    private javax.swing.JLabel pLabel13;
+    private javax.swing.JLabel pLabel2;
+    private javax.swing.JLabel pLabel3;
+    private javax.swing.JLabel pLabel4;
+    private javax.swing.JLabel pLabel5;
+    private javax.swing.JLabel pLabel6;
+    private javax.swing.JLabel pLabel7;
+    private javax.swing.JLabel pLabel8;
+    private javax.swing.JLabel pLabel9;
     private javax.swing.JButton resetButtonGUI;
     // End of variables declaration//GEN-END:variables
 }
