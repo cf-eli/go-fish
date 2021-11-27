@@ -348,21 +348,61 @@ public class MainGui extends javax.swing.JFrame {
         Win_LossScreen g = new Win_LossScreen();
         g.setVisible(true);
     }//GEN-LAST:event_goFishButtonActionPerformed
-    void addHelpGameListener(ActionListener helpListener){
-        helpButtonGUI.addActionListener(helpListener);        
+    void addHelpGameListener(ActionListener Listener){
+        helpButtonGUI.addActionListener(Listener);        
     }
-    void addCloseGameListener(ActionListener helpListener){
-        closeGameGUI.addActionListener(helpListener);
+    void addCloseGameListener(ActionListener Listener){
+        closeGameGUI.addActionListener(Listener);
         
     }
-    void addResetGameListener(ActionListener helpListener){
-        resetButtonGUI.addActionListener(helpListener);
+    void addResetGameListener(ActionListener Listener){
+        resetButtonGUI.addActionListener(Listener);
         
     }
-    void addDeckListener(ActionListener helpListener){
-        deckButton.addActionListener(helpListener);
+    void addDeckListener(ActionListener Listener){
+        deckButton.addActionListener(Listener);
         
     }
+    void addHandListener1(ActionListener Listener){  
+        handButton1.addActionListener(Listener);
+    }
+    void addHandListener2(ActionListener Listener){  
+        handButton2.addActionListener(Listener);
+    }
+    void addHandListener3(ActionListener Listener){  
+        handButton3.addActionListener(Listener);
+    }
+    void addHandListener4(ActionListener Listener){  
+        handButton4.addActionListener(Listener);
+    }
+    void addHandListener5(ActionListener Listener){  
+        handButton5.addActionListener(Listener);
+    }
+    void addHandListener6(ActionListener Listener){  
+        handButton6.addActionListener(Listener);
+    }
+    void addHandListener7(ActionListener Listener){  
+        handButton7.addActionListener(Listener);
+    }
+    void addHandListener8(ActionListener Listener){  
+        handButton8.addActionListener(Listener);
+    }
+    void addHandListener9(ActionListener Listener){  
+        handButton9.addActionListener(Listener);
+    }
+    void addHandListener10(ActionListener Listener){  
+        handButton10.addActionListener(Listener);
+    }
+    void addHandListener11(ActionListener Listener){  
+        handButton11.addActionListener(Listener);
+    }
+    void addHandListener12(ActionListener Listener){  
+        handButton12.addActionListener(Listener);
+    }
+    void addHandListener13(ActionListener Listener){  
+        handButton13.addActionListener(Listener);
+    }
+    
     
     /**
      * @param args the command line arguments
@@ -397,21 +437,6 @@ public class MainGui extends javax.swing.JFrame {
                 new MainGui().setVisible(true);
             }
         });
-    }
-    public void setUpButtonListeners(){
-        ActionListener buttonListener = new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                System.out.println("click");
-            
-            }
-        };
-        
-        handButton1.addActionListener(buttonListener);
-        
-        
-    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

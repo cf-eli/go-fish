@@ -44,6 +44,8 @@ public class Controller{
                     maingame.addAi("computer1");
                     ((Ai)maingame.getPlayer(1)).setDifficulty(startview.getDifficulty());
                 }
+                maingame.startGame();
+                maingame.setTurnOrder();
                 //set the main view as visible and dispose of the startview
                 mainview.setVisible(true);
                 startview.dispose();
@@ -53,9 +55,24 @@ public class Controller{
                 mainview.addCloseGameListener(new CloseButtonListener());
                 mainview.addResetGameListener(new ResetButtonListener());
                 mainview.addDeckListener(new DeckButtonListener());
+                mainview.addHandListener1(new HandButtonListener());
+                mainview.addHandListener2(new HandButtonListener());
+                mainview.addHandListener3(new HandButtonListener());
+                mainview.addHandListener4(new HandButtonListener());
+                mainview.addHandListener5(new HandButtonListener());
+                mainview.addHandListener6(new HandButtonListener());
+                mainview.addHandListener7(new HandButtonListener());
+                mainview.addHandListener8(new HandButtonListener());
+                mainview.addHandListener9(new HandButtonListener());
+                mainview.addHandListener10(new HandButtonListener());
+                mainview.addHandListener11(new HandButtonListener());
+                mainview.addHandListener12(new HandButtonListener());
+                mainview.addHandListener13(new HandButtonListener());
                 
-                System.out.println(maingame.getPlayer(0));               
-                System.out.println(maingame.getPlayer(1));
+                
+                
+                //System.out.println(maingame.getPlayer(0));               
+                //System.out.println(maingame.getPlayer(1));
                 
                 System.out.println("startbutton click");
             }
@@ -114,6 +131,7 @@ public class Controller{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //functions here
+                System.out.println("hand button click");
 
             } 
         }
