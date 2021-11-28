@@ -470,8 +470,14 @@ public class MainGui extends javax.swing.JFrame {
         else 
             suit = 3;
         Card card = new Card(rank, suit);
+        
         System.out.println(card);
         game.inHand(card);
+        ArrayList<String> players = new ArrayList<>(game.getCurrentPlayers());
+        String currentPlayer = game.getWhoAsked(); 
+        System.out.println(currentPlayer);
+        AskCard g = new AskCard(players,currentPlayer,find);
+        g.setVisible(true);
         
         // TODO add your handling code here:
     }//GEN-LAST:event_pButton1ActionPerformed
