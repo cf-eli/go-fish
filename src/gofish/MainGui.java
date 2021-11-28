@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package gofish;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,10 +16,11 @@ import java.util.regex.Matcher;
  * @author Alex
  */
 public class MainGui extends javax.swing.JFrame {
-
+       
        Game game;
        ArrayList<JButton> pButtons = new ArrayList<JButton>();
        ArrayList<JLabel> pLabels = new ArrayList<JLabel>();
+       String findMatch;
       // game.startGame();
     /**
      * Creates new form MainGui
@@ -470,7 +473,7 @@ public class MainGui extends javax.swing.JFrame {
         else 
             suit = 3;
         Card card = new Card(rank, suit);
-        
+        //a lot of this stuff above and below is pointless remove later ----------------------------
         System.out.println(card);
         game.inHand(card);
         ArrayList<String> players = new ArrayList<>(game.getCurrentPlayers());
@@ -478,6 +481,20 @@ public class MainGui extends javax.swing.JFrame {
         System.out.println(currentPlayer);
         AskCard g = new AskCard(players,currentPlayer,find);
         g.setVisible(true);
+        class AskCardListener implements ActionListener{
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String choice = g.getChoice();
+                System.out.println(choice);
+                findMatch = game.isMatch(card, choice);
+                System.out.println(findMatch);
+                setLabelText();
+
+            }
+        }
+        g.addAskButtonListener(new AskCardListener());
+        //System.out.println(findMatch);
+        
         
         // TODO add your handling code here:
     }//GEN-LAST:event_pButton1ActionPerformed

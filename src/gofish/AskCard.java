@@ -4,6 +4,7 @@
  */
 package gofish;
 
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
@@ -110,7 +111,12 @@ public class AskCard extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    void addAskButtonListener(ActionListener askListener){
+        jButton1.addActionListener(askListener);
+    }
+    public String getChoice(){
+        return jComboBox1.getSelectedItem().toString();
+    }
     /**
      * @param args the command line arguments
      */

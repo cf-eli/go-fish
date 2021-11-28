@@ -105,7 +105,21 @@ public class Player {
                 System.out.println(hand.get(i).toString());
             }
         }
-    }   
+    }
+    
+    public ArrayList<Card> isMatch(Card card){//player and ai - Remove ALL ranks that is similar to rank asked for
+        Boolean match = false;
+        ArrayList<Card> matches = new ArrayList<>();
+        for(int i = 0; i<hand.size();i++){
+            if(hand.get(i).getRank()==card.getRank()){
+                matches.add(hand.get(i));
+                hand.remove(i);
+                match = true;
+                System.out.println(hand);//test
+            }
+        }
+        return matches;
+    }
         
      
     @Override

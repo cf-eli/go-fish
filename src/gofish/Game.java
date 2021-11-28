@@ -131,6 +131,23 @@ public class Game {
         System.out.println(players.get(currentPlayerTurn).getName());//test
         return players.get(currentPlayerTurn).getName();
     }
+    public String isMatch(Card card, String name){
+        ArrayList<Card>  matches = new ArrayList<>();
+        for(int i = 0; i<players.size();i++){
+            if ((players.get(i).getName()).equals(name)){
+                matches = players.get(i).isMatch(card);
+            }
+        }
+        if(matches.size()>0){
+            for(int i = 0;i<matches.size();i++){
+                players.get(currentPlayerTurn).addCard(matches.get(i));
+            }
+            System.out.println(players.get(currentPlayerTurn));
+            return "Matched";
+            }
+        return "Go Fish"; 
+    }
+    
     
 }
 
