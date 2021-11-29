@@ -5,13 +5,8 @@
         <group>
             <file>file:/C:/github/go-fish/src/gofish/Controller.java</file>
             <file>file:/C:/github/go-fish/src/gofish/Card.java</file>
-            <file>file:/C:/github/go-fish/src/gofish/Ai.java</file>
-            <file>file:/C:/github/go-fish/src/gofish/HelpScreen.java</file>
-            <file>file:/C:/github/go-fish/src/gofish/StartPage.java</file>
             <file>file:/C:/github/go-fish/src/gofish/MainGui.java</file>
-            <file>file:/C:/github/go-fish/src/gofish/Player.java</file>
             <file>file:/C:/github/go-fish/src/gofish/Deck.java</file>
-            <file>file:/C:/github/go-fish/src/gofish/Win_LossScreen.java</file>
             <file>file:/C:/github/go-fish/src/gofish/GoFish.java</file>
             <file>file:/C:/github/go-fish/src/gofish/Game.java</file>
         </group>

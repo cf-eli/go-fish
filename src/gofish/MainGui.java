@@ -17,7 +17,7 @@ import java.util.regex.Matcher;
  */
 public class MainGui extends javax.swing.JFrame {
        
-       Game game;
+       //Game game = Controller.getGame();
        ArrayList<JButton> pButtons = new ArrayList<JButton>();
        ArrayList<JLabel> pLabels = new ArrayList<JLabel>();
        String findMatch;
@@ -27,14 +27,13 @@ public class MainGui extends javax.swing.JFrame {
      */
     public MainGui() {
        initComponents();
-       Player player1 = new Player("Player1");
-       Ai ai = new Ai();
-       game = new Game(player1, ai);
-       populateButtons();
-       populateLabels();
-       game.startGame();
-       setButtonIcon();
-       setLabelText();
+       //Player player1 = new Player("Player1");
+       //Ai ai = new Ai();
+       //populateButtons();
+       //populateLabels();
+       //game.startGame();
+       //setButtonIcon();
+       //setLabelText();
     }
 
     /**
@@ -60,7 +59,7 @@ public class MainGui extends javax.swing.JFrame {
         pButton4 = new javax.swing.JButton();
         pButton3 = new javax.swing.JButton();
         pButton2 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        deckButton = new javax.swing.JButton();
         pButton13 = new javax.swing.JButton();
         pButton1 = new javax.swing.JButton();
         pButton9 = new javax.swing.JButton();
@@ -197,13 +196,13 @@ public class MainGui extends javax.swing.JFrame {
         });
         jPanel1.add(pButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 70, 90));
 
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        deckButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        deckButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                deckButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 70, 90));
+        jPanel1.add(deckButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 70, 90));
 
         pButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -342,7 +341,8 @@ public class MainGui extends javax.swing.JFrame {
     
     public void setButtonIcon(){
         ArrayList<String> img = new ArrayList<>();
-        img = game.getImg();
+        //img = Controller.getGame().getImg();
+        img = Controller.getGame().getImg();
         for (int i =0; i<img.size();i++){
             pButtons.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + img.get(i)))); 
         }
@@ -350,7 +350,7 @@ public class MainGui extends javax.swing.JFrame {
     }
     public void setLabelText(){
         ArrayList<Integer> freq = new ArrayList<>();
-        freq = game.getFreq();
+        freq = Controller.getGame().getFreq();
         for (int i=0;i<freq.size();i++){
             pLabels.get(i).setText("" + freq.get(i));
         }
@@ -440,9 +440,9 @@ public class MainGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pButton2ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void deckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deckButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_deckButtonActionPerformed
 
     private void pButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton13ActionPerformed
         // TODO add your handling code here:
@@ -450,7 +450,8 @@ public class MainGui extends javax.swing.JFrame {
 
     private void pButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton1ActionPerformed
         ArrayList<String> img = new ArrayList<>();
-        img = game.getImg();
+        //img = game.getImg();
+        img = Controller.getGame().getImg();
         String find = img.get(0);
         Pattern p = Pattern.compile("[^\\[\\/.png\\]]+");
         Matcher m = p.matcher(find);
@@ -475,9 +476,9 @@ public class MainGui extends javax.swing.JFrame {
         Card card = new Card(rank, suit);
         //a lot of this stuff above and below is pointless remove later ----------------------------
         System.out.println(card);
-        game.inHand(card);
-        ArrayList<String> players = new ArrayList<>(game.getCurrentPlayers());
-        String currentPlayer = game.getWhoAsked(); 
+        Controller.getGame().inHand(card);
+        ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+        String currentPlayer = Controller.getGame().getWhoAsked(); 
         System.out.println(currentPlayer);
         AskCard g = new AskCard(players,currentPlayer,find);
         g.setVisible(true);
@@ -486,7 +487,7 @@ public class MainGui extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e){
                 String choice = g.getChoice();
                 System.out.println(choice);
-                findMatch = game.isMatch(card, choice);
+                findMatch = Controller.getGame().isMatch(card, choice);
                 System.out.println(findMatch);
                 setLabelText();
 
@@ -513,6 +514,60 @@ public class MainGui extends javax.swing.JFrame {
         Win_LossScreen g = new Win_LossScreen();
         g.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+    void addHelpGameListener(ActionListener Listener){
+        resetButtonGUI.addActionListener(Listener);        
+    }
+    void addCloseGameListener(ActionListener Listener){
+        closeButtonGUI.addActionListener(Listener);
+        
+    }
+    void addResetGameListener(ActionListener Listener){
+        resetButtonGUI.addActionListener(Listener);
+        
+    }
+    void addDeckListener(ActionListener Listener){
+        deckButton.addActionListener(Listener);
+        
+    }
+    void addHandListener1(ActionListener Listener){  
+        pButton1.addActionListener(Listener);
+    }
+    void addHandListener2(ActionListener Listener){  
+        pButton2.addActionListener(Listener);
+    }
+    void addHandListener3(ActionListener Listener){  
+        pButton3.addActionListener(Listener);
+    }
+    void addHandListener4(ActionListener Listener){  
+        pButton4.addActionListener(Listener);
+    }
+    void addHandListener5(ActionListener Listener){  
+        pButton5.addActionListener(Listener);
+    }
+    void addHandListener6(ActionListener Listener){  
+        pButton6.addActionListener(Listener);
+    }
+    void addHandListener7(ActionListener Listener){  
+        pButton7.addActionListener(Listener);
+    }
+    void addHandListener8(ActionListener Listener){  
+        pButton8.addActionListener(Listener);
+    }
+    void addHandListener9(ActionListener Listener){  
+        pButton9.addActionListener(Listener);
+    }
+    void addHandListener10(ActionListener Listener){  
+        pButton10.addActionListener(Listener);
+    }
+    void addHandListener11(ActionListener Listener){  
+        pButton11.addActionListener(Listener);
+    }
+    void addHandListener12(ActionListener Listener){  
+        pButton12.addActionListener(Listener);
+    }
+    void addHandListener13(ActionListener Listener){  
+        pButton13.addActionListener(Listener);
+    }
 
     /**
      * @param args the command line arguments
@@ -552,8 +607,8 @@ public class MainGui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton closeButtonGUI;
+    private javax.swing.JButton deckButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton12;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -17,7 +17,7 @@ public class Controller{
         private HelpScreen helpview = new HelpScreen();
         private Win_LossScreen Win_lossview = new Win_LossScreen();
         
-        private Game maingame = new Game();
+        private static Game maingame = new Game();
         
         public Controller(StartPage view, Game model){
             this.startview = view;
@@ -26,8 +26,10 @@ public class Controller{
             //these are are calling the methods in the ui file with the actionlistioner class from below, whatever is passed is the function that button will be assigned
             this.startview.addStartGameListener(new StartButtonListener());
             this.startview.addHelpGameListener(new HelpButtonListener());
-            }
-        
+        }
+        public static Game getGame(){
+            return Controller.maingame;
+        }
         
         
       //actions for ActionListoner, each class is a new button function, add a new one for each interactable button. they can be reused if they do the same thing
@@ -48,6 +50,11 @@ public class Controller{
                 maingame.setTurnOrder();
                 //set the main view as visible and dispose of the startview
                 mainview.setVisible(true);
+                mainview.populateButtons();
+                mainview.populateLabels();
+                mainview.setButtonIcon();
+                mainview.setLabelText();
+                
                 startview.dispose();
                 
                 //add game listeners here
