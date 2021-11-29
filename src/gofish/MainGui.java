@@ -21,6 +21,10 @@ public class MainGui extends javax.swing.JFrame {
        ArrayList<JButton> pButtons = new ArrayList<JButton>();
        ArrayList<JLabel> pLabels = new ArrayList<JLabel>();
        String findMatch;
+       String url;
+       String currentPlayer;
+       AskCard g;
+       Card card;
       // game.startGame();
     /**
      * Creates new form MainGui
@@ -338,54 +342,66 @@ public class MainGui extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    //Set the urlIcon  of each button associated with the cards in player hands accordingly
     public void setButtonIcon(){
         ArrayList<String> img = new ArrayList<>();
         //img = Controller.getGame().getImg();
         img = Controller.getGame().getImg();
-        for (int i =0; i<img.size();i++){
+        int i;
+        for (i = 0; i<img.size();i++){
             pButtons.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + img.get(i)))); 
+        }
+        for(i = i;i<13;i++){
+            pButtons.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png")));
         }
     
     }
+    //Set the label each text associated with the player hand  accordingly
     public void setLabelText(){
         ArrayList<Integer> freq = new ArrayList<>();
         freq = Controller.getGame().getFreq();
-        for (int i=0;i<freq.size();i++){
+        int i;
+        for (i=0;i<freq.size();i++){
             pLabels.get(i).setText("" + freq.get(i));
         }
+        for (i=i;i<13;i++){
+            pLabels.get(i).setText("");
+        }
     }
+    //add buttons to array
     public void populateButtons(){
-        pButtons.add(pButton1);
-        pButtons.add(pButton2);
-        pButtons.add(pButton3);
-        pButtons.add(pButton4);
-        pButtons.add(pButton5);
-        pButtons.add(pButton6);
-        pButtons.add(pButton7);
-        pButtons.add(pButton8);
-        pButtons.add(pButton9);
-        pButtons.add(pButton10);
-        pButtons.add(pButton11);
-        pButtons.add(pButton12);
-        pButtons.add(pButton13);
+        pButtons.add(pButton7);//0
+        pButtons.add(pButton6);//1
+        pButtons.add(pButton8);//2
+        pButtons.add(pButton5);//3
+        pButtons.add(pButton9);//4
+        pButtons.add(pButton4);//5
+        pButtons.add(pButton10);//6
+        pButtons.add(pButton3);//7
+        pButtons.add(pButton11);//8
+        pButtons.add(pButton2);//9
+        pButtons.add(pButton12);//10
+        pButtons.add(pButton1);//11
+        pButtons.add(pButton13);//12
     }
+    //add labels to array
     public void populateLabels(){
-        pLabels.add(pLabel1);
-        pLabels.add(pLabel2);
-        pLabels.add(pLabel3);
-        pLabels.add(pLabel4);
-        pLabels.add(pLabel5);
-        pLabels.add(pLabel6);
         pLabels.add(pLabel7);
+        pLabels.add(pLabel6);
         pLabels.add(pLabel8);
+        pLabels.add(pLabel5);
         pLabels.add(pLabel9);
+        pLabels.add(pLabel4);
         pLabels.add(pLabel10);
+        pLabels.add(pLabel3);
         pLabels.add(pLabel11);
+        pLabels.add(pLabel2);
         pLabels.add(pLabel12);
+        pLabels.add(pLabel1);
         pLabels.add(pLabel13);
     }
     
+    //Listener for next turn button in AskResult class
     class NextTurnListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e){
@@ -394,7 +410,23 @@ public class MainGui extends javax.swing.JFrame {
                 Controller.getGame().setNextTurn();
             System.out.println("nextTurn(); or at least what would've what happened if I was coded");//next turn function goes here
             }
+    }
+    //Listener for ask button in AskCard class
+    class AskCardListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e){
+            String choice = g.getChoice();
+            System.out.println(choice);
+            findMatch = Controller.getGame().isMatch(card, choice);
+            System.out.println(findMatch);
+            setLabelText();
+            g.dispose();
+            AskResult g2 = new AskResult(choice, currentPlayer, url, findMatch);
+            g2.setVisible(true);
+            g2.addNextTurnButtonListener(new NextTurnListener());
+
         }
+    }
     private void menuButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonGUIActionPerformed
         // TODO add your handling code here:
         HelpScreen g = new HelpScreen();
@@ -411,43 +443,159 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_resetButtonGUIActionPerformed
 
     private void pButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton8ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        //img = game.getImg();
+        img = Controller.getGame().getImg();
+        if(img.size()>2){//prevent this button from triggering when there's no image for this button
+            url = img.get(2);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton8ActionPerformed
 
     private void pButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton12ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        //img = game.getImg();
+        img = Controller.getGame().getImg();
+        if(img.size()>10){//prevent this button from triggering when there's no image for this button
+            url = img.get(10);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton12ActionPerformed
 
     private void pButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton11ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        //img = game.getImg();
+        img = Controller.getGame().getImg();
+        if(img.size()>8){//prevent this button from triggering when there's no image for this button
+            url = img.get(8);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton11ActionPerformed
 
     private void pButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton10ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        //img = game.getImg();
+        img = Controller.getGame().getImg();
+        if(img.size()>6){//prevent this button from triggering when there's no image for this button
+            url = img.get(6);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton10ActionPerformed
 
     private void pButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton7ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        //img = game.getImg();
+        img = Controller.getGame().getImg();
+        if(img.size()>0){//prevent this button from triggering when there's no image for this button
+            url = img.get(0);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton7ActionPerformed
 
     private void pButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton6ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        //img = game.getImg();
+        img = Controller.getGame().getImg();
+        if(img.size()>1){//prevent this button from triggering when there's no image for this button
+            url = img.get(1);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton6ActionPerformed
 
     private void pButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton5ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        img = Controller.getGame().getImg();
+        if(img.size()>3){//prevent this button from triggering when there's no image for this button
+            url = img.get(3);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton5ActionPerformed
 
     private void pButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton4ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        img = Controller.getGame().getImg();
+        if(img.size()>5){//prevent this button from triggering when there's no image for this button
+            url = img.get(5);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton4ActionPerformed
 
     private void pButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton3ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        img = Controller.getGame().getImg();
+        if(img.size()>7){//prevent this button from triggering when there's no image for this button
+            url = img.get(7);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton3ActionPerformed
 
     private void pButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton2ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        img = Controller.getGame().getImg();
+        if(img.size()>9){//prevent this button from triggering when there's no image for this button
+            url = img.get(9);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton2ActionPerformed
 
     private void deckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deckButtonActionPerformed
@@ -455,63 +603,33 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_deckButtonActionPerformed
 
     private void pButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton13ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        img = Controller.getGame().getImg();
+        if(img.size()>12){//prevent this button from triggering when there's no image for this button
+            url = img.get(12);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton13ActionPerformed
 
     private void pButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton1ActionPerformed
         ArrayList<String> img = new ArrayList<>();
-        //img = game.getImg();
         img = Controller.getGame().getImg();
-        String find = img.get(0);
-        Pattern p = Pattern.compile("[^\\[\\/.png\\]]+");
-        Matcher m = p.matcher(find);
-        m.find();
-        //System.out.println(m);//test
-        String url = m.group(0);
-        System.out.println(url);
-        p = Pattern.compile("([\\d]+)([hcds])");
-        m = p.matcher(url);
-        m.find();
-        int rank = Integer.parseInt(m.group(1));
-        String suitS = m.group(2);
-        int suit;
-        if (suitS.equals("c"))
-            suit = 0;
-        else if (suitS.equals("d"))
-            suit = 1;
-        else if (suitS.equals("h"))
-            suit = 2;
-        else 
-            suit = 3;
-        Card card = new Card(rank, suit);
-        //a lot of this stuff above and below is pointless remove later ----------------------------
-        System.out.println(card);
-        Controller.getGame().inHand(card);
-        ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
-        String currentPlayer = Controller.getGame().getWhoAsked(); 
-        System.out.println(currentPlayer);
-        AskCard g = new AskCard(players,currentPlayer,find);
-        g.setVisible(true);
-        class AskCardListener implements ActionListener{
-            @Override
-            public void actionPerformed(ActionEvent e){
-                String choice = g.getChoice();
-                System.out.println(choice);
-                findMatch = Controller.getGame().isMatch(card, choice);
-                System.out.println(findMatch);
-                setLabelText();
-                g.dispose();
-                AskResult g2 = new AskResult(choice, currentPlayer, find, findMatch);
-                g2.setVisible(true);
-                g2.addNextTurnButtonListener(new NextTurnListener());
-
-            }
+        if(img.size()>11){//prevent this button from triggering when there's no image for this button
+            url = img.get(11);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
         }
-        g.addAskButtonListener(new AskCardListener());
-        //System.out.println(findMatch);
-        
-        
-        // TODO add your handling code here:
     }//GEN-LAST:event_pButton1ActionPerformed
 
     private void closeButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonGUIActionPerformed
@@ -520,7 +638,18 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_closeButtonGUIActionPerformed
 
     private void pButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton9ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> img = new ArrayList<>();
+        img = Controller.getGame().getImg();
+        if(img.size()>4){//prevent this button from triggering when there's no image for this button
+            url = img.get(4);
+            card = Controller.getGame().createCard(url);
+            ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
+            currentPlayer = Controller.getGame().getWhoAsked(); 
+            System.out.println(currentPlayer);
+            g = new AskCard(players,currentPlayer,url);
+            g.setVisible(true);
+            g.addAskButtonListener(new AskCardListener());
+        }
     }//GEN-LAST:event_pButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

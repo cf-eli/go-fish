@@ -5,6 +5,8 @@
  */
 package gofish;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -162,6 +164,30 @@ public class Game {
             cPlayers.add(players.get(i).getName());
         }
         return cPlayers;
+    }
+    public Card createCard(String url){
+        Pattern p = Pattern.compile("[^\\[\\/.png\\]]+");
+        Matcher m = p.matcher(url);
+        m.find();
+        //System.out.println(m);//test
+        String check = m.group(0);
+        System.out.println(check);
+        p = Pattern.compile("([\\d]+)([hcds])");
+        m = p.matcher(check);
+        m.find();
+        int rank = Integer.parseInt(m.group(1));
+        String suitS = m.group(2);
+        int suit;
+        if (suitS.equals("c"))
+            suit = 0;
+        else if (suitS.equals("d"))
+            suit = 1;
+        else if (suitS.equals("h"))
+            suit = 2;
+        else 
+            suit = 3;
+        Card card = new Card(rank, suit);
+        return card;
     }
     public String getWhoAsked(){
         System.out.println(players.get(currentPlayerTurn).getName());//test

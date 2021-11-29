@@ -97,7 +97,7 @@ public class Player {
         System.out.println(freq);
         return freq;
     }    
-    public void inHand(Card card){//player only
+    public void inHand(Card card){//player only//testing purposes only------ delete later?
         for(int i=0;i<hand.size();i++){
             //System.out.println(card);
             //System.out.println(hand.get(i));

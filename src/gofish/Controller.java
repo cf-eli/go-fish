@@ -47,7 +47,7 @@ public class Controller{
                     ((Ai)maingame.getPlayer(1)).setDifficulty(startview.getDifficulty());
                 }
                 maingame.startGame();
-                maingame.setTurnOrder();
+               // maingame.setTurnOrder();
                 //set the main view as visible and dispose of the startview
                 mainview.setVisible(true);
                 mainview.populateButtons();
