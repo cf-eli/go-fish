@@ -415,7 +415,8 @@ public class MainGui extends javax.swing.JFrame {
                 refreshPlayerGUI();
             }
             System.out.println("nextTurn(); or at least what would've what happened if I was coded");//next turn function goes here
-            }
+            System.out.println(currentPlayer);
+        }
     }
     //Listener for ask button in AskCard class
     class AskCardListener implements ActionListener{
