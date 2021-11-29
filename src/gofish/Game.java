@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  */
 public class Game {
     //private String currentplayerturn;
-    private int currentPlayerTurn;
+    private int currentPlayerTurn; //show who the current player turn is 
     private String lastplayerturn;
     private String nextplayerturn;
     private Boolean isgameover;
@@ -71,7 +71,8 @@ public class Game {
         }
     
     }
-    //this needs to be tested
+
+    
     public void startGame(){//method to start the game
         deck.shuffle();
         currentPlayerTurn = 0;
@@ -91,7 +92,7 @@ public class Game {
                 }
             }
         }
-        //Below is a test
+        //Below is a test-----------------------------------------------------------delete later
         for(int j=0;j<players.size();j++){
                 System.out.println(players.get(j).toString());
             }
@@ -134,10 +135,11 @@ public class Game {
         return players.get(0).getName();
     }
     
-    public int getCurrentTurn(){
+    public int getCurrentTurn(){//Get the currentPlayerTrun
         return currentPlayerTurn;
     }
-    public void setNextPlayerTurn(){
+    public void setNextPlayerTurn(){//set the next player turn
+        players.get(currentPlayerTurn).addCard(deck.draw());
         if(players.size()<currentPlayerTurn+1)
             currentPlayerTurn++;
         else 
@@ -155,9 +157,11 @@ public class Game {
         freq = players.get(0).getHandFreq();//getHand freq
         return freq;
     }
+    //test pursposes-----------------------------------------------------------delete later
     public void inHand(Card card){
         players.get(0).inHand(card);
     }
+    //player only, get name of all the player in the game (used for jCombo
     public ArrayList<String> getCurrentPlayers(){
         ArrayList<String> cPlayers = new ArrayList<>();
         for(int i = 0;i<players.size();i++){
@@ -165,6 +169,7 @@ public class Game {
         }
         return cPlayers;
     }
+    //player only, create a card using url
     public Card createCard(String url){
         Pattern p = Pattern.compile("[^\\[\\/.png\\]]+");
         Matcher m = p.matcher(url);
@@ -189,10 +194,12 @@ public class Game {
         Card card = new Card(rank, suit);
         return card;
     }
+    //player and ai, return who asked for askResult class and askCard class
     public String getWhoAsked(){
         System.out.println(players.get(currentPlayerTurn).getName());//test
         return players.get(currentPlayerTurn).getName();
     }
+    //player and ai, return go fish or matched accordingly
     public String isMatch(Card card, String name){
         ArrayList<Card>  matches = new ArrayList<>();
         for(int i = 0; i<players.size();i++){

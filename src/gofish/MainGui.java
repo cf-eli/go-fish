@@ -368,6 +368,10 @@ public class MainGui extends javax.swing.JFrame {
             pLabels.get(i).setText("");
         }
     }
+    public void refreshPlayerGUI(){
+        setButtonIcon();
+        setLabelText();
+    }
     //add buttons to array
     public void populateButtons(){
         pButtons.add(pButton7);//0
@@ -406,8 +410,10 @@ public class MainGui extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent e){
             System.out.println("Next turn button was pressed");
-            if(findMatch.equals("Go Fish"))
-                Controller.getGame().setNextTurn();
+            if(findMatch.equals("Go Fish")){
+                Controller.getGame().setNextPlayerTurn();
+                refreshPlayerGUI();
+            }
             System.out.println("nextTurn(); or at least what would've what happened if I was coded");//next turn function goes here
             }
     }
