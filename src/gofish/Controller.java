@@ -43,7 +43,7 @@ public class Controller{
                 //gonna keep this at 2, add more later if needed
                 if(startview.getPlayerNumbers() == "2"){
                     maingame.addPlayer(startview.getPlayerName());
-                    maingame.addAi("computer1");
+                    maingame.addAi("computer1", 1);
                     ((Ai)maingame.getPlayer(1)).setDifficulty(startview.getDifficulty());
                 }
                 maingame.startGame();

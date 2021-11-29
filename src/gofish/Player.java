@@ -14,11 +14,13 @@ public class Player {
     private String playername;
     private ArrayList<Card> hand = new ArrayList<Card>();
     private int score;
+    private int playerid = 0; //this will always be 0 for a player, there should only be one
     
     public Player(String name){
         playername = name;
     }
     public int getCard(int a){
+        //FIX THIS OMG
         return a;
     }
     public String getName(){//returns the player name
@@ -37,6 +39,15 @@ public class Player {
     public void increaseScore(){//increments the score, if someone reaches 8 the game should be set to over
         this.score ++;
     }
+    public int getPlayernumber(){
+        return playerid;
+    }
+    public int setPlayerid(int i){
+        playerid = i;
+        return playerid;
+    }
+    
+            
     public void checkHand(){//this is set to only match 4 cards-----------------------------------
         ArrayList<Integer> temp = new ArrayList<>();
         for(int i=0;i<hand.size();i++){ //add all ranks in hand to a temp array

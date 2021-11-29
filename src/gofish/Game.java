@@ -14,14 +14,15 @@ import java.util.regex.Pattern;
  */
 public class Game {
     //private String currentplayerturn;
-    private int currentPlayerTurn; //show who the current player turn is 
+    private int currentPlayerTurn; //show who the current player turn is
     private String lastplayerturn;
     private String nextplayerturn;
     private Boolean isgameover;
     private int playercount;
     private ArrayList<Player> players = new ArrayList<Player>(); //this list also serves as the turn order. 
-    //index 0 is the next immediate turn, 1 is the next one, ect... the last in the list should always be the last turn.
+    //index 0 is the first player, rest are Ais
     private Deck deck;
+
     
     
     
@@ -58,9 +59,9 @@ public class Game {
     };
     
     //create new Ai using a string input
-    public void addAi(String a){
+    public void addAi(String a, int i){
         
-        Ai b = new Ai(a);
+        Ai b = new Ai(a, i);
         players.add(b);
     }
     //this sets the turn order in the array list. *check later: currently only works with one Ai, modify if we make more ai's a final decision*
