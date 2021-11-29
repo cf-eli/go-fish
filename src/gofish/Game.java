@@ -132,13 +132,23 @@ public class Game {
         return players.get(0).getName();
     }
     
-    //code from gui
-public ArrayList<String> getImg(){
+    public int getCurrentTurn(){
+        return currentPlayerTurn;
+    }
+    public void setNextPlayerTurn(){
+        if(players.size()<currentPlayerTurn+1)
+            currentPlayerTurn++;
+        else 
+            currentPlayerTurn = 0;
+    }
+    //player only, get image url for button icons
+    public ArrayList<String> getImg(){
        ArrayList<String> img = new ArrayList<>();
        img = players.get(0).getImg();
        return img;
     }
-    public ArrayList<Integer> getFreq(){
+    //player only, get how many times card rank freq appears in hand for label above buttons
+    public ArrayList<Integer> getFreq(){ 
         ArrayList<Integer> freq = new ArrayList<>();
         freq = players.get(0).getHandFreq();//getHand freq
         return freq;

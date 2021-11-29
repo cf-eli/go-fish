@@ -385,6 +385,16 @@ public class MainGui extends javax.swing.JFrame {
         pLabels.add(pLabel12);
         pLabels.add(pLabel13);
     }
+    
+    class NextTurnListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e){
+            System.out.println("Next turn button was pressed");
+            if(findMatch.equals("Go Fish"))
+                Controller.getGame().setNextTurn();
+            System.out.println("nextTurn(); or at least what would've what happened if I was coded");//next turn function goes here
+            }
+        }
     private void menuButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonGUIActionPerformed
         // TODO add your handling code here:
         HelpScreen g = new HelpScreen();
@@ -490,6 +500,10 @@ public class MainGui extends javax.swing.JFrame {
                 findMatch = Controller.getGame().isMatch(card, choice);
                 System.out.println(findMatch);
                 setLabelText();
+                g.dispose();
+                AskResult g2 = new AskResult(choice, currentPlayer, find, findMatch);
+                g2.setVisible(true);
+                g2.addNextTurnButtonListener(new NextTurnListener());
 
             }
         }

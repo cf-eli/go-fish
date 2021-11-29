@@ -17,7 +17,7 @@ public class AskPlayer extends javax.swing.JFrame {
      * @param players list of players
      */
     ArrayList<String>  cPlayers= new ArrayList<>();
-    public AskPlayer(ArrayList<String> players) {
+    public AskPlayer(ArrayList<String> players) {//show error if player attempt to pick the wrong option
         initComponents();
         cPlayers = players;
     }

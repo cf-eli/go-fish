@@ -4,6 +4,8 @@
  */
 package gofish;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Alex
@@ -13,10 +15,29 @@ public class AskResult extends javax.swing.JFrame {
     /**
      * Player/AI asks AI
      */
-    public AskResult() {
+    String asked;
+    String currentPlayer;
+    String cardUrl;
+    String answer;
+    public AskResult(String ask, String player, String url, String ans) {
         initComponents();
+        asked = ask;
+        currentPlayer = player;
+        cardUrl = url;
+        answer = ans;
+        showInfo();
     }
-
+    public void showInfo(){
+        jLabel5.setText(currentPlayer + " asked " + asked + " if he had a ");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" +cardUrl)));
+        if (answer.equals("Matched"))
+            jLabel4.setText(asked + " gives all his cards");//show exact amount? -------------------------------
+        else
+            jLabel4.setText(asked + " says: " + answer);
+    }    
+    void addNextTurnButtonListener(ActionListener askListener){
+        jButton1.addActionListener(askListener);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -141,11 +162,12 @@ public class AskResult extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AskResult().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

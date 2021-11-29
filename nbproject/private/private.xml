@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/github/go-fish/src/gofish/Controller.java</file>
-            <file>file:/C:/github/go-fish/src/gofish/Card.java</file>
-            <file>file:/C:/github/go-fish/src/gofish/MainGui.java</file>
-            <file>file:/C:/github/go-fish/src/gofish/Deck.java</file>
-            <file>file:/C:/github/go-fish/src/gofish/GoFish.java</file>
-            <file>file:/C:/github/go-fish/src/gofish/Game.java</file>
+            <file>file:/home/eli/Documents/GitHub/go-fish/src/gofish/Controller.java</file>
+            <file>file:/home/eli/Documents/GitHub/go-fish/src/gofish/HelpScreen.java</file>
+            <file>file:/home/eli/Documents/GitHub/go-fish/src/gofish/AskCard.java</file>
+            <file>file:/home/eli/Documents/GitHub/go-fish/src/gofish/AskResult.java</file>
+            <file>file:/home/eli/Documents/GitHub/go-fish/src/gofish/GoFish.java</file>
         </group>
     </open-files>
 </project-private>
