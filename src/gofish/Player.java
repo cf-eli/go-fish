@@ -62,6 +62,68 @@ public class Player {
         
           
     }
+    
+    
+        public ArrayList<String> getImg(){//player only
+        ArrayList<String> img = new ArrayList<>();
+        ArrayList<Integer> occurred = new ArrayList<>();
+        for(int i =0;i<hand.size();i++){
+            if(!occurred.contains(hand.get(i).getRank())) //check if the array already have an image with a similar rank
+                img.add(hand.get(i).getImg());
+            occurred.add(hand.get(i).getRank());
+        }
+        System.out.println(img);//test
+        return img;
+    }
+    
+    public ArrayList<Integer> getHandFreq(){//player only
+        ArrayList<Integer> freq = new ArrayList<>();
+        ArrayList<Integer> temp = new ArrayList<>();
+        
+        for(int i=0;i<hand.size();i++){ //add all ranks in hand to a temp array
+            temp.add(hand.get(i).getRank());
+        }
+        
+        ArrayList<Integer> occurred = new ArrayList<>();
+        
+        for(int i=0;i<temp.size();i++){ 
+            int occurrences = Collections.frequency(temp, temp.get(i));
+            if(!occurred.contains(temp.get(i))){
+                occurred.add(temp.get(i));
+                freq.add(occurrences);
+            }
+        }
+        System.out.println(occurred);
+        System.out.println(freq);
+        return freq;
+    }    
+    public void inHand(Card card){//player only
+        for(int i=0;i<hand.size();i++){
+            //System.out.println(card);
+            //System.out.println(hand.get(i));
+            //System.out.println(card);
+            if(hand.get(i).getRank()==card.getRank() && hand.get(i).getSuit()==card.getSuit()){
+                System.out.println(card.toString());
+                System.out.println("match");
+                System.out.println(hand.get(i).toString());
+            }
+        }
+    }
+    
+    public ArrayList<Card> isMatch(Card card){//player and ai - Remove ALL ranks that is similar to rank asked for
+        Boolean match = false;
+        ArrayList<Card> matches = new ArrayList<>();
+        for(int i = 0; i<hand.size();i++){
+            if(hand.get(i).getRank()==card.getRank()){
+                matches.add(hand.get(i));
+                hand.remove(i);
+                match = true;
+                System.out.println(hand);//test
+            }
+        }
+        return matches;
+    }
+
     @Override
     public String toString(){// puts the name of the player and the current cards in "hand"
         String a = this.playername+"\n  "+hand.toString();

@@ -12,6 +12,7 @@ import java.util.*;
  */
 public class Game {
     //private String currentplayerturn;
+    private int currentPlayerTurn;
     private String lastplayerturn;
     private String nextplayerturn;
     private Boolean isgameover;
@@ -71,7 +72,7 @@ public class Game {
     //this needs to be tested
     public void startGame(){//method to start the game
         deck.shuffle();
-        
+        currentPlayerTurn = 0;
         
         if(playercount <= 3 ){
             for(int i = 0; i <=6; i++){
@@ -131,6 +132,47 @@ public class Game {
         return players.get(0).getName();
     }
     
+    //code from gui
+public ArrayList<String> getImg(){
+       ArrayList<String> img = new ArrayList<>();
+       img = players.get(0).getImg();
+       return img;
+    }
+    public ArrayList<Integer> getFreq(){
+        ArrayList<Integer> freq = new ArrayList<>();
+        freq = players.get(0).getHandFreq();//getHand freq
+        return freq;
+    }
+    public void inHand(Card card){
+        players.get(0).inHand(card);
+    }
+    public ArrayList<String> getCurrentPlayers(){
+        ArrayList<String> cPlayers = new ArrayList<>();
+        for(int i = 0;i<players.size();i++){
+            cPlayers.add(players.get(i).getName());
+        }
+        return cPlayers;
+    }
+    public String getWhoAsked(){
+        System.out.println(players.get(currentPlayerTurn).getName());//test
+        return players.get(currentPlayerTurn).getName();
+    }
+    public String isMatch(Card card, String name){
+        ArrayList<Card>  matches = new ArrayList<>();
+        for(int i = 0; i<players.size();i++){
+            if ((players.get(i).getName()).equals(name)){
+                matches = players.get(i).isMatch(card);
+            }
+        }
+        if(matches.size()>0){
+            for(int i = 0;i<matches.size();i++){
+                players.get(currentPlayerTurn).addCard(matches.get(i));
+            }
+            System.out.println(players.get(currentPlayerTurn));
+            return "Matched";
+            }
+        return "Go Fish"; 
+    }    
     
     
 }
