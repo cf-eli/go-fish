@@ -19,8 +19,11 @@ public class Player {
     public Player(String name){
         playername = name;
     }
+    public ArrayList<Card> getHand(){
+        return this.hand;
+    }
     public int getCard(int a){
-        //FIX THIS OMG
+        hand.get(a);
         return a;
     }
     public String getName(){//returns the player name

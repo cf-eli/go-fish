@@ -15,6 +15,7 @@ public class Ai extends Player{
     private int difficulty;//set this to 0-2, 0= easy, 1 = normal, 2 = hard
     private ArrayList<Card> memory = new ArrayList<Card>();
     
+    
     Ai(String a, int i){
         super(a);
         //this just needs functions specific to the Ai player. so the function decideing what card to pick can go here. need to figure out how to handle difficulty. maybe a memory bank of the last cards you have or something
@@ -76,27 +77,47 @@ public class Ai extends Player{
     }
     
     
-    //basic methods
-    public Card decideCard(Card c1, Card c2){
-    
-    return c1;
+    //picks a random card from the Ai's hand and returns it
+    //random card = easy level, add more functionality for more difficulties
+    public Card decideCard(){
+        int rand = new Random().nextInt(super.getHand().size());
+        return super.getHand().get(rand);
     }    
-    public Player decidePlayer(Player p){
+    //method for ai decision on who to target
+    //need the player turn array. and returns a specific player
+    public Player decidePlayer(ArrayList<Player> playerlist){
+        double rand = Math.random();
+        for(int i= 0; i<playerlist.size(); i++){
+            switch(playerlist.size()){
+                case(2):
+                    if(rand <=.5)
+                        return playerlist.get(0);
+                    else
+                        return playerlist.get(1);  
+                case(3):
+                    if (rand <=.33)
+                        return playerlist.get(0);
+                    else if(rand<=.66)
+                        return playerlist.get(1);
+                    else
+                        return playerlist.get(2);     
+                case(4):
+                    if (rand <=.25)
+                        return playerlist.get(0);
+                    else if (rand<=.50)
+                        return playerlist.get(1);
+                    else if (rand <=.75)
+                        return playerlist.get(2);
+                    else
+                        return playerlist.get(3);
+                default:
+                    System.out.println("Wrong player size, out of bounds");
+            }        
+        }
     
-    return p;
+    return playerlist.get(0);
     }
-    public Player decidePlayer(Player p, Ai one){
     
-    return p;
-    }    
-    public Player decidePlayer(Player p, Ai one, Ai two){
-    
-    return p;
-    }    
-    public Player decidePlayer(Player p, Ai one, Ai two, Ai three){
-    
-    return p;
-    }    
     
     @Override
     public String toString(){
