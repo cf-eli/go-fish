@@ -216,7 +216,14 @@ public class Game {
             return "Matched";
             }
         return "Go Fish"; 
-    }    
+    }
+    //tell checkHand function in playerhand which to check current player
+    public void checkHand(){
+        players.get(currentPlayerTurn).checkHand();
+    }
+    public int getPlayerCount(){
+        return players.size();
+    }
     
     
 }

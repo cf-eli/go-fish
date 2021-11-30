@@ -368,9 +368,17 @@ public class MainGui extends javax.swing.JFrame {
             pLabels.get(i).setText("");
         }
     }
+    public void setPoints(){//set points only does player atm, add for ai
+        ArrayList<Integer> points = new ArrayList<>();
+        for(int i =0;i<Controller.getGame().getPlayerCount();i++){
+            points.add(Controller.getGame().getPlayer(i).getScore());
+        }
+        jLabel7.setText("Score: " + points.get(0));
+    }
     public void refreshPlayerGUI(){
         setButtonIcon();
         setLabelText();
+        setPoints();
     }
     //add buttons to array
     public void populateButtons(){
@@ -412,7 +420,7 @@ public class MainGui extends javax.swing.JFrame {
             System.out.println("Next turn button was pressed");
             if(findMatch.equals("Go Fish")){
                 Controller.getGame().setNextPlayerTurn();
-                refreshPlayerGUI();
+                //refreshPlayerGUI();
             }
             System.out.println("nextTurn(); or at least what would've what happened if I was coded");//next turn function goes here
             System.out.println(currentPlayer);
@@ -426,7 +434,8 @@ public class MainGui extends javax.swing.JFrame {
             System.out.println(choice);
             findMatch = Controller.getGame().isMatch(card, choice);
             System.out.println(findMatch);
-            setLabelText();
+            Controller.getGame().checkHand();
+            refreshPlayerGUI();
             g.dispose();
             AskResult g2 = new AskResult(choice, currentPlayer, url, findMatch);
             g2.setVisible(true);

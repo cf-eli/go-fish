@@ -48,7 +48,7 @@ public class Player {
     }
     
             
-    public void checkHand(){//this is set to only match 4 cards-----------------------------------
+    public void checkHand(){//player and ai
         ArrayList<Integer> temp = new ArrayList<>();
         for(int i=0;i<hand.size();i++){ //add all ranks in hand to a temp array
             temp.add(hand.get(i).getRank());
@@ -61,10 +61,14 @@ public class Player {
             System.out.printf("\n%d: %d",i,occurrences);//Also test(delete)
             if (occurrences==4){
                 int rank = i;
+                //int size = hand.size();
+                ArrayList<Card> tempHand = hand;
                 for(int j=0;j<hand.size();j++){
                     if (hand.get(j).getRank()==rank){
-                        hand.remove(j);
+                        tempHand.remove(j);
+                        j--;
                     }
+                    
                 }
                 increaseScore();
             }
