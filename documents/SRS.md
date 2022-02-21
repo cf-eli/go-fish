@@ -224,7 +224,7 @@ _There should be at least one user with one(or more) computer players._
   _REQ-3: a new button closes the screen and returns to the game screen._
 
 
-##3.3 Asking for a Card
+## 3.3 Asking for a Card
 
 * 3.3.1 Description and Priority
 
