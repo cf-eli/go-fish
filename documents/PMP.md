@@ -12,7 +12,7 @@
 
 **Table of Contents**
 
-[**1. Overview**](#1)
+### [**1. Overview**](#1)
 
 [1.1. Project Purpose, Objectives, and Success Criteria](#1.1)
 
@@ -26,7 +26,7 @@
 
 [1.6. Evolution of the Plan](#1.6)
 
-[**2. Project Organization**](#2)
+### [**2. Project Organization**](#2)
 
 [2.1. External Interfaces](#.1)
 
@@ -34,7 +34,7 @@
 
 [2.3. Roles and Responsibilities](#2.3)
 
-[**3. Managerial Process Plans**](#3)
+### [**3. Managerial Process Plans**](#3)
 
 [3.1. Start-Up Plans 2](#3.1)
 
@@ -70,7 +70,7 @@
 
 [3.6. Project Close-Out Plan](#3.6)
 
-[**4. Technical Process Plans**](#4)
+### [**4. Technical Process Plans**](#4)
 
 [4.1. Process Model](#4.1)
 
