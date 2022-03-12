@@ -1,3 +1,5 @@
+#netbeans/java
+
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash
@@ -9,6 +11,7 @@ nbdist/
 .nb-gradle/
 
 #maven
+
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -18,3 +21,5 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
+
+GoFish.iml
