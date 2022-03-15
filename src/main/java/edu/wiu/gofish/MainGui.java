@@ -67,6 +67,8 @@ public class MainGui extends javax.swing.JFrame {
         pButton13 = new javax.swing.JButton();
         pButton1 = new javax.swing.JButton();
         pButton9 = new javax.swing.JButton();
+        pAsk = new javax.swing.JButton();
+        jAsk = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -90,6 +92,8 @@ public class MainGui extends javax.swing.JFrame {
         pLabel9 = new javax.swing.JLabel();
         pLabel8 = new javax.swing.JLabel();
         pLabel7 = new javax.swing.JLabel();
+        pInfo = new javax.swing.JLabel();
+        c1Fish = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -229,6 +233,20 @@ public class MainGui extends javax.swing.JFrame {
         });
         jPanel1.add(pButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 510, 70, 90));
 
+        pAsk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pAskActionPerformed(evt);
+            }
+        });
+        jPanel1.add(pAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 70, 90));
+
+        jAsk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAskActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, 70, 90));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
 
@@ -248,7 +266,6 @@ public class MainGui extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("NAME");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -324,6 +341,12 @@ public class MainGui extends javax.swing.JFrame {
         pLabel7.setForeground(new java.awt.Color(255, 255, 255));
         pLabel7.setText("2");
         jPanel1.add(pLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, -1, -1));
+
+        pInfo.setText("jLabel5");
+        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, -1, -1));
+
+        c1Fish.setText("Go Fish!");
+        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         background.setText("jLabel2");
@@ -673,6 +696,14 @@ public class MainGui extends javax.swing.JFrame {
         Win_LossScreen g = new Win_LossScreen();
         g.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void pAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pAskActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pAskActionPerformed
+
+    private void jAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAskActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jAskActionPerformed
     void addHelpGameListener(ActionListener Listener){
         resetButtonGUI.addActionListener(Listener);        
     }
@@ -766,8 +797,10 @@ public class MainGui extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JLabel c1Fish;
     private javax.swing.JButton closeButtonGUI;
     private javax.swing.JButton deckButton;
+    private javax.swing.JButton jAsk;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -780,6 +813,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menuButtonGUI;
+    private javax.swing.JButton pAsk;
     private javax.swing.JButton pButton1;
     private javax.swing.JButton pButton10;
     private javax.swing.JButton pButton11;
@@ -793,6 +827,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JButton pButton7;
     private javax.swing.JButton pButton8;
     private javax.swing.JButton pButton9;
+    private javax.swing.JLabel pInfo;
     private javax.swing.JLabel pLabel1;
     private javax.swing.JLabel pLabel10;
     private javax.swing.JLabel pLabel11;
