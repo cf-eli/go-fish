@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Alex
  */
-public class AskCard extends javax.swing.JFrame {
+public class DeprAskCard extends javax.swing.JFrame {
 
     /**
      * Player ask AI, AskResult should appear after this 
@@ -19,7 +19,7 @@ public class AskCard extends javax.swing.JFrame {
     ArrayList<String>  cPlayers= new ArrayList<>();
     String player;
     String cardUrl;
-    public AskCard(ArrayList<String> players, String currentPlayer,String url) {
+    public DeprAskCard(ArrayList<String> players, String currentPlayer,String url) {
         initComponents();
         cPlayers = players;
         System.out.println(url);//test
@@ -134,14 +134,30 @@ public class AskCard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AskCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeprAskCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AskCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeprAskCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AskCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeprAskCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AskCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeprAskCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        /* Create and display the form */
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AskCard().setVisible(true);
+            }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        /* Create and display the form */
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AskCard().setVisible(true);
+            }
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

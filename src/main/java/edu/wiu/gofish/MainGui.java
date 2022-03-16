@@ -23,7 +23,7 @@ public class MainGui extends javax.swing.JFrame {
        String findMatch;
        String url;
        String currentPlayer;
-       AskCard g;
+       DeprAskCard g;
        Card card;
       // game.startGame();
     /**
@@ -94,7 +94,7 @@ public class MainGui extends javax.swing.JFrame {
         pLabel7 = new javax.swing.JLabel();
         pInfo = new javax.swing.JLabel();
         c1Fish = new javax.swing.JLabel();
-        background = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -343,14 +343,13 @@ public class MainGui extends javax.swing.JFrame {
         jPanel1.add(pLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, -1, -1));
 
         pInfo.setText("jLabel5");
-        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, -1, -1));
+        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
 
         c1Fish.setText("Go Fish!");
         jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
-        background.setText("jLabel2");
-        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 690));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 330, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -450,6 +449,16 @@ public class MainGui extends javax.swing.JFrame {
         }
     }
     //Listener for ask button in AskCard class
+    public void showInfo(){
+        ArrayList<String> players = Controller.getGame().getCurrentPlayers();
+        String [] model = new String[players.size()-1];//minus 1 to remove player name
+        for(int i = 0;i<players.size()-1;i++){//starts at 1 to skip player name
+            model[i] = players.get(i+1);
+        }
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(model));
+        pInfo.setText(currentPlayer +" is asking");
+        jAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
+    }
     class AskCardListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e){
@@ -491,9 +500,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton8ActionPerformed
 
@@ -507,9 +517,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton12ActionPerformed
 
@@ -523,9 +534,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton11ActionPerformed
 
@@ -539,9 +551,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton10ActionPerformed
 
@@ -555,9 +568,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton7ActionPerformed
 
@@ -571,9 +585,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton6ActionPerformed
 
@@ -586,9 +601,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton5ActionPerformed
 
@@ -601,9 +617,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton4ActionPerformed
 
@@ -616,9 +633,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton3ActionPerformed
 
@@ -631,9 +649,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton2ActionPerformed
 
@@ -650,9 +669,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton13ActionPerformed
 
@@ -665,9 +685,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton1ActionPerformed
 
@@ -685,9 +706,10 @@ public class MainGui extends javax.swing.JFrame {
             ArrayList<String> players = new ArrayList<>(Controller.getGame().getCurrentPlayers());
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
-            g = new AskCard(players,currentPlayer,url);
-            g.setVisible(true);
-            g.addAskButtonListener(new AskCardListener());
+            showInfo();
+            //g = new AskCard(players,currentPlayer,url);
+            //g.setVisible(true);
+            //g.addAskButtonListener(new AskCardListener());
         }
     }//GEN-LAST:event_pButton9ActionPerformed
 
@@ -796,12 +818,12 @@ public class MainGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel background;
     private javax.swing.JLabel c1Fish;
     private javax.swing.JButton closeButtonGUI;
     private javax.swing.JButton deckButton;
     private javax.swing.JButton jAsk;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
