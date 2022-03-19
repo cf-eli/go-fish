@@ -137,7 +137,7 @@ public class Game {
  
     }
     public String getCurrentTurnName(){ //return the current player's name
-        return players.get(0).getName();
+        return players.get(currentPlayerTurn).getName();
     }
     
     public int getCurrentTurn(){//Get the currentPlayerTrun
@@ -145,10 +145,19 @@ public class Game {
     }
     public void setNextPlayerTurn(){//set the next player turn
         players.get(currentPlayerTurn).addCard(deck.draw());
-        if(players.size()<currentPlayerTurn+1)
+        
+        //debuging
+        System.out.println("players.size():"+ players.size());
+        System.out.println("current Player Turn+1: "+(currentPlayerTurn+1));
+        System.out.println("current player turn: "+currentPlayerTurn);
+        
+        if(players.size()==2 && currentPlayerTurn == 0){
             currentPlayerTurn++;
+            System.out.println("current turn: "+ currentPlayerTurn);
+        }    
         else 
             currentPlayerTurn = 0;
+        System.out.println("current player turn after else: "+currentPlayerTurn);        
     }
     //player only, get image url for button icons
     public ArrayList<String> getImg(){

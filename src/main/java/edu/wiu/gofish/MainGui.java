@@ -423,6 +423,8 @@ public class MainGui extends javax.swing.JFrame {
         setViewPlayerTurn();
         setDeckCount();
     }
+    
+    //this is run once, at the start of the game OR maybe reset of the game
     public void Init(){
         
         
@@ -708,9 +710,13 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_pButton2ActionPerformed
 
     private void deckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deckButtonActionPerformed
-        Controller.getGame().setNextPlayerTurn();
-        refreshPlayerGUI();
-        System.out.println("deck press");
+        
+        //if decksize is not equal to 0, set player to next and refresh UI
+        if(Controller.getGame().getDeck().getSize()!=0){
+            Controller.getGame().setNextPlayerTurn();
+            refreshPlayerGUI();
+            System.out.println("deck press");
+        }
     }//GEN-LAST:event_deckButtonActionPerformed
 
     private void pButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton13ActionPerformed
