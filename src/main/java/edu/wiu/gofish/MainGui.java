@@ -69,17 +69,16 @@ public class MainGui extends javax.swing.JFrame {
         pButton9 = new javax.swing.JButton();
         pAsk = new javax.swing.JButton();
         jAsk = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        askTarget = new javax.swing.JComboBox<>();
+        cpu1Deck = new javax.swing.JLabel();
+        cpu1Score = new javax.swing.JLabel();
+        cpu1Name = new javax.swing.JLabel();
+        cpu1HandCount = new javax.swing.JLabel();
+        playerScore = new javax.swing.JLabel();
+        playerName = new javax.swing.JLabel();
         deckCount = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         viewPlayerTurn = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         pLabel1 = new javax.swing.JLabel();
         pLabel6 = new javax.swing.JLabel();
         pLabel3 = new javax.swing.JLabel();
@@ -95,8 +94,8 @@ public class MainGui extends javax.swing.JFrame {
         pLabel7 = new javax.swing.JLabel();
         pInfo = new javax.swing.JLabel();
         c1Fish = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         background = new javax.swing.JLabel();
+        cpu1Score1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -249,26 +248,35 @@ public class MainGui extends javax.swing.JFrame {
         });
         jPanel1.add(jAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, 70, 90));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
+        askTarget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(askTarget, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 330, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, -1, -1));
+        cpu1Deck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(cpu1Deck, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, -1));
+        cpu1Score.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cpu1Score.setForeground(new java.awt.Color(255, 255, 255));
+        cpu1Score.setText("Score: 0");
+        jPanel1.add(cpu1Score, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, -1));
+        cpu1Name.setForeground(new java.awt.Color(255, 255, 255));
+        cpu1Name.setText("NAME");
+        jPanel1.add(cpu1Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Score: 0");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
+        cpu1HandCount.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cpu1HandCount.setForeground(new java.awt.Color(255, 255, 255));
+        cpu1HandCount.setText("5");
+        jPanel1.add(cpu1HandCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
+        playerScore.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        playerScore.setForeground(new java.awt.Color(255, 255, 255));
+        playerScore.setText("Score: 0");
+        jPanel1.add(playerScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
+
+        playerName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        playerName.setForeground(new java.awt.Color(255, 255, 255));
+        playerName.setText("NAME");
+        jPanel1.add(playerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, -1, -1));
 
         deckCount.setForeground(new java.awt.Color(255, 255, 255));
         deckCount.setText("Deck Count: 45");
@@ -282,19 +290,10 @@ public class MainGui extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 640, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Score: 0");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, -1, -1));
-
         viewPlayerTurn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewPlayerTurn.setForeground(new java.awt.Color(255, 255, 255));
+        viewPlayerTurn.setText("Player Turn:");
         jPanel1.add(viewPlayerTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("NAME");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, -1, -1));
 
         pLabel1.setForeground(new java.awt.Color(255, 255, 255));
         pLabel1.setText("3");
@@ -348,19 +347,22 @@ public class MainGui extends javax.swing.JFrame {
         pLabel7.setText("2");
         jPanel1.add(pLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, -1, -1));
 
-        pInfo.setText("jLabel5");
-        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
+        pInfo.setForeground(new java.awt.Color(255, 255, 255));
+        pInfo.setText("pinfo");
+        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
 
         c1Fish.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         c1Fish.setForeground(new java.awt.Color(255, 255, 255));
         c1Fish.setText("Go Fish!");
-        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, 20));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 330, -1, -1));
+        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, 20));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 700));
+
+        cpu1Score1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cpu1Score1.setForeground(new java.awt.Color(255, 255, 255));
+        cpu1Score1.setText("Score: 0");
+        jPanel1.add(cpu1Score1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -402,11 +404,38 @@ public class MainGui extends javax.swing.JFrame {
         }
     }
     public void setPoints(){//set points only does player atm, add for ai
-        ArrayList<Integer> points = new ArrayList<>();
-        for(int i =0;i<Controller.getGame().getPlayerCount();i++){
-            points.add(Controller.getGame().getPlayer(i).getScore());
+        
+        switch(Controller.getGame().getPlayerCount()){
+            case 2:
+                this.playerScore.setText("Score: "+Controller.getGame().getPlayer(0).getScore());
+                this.cpu1Score.setText("Score: "+Controller.getGame().getPlayer(1).getScore());
+                break;
+            case 3:
+                this.playerScore.setText("Score: "+Controller.getGame().getPlayer(0).getScore());
+                this.cpu1Score.setText("Score: "+Controller.getGame().getPlayer(1).getScore());
+                //this.cpu2Score.setText("Score: "+Controller.getGame().getPlayer(2).getScore());
+                break;
+            case 4:
+                this.playerScore.setText("Score: "+Controller.getGame().getPlayer(0).getScore());
+                this.cpu1Score.setText("Score: "+Controller.getGame().getPlayer(1).getScore());
+                //this.cpu2Score.setText("Score: "+Controller.getGame().getPlayer(2).getScore());
+                //this.cpu3Score.setText("Score: "+Controller.getGame().getPlayer(3).getScore());
+                break;
+               
+            default:
+                System.out.println("Wrong Player size. ERROR");
+                break;
+                        
+        
+        
         }
-        jLabel7.setText("Score: " + points.get(0));
+        
+        
+        /*ArrayList<Integer> points = new ArrayList<>();// new arraylist of ints
+        for(int i =0;i<Controller.getGame().getPlayerCount();i++){ //while i is less than playercount, integrate
+            points.add(Controller.getGame().getPlayer(i).getScore());// add plyaers score to points
+        }
+        playerScore.setText("Score: " + points.get(0));*/
     }
     public void setViewPlayerTurn(){
         this.viewPlayerTurn.setText("Current Turn: "+ Controller.getGame().getCurrentTurnName());
@@ -416,18 +445,41 @@ public class MainGui extends javax.swing.JFrame {
         this.deckCount.setText("Deck Count: "+ Controller.getGame().getDeck().getSize());
     
     }
+    public void setNames(){
+        switch(Controller.getGame().getPlayerCount()){
+            case 2: 
+                this.playerName.setText(Controller.getGame().getPlayer(0).getName());
+                this.cpu1Name.setText(Controller.getGame().getPlayer(1).getName());
+                break;
+            case 3:
+                this.playerName.setText(Controller.getGame().getPlayer(0).getName());
+                this.cpu1Name.setText(Controller.getGame().getPlayer(1).getName());
+                //this.cpu2Name.setText(Controller.getGame().getPlayer(2).getName());
+                break;
+            case 4:
+                this.playerName.setText(Controller.getGame().getPlayer(0).getName());
+                this.cpu1Name.setText(Controller.getGame().getPlayer(1).getName());
+                //this.cpu2Name.setText(Controller.getGame().getPlayer(2).getName());
+                //this.cpu3Name.setText(Controller.getGame().getPlayer(3).getName());
+                break;
+            default: 
+                System.out.println("Wrong player size, ERROR");
+                break;
+    
+        }
+    }
     public void refreshPlayerGUI(){
         setButtonIcon();
         setLabelText();
         setPoints();
         setViewPlayerTurn();
         setDeckCount();
+        
     }
     
     //this is run once, at the start of the game OR maybe reset of the game
     public void Init(){
-        
-        
+       
         setVisible(true);
         populateButtons();
         populateLabels(); 
@@ -437,7 +489,8 @@ public class MainGui extends javax.swing.JFrame {
         setLabelText();
         setPoints();
         setViewPlayerTurn();
-        setDeckCount();    
+        setDeckCount();
+        setNames();
     
     }
 
@@ -510,7 +563,7 @@ public class MainGui extends javax.swing.JFrame {
         for(int i = 0;i<players.size()-1;i++){//starts at 1 to skip player name
             model[i] = players.get(i+1);
         }
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(model));           
+        askTarget.setModel(new javax.swing.DefaultComboBoxModel<>(model));           
     }
     class AskCardListener implements ActionListener{
         @Override
@@ -897,22 +950,19 @@ public class MainGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> askTarget;
     private javax.swing.JLabel background;
     private javax.swing.JLabel c1Fish;
     private javax.swing.JButton closeButtonGUI;
+    private javax.swing.JLabel cpu1Deck;
+    private javax.swing.JLabel cpu1HandCount;
+    private javax.swing.JLabel cpu1Name;
+    private javax.swing.JLabel cpu1Score;
+    private javax.swing.JLabel cpu1Score1;
     private javax.swing.JButton deckButton;
     private javax.swing.JLabel deckCount;
     private javax.swing.JButton jAsk;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menuButtonGUI;
     private javax.swing.JButton pAsk;
@@ -943,6 +993,8 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel pLabel7;
     private javax.swing.JLabel pLabel8;
     private javax.swing.JLabel pLabel9;
+    private javax.swing.JLabel playerName;
+    private javax.swing.JLabel playerScore;
     private javax.swing.JButton resetButtonGUI;
     private javax.swing.JLabel viewPlayerTurn;
     // End of variables declaration//GEN-END:variables
