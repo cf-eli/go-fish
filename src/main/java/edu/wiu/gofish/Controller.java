@@ -47,6 +47,9 @@ public class Controller{
                     ((Ai)maingame.getPlayer(1)).setDifficulty(startview.getDifficulty());
                 }
                 maingame.startGame();
+
+                //somewhere in here, turn order needs to be determined
+                //mainview
                // maingame.setTurnOrder();
                 //set the main view as visible and dispose of the startview
                 mainview.setVisible(true);
@@ -54,6 +57,7 @@ public class Controller{
                 mainview.populateLabels();
                 mainview.setButtonIcon();
                 mainview.setLabelText();
+                mainview.populateDropdown();                
                 
                 startview.dispose();
                 

@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -21,7 +21,7 @@ public class Game {
     private int playercount;
     private ArrayList<Player> players = new ArrayList<Player>(); //this list also serves as the turn order. 
     //index 0 is the first player, rest are Ais
-    private Deck deck;
+    private final Deck deck;
 
     
     

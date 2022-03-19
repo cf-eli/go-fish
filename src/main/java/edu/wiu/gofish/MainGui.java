@@ -454,14 +454,27 @@ public class MainGui extends javax.swing.JFrame {
     }
     //Listener for ask button in AskCard class
     public void showInfo(){
+        /* broke this up into a seporate method, commenting out incase it's needed later
         ArrayList<String> players = Controller.getGame().getCurrentPlayers();
         String [] model = new String[players.size()-1];//minus 1 to remove player name
         for(int i = 0;i<players.size()-1;i++){//starts at 1 to skip player name
             model[i] = players.get(i+1);
         }
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(model));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(model));*/
+        
+        
+        
         pInfo.setText(currentPlayer +" is asking");
         jAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
+    }
+    
+    public void populateDropdown(){
+        ArrayList<String> players = Controller.getGame().getCurrentPlayers();
+        String [] model = new String[players.size()-1];//minus 1 to remove player name
+        for(int i = 0;i<players.size()-1;i++){//starts at 1 to skip player name
+            model[i] = players.get(i+1);
+        }
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(model));           
     }
     class AskCardListener implements ActionListener{
         @Override
