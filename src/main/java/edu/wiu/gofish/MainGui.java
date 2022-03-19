@@ -25,6 +25,7 @@ public class MainGui extends javax.swing.JFrame {
        String currentPlayer;
        DeprAskCard g;
        Card card;
+       boolean deckLock = true; // deck is locked if true, only put to false when its player's go fish phase
       // game.startGame();
     /**
      * Creates new form MainGui
@@ -475,6 +476,10 @@ public class MainGui extends javax.swing.JFrame {
     
         }
     }
+    public void deckLockToggle(){
+        this.deckLock = this.deckLock != true;
+    
+    }
     public void refreshPlayerGUI(){
         setButtonIcon();
         setLabelText();
@@ -773,11 +778,14 @@ public class MainGui extends javax.swing.JFrame {
     private void deckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deckButtonActionPerformed
         
         //if decksize is not equal to 0, set player to next and refresh UI
-        if(Controller.getGame().getDeck().getSize()!=0){
+        if(Controller.getGame().getDeck().getSize()!=0 && deckLock != true){
             Controller.getGame().setNextPlayerTurn();
             refreshPlayerGUI();
+            //deckLock = true;
+            this.deckLockToggle();
             System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
             System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());
+            
         }
     }//GEN-LAST:event_deckButtonActionPerformed
 
@@ -845,29 +853,29 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_pAskActionPerformed
 
     private void jAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAskActionPerformed
-        if (card != null){//check for empty field
+        if (card != null && Controller.getGame().getCurrentTurn() == 0){//check for empty field and player turn
+            
             System.out.println("current card rank: "+ card.getRankString());
-            
-            
+
             findMatch = Controller.getGame().isMatch(card, "computer1"); //change to the dropdwon value when working
             if(findMatch.equals("Go Fish")){
                 System.out.println(findMatch); //debug, delete later
                 this.c1Fish.setText(findMatch);
                 // make deck accessable, maybe a boolean to lock/unlock it
-                
-            
+                //deckLock=false;
+                this.deckLockToggle();
+
+
             }else{
                 this.c1Fish.setText("Match is found! Take another turn!");
                 //maybe make the button reset to blank here
-                refreshPlayerGUI();
+            refreshPlayerGUI();
             System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
             System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());
             System.out.println("current Player hand: "+Controller.getGame().getPlayer(0).getHand().toString());
             System.out.println("Current CPU hand: "+Controller.getGame().getPlayer(1).getHand().toString());
-                
-            
+
             }
-           
         }
         
     }//GEN-LAST:event_jAskActionPerformed
