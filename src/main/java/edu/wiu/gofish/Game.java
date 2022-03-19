@@ -51,6 +51,10 @@ public class Game {
         return players.get(a);
     
     }
+    //get deck object
+    public Deck getDeck(){
+        return this.deck;
+    }
     //create new player using a string input
     public void addPlayer(String a){
         Player b = new Player(a);       
@@ -105,8 +109,8 @@ public class Game {
     
     public void goFish(){
         //method for clicking on the deck
-        players.get(0).addCard(deck.draw());//draws a card and places it into the current player's hand
-        players.add(players.remove(0)); // cycles the first person to the back of the line
+        players.get(currentPlayerTurn).addCard(deck.draw());//draws a card and places it into the current player's hand
+        this.setNextPlayerTurn(); // cycles the first person to the back of the line
         
         
     }

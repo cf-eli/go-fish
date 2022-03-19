@@ -20,6 +20,10 @@ public class Deck {
     public Deck(){
         
     }
+    public int getSize(){
+        return this.decklist.size();
+    
+    }
     
     public void reset(){ //populate the deck in this method
         cardsInDeck = 0;

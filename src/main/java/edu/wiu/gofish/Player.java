@@ -49,6 +49,10 @@ public class Player {
         playerid = i;
         return playerid;
     }
+    public int getAmountInHand(){
+    
+        return this.hand.size();
+    }
     
             
     public void checkHand(){//player and ai

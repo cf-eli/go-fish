@@ -75,7 +75,7 @@ public class MainGui extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        deckCount = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         viewPlayerTurn = new javax.swing.JLabel();
@@ -270,9 +270,9 @@ public class MainGui extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
 
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Deck Count: 45");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
+        deckCount.setForeground(new java.awt.Color(255, 255, 255));
+        deckCount.setText("Deck Count: 45");
+        jPanel1.add(deckCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
 
         jButton1.setText("GO FISH");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -408,14 +408,37 @@ public class MainGui extends javax.swing.JFrame {
         }
         jLabel7.setText("Score: " + points.get(0));
     }
+    public void setViewPlayerTurn(){
+        this.viewPlayerTurn.setText("Current Turn: "+ Controller.getGame().getCurrentTurnName());
+    }
+    
+    public void setDeckCount(){
+        this.deckCount.setText("Deck Count: "+ Controller.getGame().getDeck().getSize());
+    
+    }
     public void refreshPlayerGUI(){
         setButtonIcon();
         setLabelText();
         setPoints();
+        setViewPlayerTurn();
+        setDeckCount();
     }
-    public void setviewPlayerTurn(){
-        this.viewPlayerTurn.setText("Current Turn: "+ Controller.getGame().getCurrentTurnName());
+    public void Init(){
+        
+        
+        setVisible(true);
+        populateButtons();
+        populateLabels(); 
+        populateDropdown();
+        
+        setButtonIcon();
+        setLabelText();
+        setPoints();
+        setViewPlayerTurn();
+        setDeckCount();    
+    
     }
+
     //add buttons to array
     public void populateButtons(){
         pButtons.add(pButton7);//0
@@ -685,7 +708,9 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_pButton2ActionPerformed
 
     private void deckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deckButtonActionPerformed
-        // TODO add your handling code here:
+        Controller.getGame().setNextPlayerTurn();
+        refreshPlayerGUI();
+        System.out.println("deck press");
     }//GEN-LAST:event_deckButtonActionPerformed
 
     private void pButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton13ActionPerformed
@@ -870,6 +895,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel c1Fish;
     private javax.swing.JButton closeButtonGUI;
     private javax.swing.JButton deckButton;
+    private javax.swing.JLabel deckCount;
     private javax.swing.JButton jAsk;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -881,7 +907,6 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menuButtonGUI;
     private javax.swing.JButton pAsk;

@@ -52,13 +52,7 @@ public class Controller{
                 //mainview
                // maingame.setTurnOrder();
                 //set the main view as visible and dispose of the startview
-                mainview.setVisible(true);
-                mainview.populateButtons();
-                mainview.populateLabels();
-                mainview.setButtonIcon();
-                mainview.setLabelText();
-                mainview.populateDropdown();
-                mainview.setviewPlayerTurn();
+                mainview.Init();
                 
                 startview.dispose();
                 
