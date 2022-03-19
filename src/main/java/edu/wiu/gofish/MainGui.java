@@ -95,7 +95,6 @@ public class MainGui extends javax.swing.JFrame {
         pInfo = new javax.swing.JLabel();
         c1Fish = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
-        cpu1Score1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -359,11 +358,6 @@ public class MainGui extends javax.swing.JFrame {
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 700));
 
-        cpu1Score1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cpu1Score1.setForeground(new java.awt.Color(255, 255, 255));
-        cpu1Score1.setText("Score: 0");
-        jPanel1.add(cpu1Score1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -425,17 +419,11 @@ public class MainGui extends javax.swing.JFrame {
             default:
                 System.out.println("Wrong Player size. ERROR");
                 break;
-                        
-        
-        
         }
-        
-        
-        /*ArrayList<Integer> points = new ArrayList<>();// new arraylist of ints
-        for(int i =0;i<Controller.getGame().getPlayerCount();i++){ //while i is less than playercount, integrate
-            points.add(Controller.getGame().getPlayer(i).getScore());// add plyaers score to points
-        }
-        playerScore.setText("Score: " + points.get(0));*/
+        /*ArrayList<Integer> points = new ArrayList<>();
+        for(int i =0;i<Controller.getGame().getPlayerCount();i++){
+            points.add(Controller.getGame().getPlayer(i).getScore());
+        }*/
     }
     public void setViewPlayerTurn(){
         this.viewPlayerTurn.setText("Current Turn: "+ Controller.getGame().getCurrentTurnName());
@@ -444,6 +432,25 @@ public class MainGui extends javax.swing.JFrame {
     public void setDeckCount(){
         this.deckCount.setText("Deck Count: "+ Controller.getGame().getDeck().getSize());
     
+    }
+    public void setCpuHand(){
+        switch(Controller.getGame().getPlayerCount()){
+            case 2: 
+                this.cpu1HandCount.setText(String.valueOf(Controller.getGame().getPlayer(1).getAmountInHand()));
+                break;
+            case 3:
+                this.cpu1HandCount.setText(String.valueOf(Controller.getGame().getPlayer(1).getAmountInHand()));
+                //this.cpu2HandCount.setText(String.valueOf(Controller.getGame().getPlayer(1).getAmountInHand()));                
+                break;
+            case 4:
+                this.cpu1HandCount.setText(String.valueOf(Controller.getGame().getPlayer(1).getAmountInHand()));
+                //this.cpu2HandCount.setText(String.valueOf(Controller.getGame().getPlayer(2).getAmountInHand()));
+                //this.cpu3HandCount.setText(String.valueOf(Controller.getGame().getPlayer(3).getAmountInHand()));
+                break;
+            default: 
+                System.out.println("Wrong player size, ERROR");
+                break;
+        }
     }
     public void setNames(){
         switch(Controller.getGame().getPlayerCount()){
@@ -474,6 +481,7 @@ public class MainGui extends javax.swing.JFrame {
         setPoints();
         setViewPlayerTurn();
         setDeckCount();
+        setCpuHand();
         
     }
     
@@ -768,7 +776,8 @@ public class MainGui extends javax.swing.JFrame {
         if(Controller.getGame().getDeck().getSize()!=0){
             Controller.getGame().setNextPlayerTurn();
             refreshPlayerGUI();
-            System.out.println("deck press");
+            System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
+            System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());
         }
     }//GEN-LAST:event_deckButtonActionPerformed
 
@@ -851,6 +860,10 @@ public class MainGui extends javax.swing.JFrame {
                 this.c1Fish.setText("Match is found! Take another turn!");
                 //maybe make the button reset to blank here
                 refreshPlayerGUI();
+            System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
+            System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());
+            System.out.println("current Player hand: "+Controller.getGame().getPlayer(0).getHand().toString());
+            System.out.println("Current CPU hand: "+Controller.getGame().getPlayer(1).getHand().toString());
                 
             
             }
@@ -958,7 +971,6 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel cpu1HandCount;
     private javax.swing.JLabel cpu1Name;
     private javax.swing.JLabel cpu1Score;
-    private javax.swing.JLabel cpu1Score1;
     private javax.swing.JButton deckButton;
     private javax.swing.JLabel deckCount;
     private javax.swing.JButton jAsk;
