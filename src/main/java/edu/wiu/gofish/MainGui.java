@@ -783,8 +783,42 @@ public class MainGui extends javax.swing.JFrame {
             refreshPlayerGUI();
             //deckLock = true;
             this.deckLockToggle();
+            //debugging, delete later
             System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
-            System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());
+            System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size()); 
+            
+            /*add game flow for AI here. There needs to be some sort of interaction to break up the flow,
+            if a match is found, a new button either pops in or is accessable. Player needs to press a confirm button
+            after showing the player the card that the AI picked. All this button does is redo the AI portion of the deck button
+            code. the other 
+            
+            if there isnt a match, the other button/function of the confirm button says "go fish" and does the next turn function,
+            setting it to the PC player again.
+            
+            I think it should be possbile to do this with 1 button, and using set visible/set text to do, im not 100% though.
+            we should use the "go fish" button we already have to do that, and only make it visible in both if branches, then make it not
+            visible after clicking the confirm/gofish button.
+            
+            so logic should be -> do match in this button press
+                                ->  if ai matches card with someone:
+                                    ->  make confirm button visible
+                                ->  if ai doesnt match with player:
+                                    ->  make "gofish" button visible
+                                ->  if ai matches card with other ai(not player)
+                                    ->make confirm button visible
+            
+            
+            And then for the button:
+            Confirm:
+                -> needs to have 2 conditions
+                -> not the current target of the ai
+                -> if it is the current target of the ai and match is found
+            
+            Go fish
+                -> only available if player is the current target and no match is found
+            
+            this can be done with 2 seperate buttons, or one button with a 3way branch, whichever is easier.
+            */
             
         }
     }//GEN-LAST:event_deckButtonActionPerformed

@@ -29,31 +29,30 @@ public class Ai extends Player{
     
     public void setMemory(int i, Card a){//if 0 is passed, only one is stored, if 1 is passed, 2 memory locations are stores, if 2 is passed, 3 is stored
         switch(i){
-            case 0: 
+            case 0 -> { 
                 if(memory.size() == 1){
                     memory.remove(memory.size()-1);
                     memory.add(a);
                 }else
                     memory.add(a);
-                break;
-            case 1:
+            }
+            case 1 -> {
                 if(memory.size() == 2){
                     memory.remove(memory.size()-1);
                     memory.add(a);
                 }else{
                     memory.add(a);
                 }
-                break;
-            case 2:
+            }
+            case 2 -> {
                 if(memory.size()== 3){
                     memory.remove(memory.size()-1);
                     memory.add(a);
                 }else{
                     memory.add(a);
                 }
-                break;
-            default:
-                System.out.println("not valid memory level");
+            }
+            default -> System.out.println("not valid memory level");
                 
         }
             
@@ -79,12 +78,20 @@ public class Ai extends Player{
     
     //picks a random card from the Ai's hand and returns it
     //random card = easy level, add more functionality for more difficulties
-    public Card decideCard(){
+    public Card decideCardEasy(){
         int rand = new Random().nextInt(super.getHand().size());
         return super.getHand().get(rand);
-    }    
+    }
+
+
+
+
+    
     //method for ai decision on who to target
     //need the player turn array. and returns a specific player
+    
+    //_______TODO: this is wrong, if 2 people needs to just select player 0 ______
+    //also, might not work with more than 2, might need rework statments to be specific for each ai asking
     public Player decidePlayer(ArrayList<Player> playerlist){
         double rand = Math.random();
         for(int i= 0; i<playerlist.size(); i++){
@@ -117,6 +124,10 @@ public class Ai extends Player{
     
     return playerlist.get(0);
     }
+    
+    //TODO:
+    //need a AI turn function in here that does everything in one, make it look a bit cleaner on the button press
+    
     
     
     @Override
