@@ -57,7 +57,8 @@ public class Controller{
                 mainview.populateLabels();
                 mainview.setButtonIcon();
                 mainview.setLabelText();
-                mainview.populateDropdown();                
+                mainview.populateDropdown();
+                mainview.setviewPlayerTurn();
                 
                 startview.dispose();
                 

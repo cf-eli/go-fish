@@ -78,6 +78,7 @@ public class MainGui extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        viewPlayerTurn = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         pLabel1 = new javax.swing.JLabel();
         pLabel6 = new javax.swing.JLabel();
@@ -286,6 +287,10 @@ public class MainGui extends javax.swing.JFrame {
         jLabel10.setText("Score: 0");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, -1, -1));
 
+        viewPlayerTurn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        viewPlayerTurn.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(viewPlayerTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("NAME");
@@ -344,10 +349,12 @@ public class MainGui extends javax.swing.JFrame {
         jPanel1.add(pLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, -1, -1));
 
         pInfo.setText("jLabel5");
-        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
+        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
 
+        c1Fish.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        c1Fish.setForeground(new java.awt.Color(255, 255, 255));
         c1Fish.setText("Go Fish!");
-        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
+        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, 20));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 330, -1, -1));
@@ -406,6 +413,9 @@ public class MainGui extends javax.swing.JFrame {
         setLabelText();
         setPoints();
     }
+    public void setviewPlayerTurn(){
+        this.viewPlayerTurn.setText("Current Turn: "+ Controller.getGame().getCurrentTurnName());
+    }
     //add buttons to array
     public void populateButtons(){
         pButtons.add(pButton7);//0
@@ -454,7 +464,7 @@ public class MainGui extends javax.swing.JFrame {
     }
     //Listener for ask button in AskCard class
     public void showInfo(){
-        /* broke this up into a seporate method, commenting out incase it's needed later
+        /* broke this up into a separate method, commenting out incase it's needed later
         ArrayList<String> players = Controller.getGame().getCurrentPlayers();
         String [] model = new String[players.size()-1];//minus 1 to remove player name
         for(int i = 0;i<players.size()-1;i++){//starts at 1 to skip player name
@@ -468,6 +478,7 @@ public class MainGui extends javax.swing.JFrame {
         jAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
     }
     
+    //populates the dropdown menu for asking options
     public void populateDropdown(){
         ArrayList<String> players = Controller.getGame().getCurrentPlayers();
         String [] model = new String[players.size()-1];//minus 1 to remove player name
@@ -741,7 +752,27 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_pAskActionPerformed
 
     private void jAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAskActionPerformed
-        // TODO add your handling code here:
+        if (card != null){//check for empty field
+            System.out.println("current card rank: "+ card.getRankString());
+            
+            
+            findMatch = Controller.getGame().isMatch(card, "computer1"); //change to the dropdwon value when working
+            if(findMatch.equals("Go Fish")){
+                System.out.println(findMatch); //debug, delete later
+                this.c1Fish.setText(findMatch);
+                // make deck accessable, maybe a boolean to lock/unlock it
+                
+            
+            }else{
+                this.c1Fish.setText("Match is found! Take another turn!");
+                //maybe make the button reset to blank here
+                refreshPlayerGUI();
+                
+            
+            }
+           
+        }
+        
     }//GEN-LAST:event_jAskActionPerformed
     void addHelpGameListener(ActionListener Listener){
         resetButtonGUI.addActionListener(Listener);        
@@ -882,5 +913,6 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel pLabel8;
     private javax.swing.JLabel pLabel9;
     private javax.swing.JButton resetButtonGUI;
+    private javax.swing.JLabel viewPlayerTurn;
     // End of variables declaration//GEN-END:variables
 }

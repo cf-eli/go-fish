@@ -32,6 +32,13 @@ public class Card {
     public int getSuit(){
         return this.suit;
     }
+    public String getSuitString(){
+        return SUIT[this.getSuit()];
+    }
+    
+    public String getRankString(){   
+        return RANK[this.getRank()];
+    }
     public String getImg(){//return img string
         String[] imgRank = {"back", "1", "2", "3", "4", "5", "6","7", "8", "9", 
             "10", "11", "12", "13"};
