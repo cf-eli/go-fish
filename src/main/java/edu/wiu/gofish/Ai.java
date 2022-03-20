@@ -100,21 +100,25 @@ public class Ai extends Player{
                         return playerlist.get(0); //return player
                 case(3): //if playerlist is size 3
                     switch(this.getPlayernumber()){ //check playernumber
-                        case(1): //if playernumber is 1
+                        case(1) -> {
+                            //if playernumber is 1
                             if(rand>=.5) //if random is grater than or equal to 5
                                 return playerlist.get(0); //return the player
                             else
                                 return playerlist.get(2); //else return computer 2
-                        case(2)://if playernumber is 2
+                    }
+                        case(2) -> {
+                            //if playernumber is 2
                             if(rand>=.5)
                                 return playerlist.get(0); //return player
                             else
                                 return playerlist.get(1); //return computer 1
-                        default:
-                            System.out.println("something went wrong with the size 3 ai decision");
-                            break;
-                    }        
-                case(4):
+                    }
+                        default -> System.out.println("something went wrong with the size 3 ai decision");
+                    }
+                //check playernumber
+                        
+                case(4): //this can be done later
                     if (rand <=.25)
                         return playerlist.get(0);
                     else if (rand<=.50)
@@ -133,6 +137,12 @@ public class Ai extends Player{
     
     //TODO:
     //need a AI turn function in here that does everything in one, make it look a bit cleaner on the button press
+    public void runAi(){
+   
+    
+    
+    
+    };
     
     
     
