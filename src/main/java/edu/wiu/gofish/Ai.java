@@ -95,19 +95,25 @@ public class Ai extends Player{
     public Player decidePlayer(ArrayList<Player> playerlist){
         double rand = Math.random();
         for(int i= 0; i<playerlist.size(); i++){
-            switch(playerlist.size()){
-                case(2):
-                    if(rand <=.5)
-                        return playerlist.get(0);
-                    else
-                        return playerlist.get(1);  
-                case(3):
-                    if (rand <=.33)
-                        return playerlist.get(0);
-                    else if(rand<=.66)
-                        return playerlist.get(1);
-                    else
-                        return playerlist.get(2);     
+            switch(playerlist.size()){ //check playerlist size
+                case(2): //if playersize is 2
+                        return playerlist.get(0); //return player
+                case(3): //if playerlist is size 3
+                    switch(this.getPlayernumber()){ //check playernumber
+                        case(1): //if playernumber is 1
+                            if(rand>=.5) //if random is grater than or equal to 5
+                                return playerlist.get(0); //return the player
+                            else
+                                return playerlist.get(2); //else return computer 2
+                        case(2)://if playernumber is 2
+                            if(rand>=.5)
+                                return playerlist.get(0); //return player
+                            else
+                                return playerlist.get(1); //return computer 1
+                        default:
+                            System.out.println("something went wrong with the size 3 ai decision");
+                            break;
+                    }        
                 case(4):
                     if (rand <=.25)
                         return playerlist.get(0);
