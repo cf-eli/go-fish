@@ -37,11 +37,12 @@ public class Win_LossScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("YOU WIN/YOU LOSE!");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(60, 30, 271, 29);
 
         playAgainButton.setText("Play again?");
         playAgainButton.addActionListener(new java.awt.event.ActionListener() {
@@ -49,7 +50,8 @@ public class Win_LossScreen extends javax.swing.JFrame {
                 playAgainButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(playAgainButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+        jPanel1.add(playAgainButton);
+        playAgainButton.setBounds(150, 170, 84, 28);
 
         exitButton.setText("Exit");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -57,10 +59,12 @@ public class Win_LossScreen extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+        jPanel1.add(exitButton);
+        exitButton.setBounds(170, 200, 36, 28);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/mainbg.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 400, 300);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

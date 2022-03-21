@@ -43,10 +43,11 @@ public class StartPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         difficultySelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Easy", "Normal", "Hard" }));
-        jPanel1.add(difficultySelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
+        jPanel1.add(difficultySelect);
+        difficultySelect.setBounds(290, 260, 108, 35);
 
         helpButton.setText("How to Play");
         helpButton.addActionListener(new java.awt.event.ActionListener() {
@@ -54,7 +55,8 @@ public class StartPage extends javax.swing.JFrame {
                 helpButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(helpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, -1));
+        jPanel1.add(helpButton);
+        helpButton.setBounds(230, 310, 92, 28);
 
         startButton.setText("Start");
         startButton.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +64,8 @@ public class StartPage extends javax.swing.JFrame {
                 startButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(startButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, -1, -1));
+        jPanel1.add(startButton);
+        startButton.setBounds(250, 370, 44, 28);
 
         nameField.setText("Player1");
         nameField.addActionListener(new java.awt.event.ActionListener() {
@@ -70,39 +73,46 @@ public class StartPage extends javax.swing.JFrame {
                 nameFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 100, 30));
+        jPanel1.add(nameField);
+        nameField.setBounds(290, 140, 100, 30);
 
         playerNumber.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4" }));
-        jPanel1.add(playerNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
+        jPanel1.add(playerNumber);
+        playerNumber.setBounds(290, 210, 65, 35);
 
         jLabel2.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel2.setText("Difficulty:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(180, 250, 132, 29);
 
         jLabel5.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel5.setText("# of players:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(150, 200, 171, 29);
 
         jLabel4.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel4.setText("Name:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(220, 140, 87, 29);
 
         jLabel3.setFont(new java.awt.Font("SimSun", 1, 48)); // NOI18N
         jLabel3.setText("Go Fish");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(230, 20, 201, 57);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/mainbg.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 540));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 640, 540);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
         );
 
         pack();

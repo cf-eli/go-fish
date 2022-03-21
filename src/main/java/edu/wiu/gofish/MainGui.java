@@ -99,7 +99,7 @@ public class MainGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         closeButtonGUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/X_Button.png"))); // NOI18N
         closeButtonGUI.setBorderPainted(false);
@@ -109,7 +109,8 @@ public class MainGui extends javax.swing.JFrame {
                 closeButtonGUIActionPerformed(evt);
             }
         });
-        jPanel1.add(closeButtonGUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 0, 40, 40));
+        jPanel1.add(closeButtonGUI);
+        closeButtonGUI.setBounds(980, 0, 40, 40);
 
         resetButtonGUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Reset Button.png"))); // NOI18N
         resetButtonGUI.setToolTipText("");
@@ -120,7 +121,8 @@ public class MainGui extends javax.swing.JFrame {
                 resetButtonGUIActionPerformed(evt);
             }
         });
-        jPanel1.add(resetButtonGUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 40, 40, 40));
+        jPanel1.add(resetButtonGUI);
+        resetButtonGUI.setBounds(980, 40, 40, 40);
 
         menuButtonGUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Menu_Button.png"))); // NOI18N
         menuButtonGUI.setBorderPainted(false);
@@ -130,7 +132,8 @@ public class MainGui extends javax.swing.JFrame {
                 menuButtonGUIActionPerformed(evt);
             }
         });
-        jPanel1.add(menuButtonGUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 40, 40));
+        jPanel1.add(menuButtonGUI);
+        menuButtonGUI.setBounds(980, 80, 40, 40);
 
         pButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/1h.png"))); // NOI18N
         pButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -138,28 +141,32 @@ public class MainGui extends javax.swing.JFrame {
                 pButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 510, 70, 90));
+        jPanel1.add(pButton8);
+        pButton8.setBounds(550, 510, 70, 90);
 
         pButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton12ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 510, 70, 90));
+        jPanel1.add(pButton12);
+        pButton12.setBounds(830, 510, 70, 90);
 
         pButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton11ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 510, 70, 90));
+        jPanel1.add(pButton11);
+        pButton11.setBounds(760, 510, 70, 90);
 
         pButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton10ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, 70, 90));
+        jPanel1.add(pButton10);
+        pButton10.setBounds(690, 510, 70, 90);
 
         pButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/11h.png"))); // NOI18N
         pButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +174,8 @@ public class MainGui extends javax.swing.JFrame {
                 pButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 70, 90));
+        jPanel1.add(pButton7);
+        pButton7.setBounds(480, 510, 70, 90);
 
         pButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/10c.png"))); // NOI18N
         pButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -175,35 +183,40 @@ public class MainGui extends javax.swing.JFrame {
                 pButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 70, 90));
+        jPanel1.add(pButton6);
+        pButton6.setBounds(410, 510, 70, 90);
 
         pButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 70, 90));
+        jPanel1.add(pButton5);
+        pButton5.setBounds(340, 510, 70, 90);
 
         pButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 70, 90));
+        jPanel1.add(pButton4);
+        pButton4.setBounds(270, 510, 70, 90);
 
         pButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, 70, 90));
+        jPanel1.add(pButton3);
+        pButton3.setBounds(200, 510, 70, 90);
 
         pButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 70, 90));
+        jPanel1.add(pButton2);
+        pButton2.setBounds(130, 510, 70, 90);
 
         deckButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
         deckButton.addActionListener(new java.awt.event.ActionListener() {
@@ -211,76 +224,90 @@ public class MainGui extends javax.swing.JFrame {
                 deckButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(deckButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 70, 90));
+        jPanel1.add(deckButton);
+        deckButton.setBounds(480, 300, 70, 90);
 
         pButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton13ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 510, 70, 90));
+        jPanel1.add(pButton13);
+        pButton13.setBounds(900, 510, 70, 90);
 
         pButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 70, 90));
+        jPanel1.add(pButton1);
+        pButton1.setBounds(60, 510, 70, 90);
 
         pButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton9ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 510, 70, 90));
+        jPanel1.add(pButton9);
+        pButton9.setBounds(620, 510, 70, 90);
 
         pAsk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pAskActionPerformed(evt);
             }
         });
-        jPanel1.add(pAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 70, 90));
+        jPanel1.add(pAsk);
+        pAsk.setBounds(210, 180, 70, 90);
 
         jAsk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jAskActionPerformed(evt);
             }
         });
-        jPanel1.add(jAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, 70, 90));
+        jPanel1.add(jAsk);
+        jAsk.setBounds(790, 370, 70, 90);
 
         askTarget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(askTarget, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 330, -1, -1));
+        jPanel1.add(askTarget);
+        askTarget.setBounds(780, 330, 99, 35);
 
         cpu1Deck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jPanel1.add(cpu1Deck, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
+        jPanel1.add(cpu1Deck);
+        cpu1Deck.setBounds(240, 40, 71, 96);
 
         cpu1Score.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cpu1Score.setForeground(new java.awt.Color(255, 255, 255));
         cpu1Score.setText("Score: 0");
-        jPanel1.add(cpu1Score, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+        jPanel1.add(cpu1Score);
+        cpu1Score.setBounds(250, 140, 58, 17);
 
         cpu1Name.setForeground(new java.awt.Color(255, 255, 255));
         cpu1Name.setText("NAME");
-        jPanel1.add(cpu1Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+        jPanel1.add(cpu1Name);
+        cpu1Name.setBounds(240, 20, 42, 18);
 
         cpu1HandCount.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cpu1HandCount.setForeground(new java.awt.Color(255, 255, 255));
         cpu1HandCount.setText("5");
-        jPanel1.add(cpu1HandCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
+        jPanel1.add(cpu1HandCount);
+        cpu1HandCount.setBounds(220, 70, 9, 17);
 
         playerScore.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         playerScore.setForeground(new java.awt.Color(255, 255, 255));
         playerScore.setText("Score: 0");
-        jPanel1.add(playerScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
+        jPanel1.add(playerScore);
+        playerScore.setBounds(550, 460, 58, 17);
 
         playerName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         playerName.setForeground(new java.awt.Color(255, 255, 255));
         playerName.setText("NAME");
-        jPanel1.add(playerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, -1, -1));
+        jPanel1.add(playerName);
+        playerName.setBounds(500, 460, 40, 17);
 
         deckCount.setForeground(new java.awt.Color(255, 255, 255));
         deckCount.setText("Deck Count: 45");
-        jPanel1.add(deckCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
+        jPanel1.add(deckCount);
+        deckCount.setBounds(480, 270, 105, 18);
 
         jButton1.setText("GO FISH");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -288,76 +315,94 @@ public class MainGui extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 640, -1, -1));
+        jPanel1.add(jButton1);
+        jButton1.setBounds(480, 640, 65, 28);
 
         viewPlayerTurn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewPlayerTurn.setForeground(new java.awt.Color(255, 255, 255));
         viewPlayerTurn.setText("Player Turn:");
-        jPanel1.add(viewPlayerTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+        jPanel1.add(viewPlayerTurn);
+        viewPlayerTurn.setBounds(190, 350, 82, 17);
 
         pLabel1.setForeground(new java.awt.Color(255, 255, 255));
         pLabel1.setText("3");
-        jPanel1.add(pLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 10, -1));
+        jPanel1.add(pLabel1);
+        pLabel1.setBounds(90, 490, 10, 18);
 
         pLabel6.setForeground(new java.awt.Color(255, 255, 255));
         pLabel6.setText("3");
-        jPanel1.add(pLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 10, -1));
+        jPanel1.add(pLabel6);
+        pLabel6.setBounds(440, 490, 10, 18);
 
         pLabel3.setForeground(new java.awt.Color(255, 255, 255));
         pLabel3.setText("3");
-        jPanel1.add(pLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 490, 10, -1));
+        jPanel1.add(pLabel3);
+        pLabel3.setBounds(230, 490, 10, 18);
 
         pLabel13.setForeground(new java.awt.Color(255, 255, 255));
         pLabel13.setText("2");
-        jPanel1.add(pLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 490, -1, -1));
+        jPanel1.add(pLabel13);
+        pLabel13.setBounds(930, 490, 8, 18);
 
         pLabel2.setForeground(new java.awt.Color(255, 255, 255));
         pLabel2.setText("3");
-        jPanel1.add(pLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, 10, -1));
+        jPanel1.add(pLabel2);
+        pLabel2.setBounds(160, 490, 10, 18);
 
         pLabel5.setForeground(new java.awt.Color(255, 255, 255));
         pLabel5.setText("2");
-        jPanel1.add(pLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, -1));
+        jPanel1.add(pLabel5);
+        pLabel5.setBounds(370, 490, 8, 18);
 
         pLabel4.setForeground(new java.awt.Color(255, 255, 255));
         pLabel4.setText("2");
-        jPanel1.add(pLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, -1, -1));
+        jPanel1.add(pLabel4);
+        pLabel4.setBounds(300, 490, 8, 18);
 
         pLabel12.setForeground(new java.awt.Color(255, 255, 255));
         pLabel12.setText("2");
-        jPanel1.add(pLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, -1, -1));
+        jPanel1.add(pLabel12);
+        pLabel12.setBounds(860, 490, 8, 18);
 
         pLabel11.setForeground(new java.awt.Color(255, 255, 255));
         pLabel11.setText("2");
-        jPanel1.add(pLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 490, -1, -1));
+        jPanel1.add(pLabel11);
+        pLabel11.setBounds(790, 490, 8, 18);
 
         pLabel10.setForeground(new java.awt.Color(255, 255, 255));
         pLabel10.setText("2");
-        jPanel1.add(pLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 490, -1, -1));
+        jPanel1.add(pLabel10);
+        pLabel10.setBounds(720, 490, 8, 18);
 
         pLabel9.setForeground(new java.awt.Color(255, 255, 255));
         pLabel9.setText("2");
-        jPanel1.add(pLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, -1, -1));
+        jPanel1.add(pLabel9);
+        pLabel9.setBounds(650, 490, 8, 18);
 
         pLabel8.setForeground(new java.awt.Color(255, 255, 255));
         pLabel8.setText("2");
-        jPanel1.add(pLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
+        jPanel1.add(pLabel8);
+        pLabel8.setBounds(580, 490, 8, 18);
 
         pLabel7.setForeground(new java.awt.Color(255, 255, 255));
         pLabel7.setText("2");
-        jPanel1.add(pLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, -1, -1));
+        jPanel1.add(pLabel7);
+        pLabel7.setBounds(510, 490, 8, 18);
 
         pInfo.setForeground(new java.awt.Color(255, 255, 255));
         pInfo.setText("pinfo");
-        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
+        jPanel1.add(pInfo);
+        pInfo.setBounds(210, 390, 36, 18);
 
         c1Fish.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         c1Fish.setForeground(new java.awt.Color(255, 255, 255));
         c1Fish.setText("Go Fish!");
-        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, 20));
+        jPanel1.add(c1Fish);
+        c1Fish.setBounds(490, 210, 57, 20);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
-        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 700));
+        jPanel1.add(background);
+        background.setBounds(0, 0, 1030, 700);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

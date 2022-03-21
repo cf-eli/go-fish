@@ -56,7 +56,7 @@ public class AskResult extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         jButton1.setText("Next turn");
         jButton1.setContentAreaFilled(false);
@@ -65,24 +65,29 @@ public class AskResult extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 100, 40));
+        jPanel1.add(jButton1);
+        jButton1.setBounds(180, 310, 100, 40);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/10d.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 70, -1));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(200, 160, 70, 96);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Bob asked Jim if he had a ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, 20));
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(150, 110, 176, 20);
 
         jLabel4.setText("Jim says: Go Fish! or Jim give Bob 1-3 cards");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(90, 280, 289, 18);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         background.setText("jLabel1");
-        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 430));
+        jPanel1.add(background);
+        background.setBounds(0, 0, 480, 430);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

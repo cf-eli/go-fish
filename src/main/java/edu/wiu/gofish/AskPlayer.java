@@ -40,7 +40,7 @@ public class AskPlayer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         jButton1.setText("Go Fish");
         jButton1.setContentAreaFilled(false);
@@ -49,34 +49,39 @@ public class AskPlayer extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 100, 40));
+        jPanel1.add(jButton1);
+        jButton1.setBounds(70, 270, 96, 70);
 
         jButton2.setText("Give Cards");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
+        jPanel1.add(jButton2);
+        jButton2.setBounds(170, 290, 96, 50);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/10d.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 70, -1));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(170, -200, 96, 818);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Bob asked (playername) if he had a ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, 20));
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(70, 110, 96, 50);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         background.setText("jLabel1");
-        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 430));
+        jPanel1.add(background);
+        background.setBounds(4, 0, 480, 400);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
         );
 
         pack();

@@ -56,27 +56,31 @@ public class DeprAskCard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/10d.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 70, -1));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(180, 220, 70, 96);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("(playername) is asking  ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 20));
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(40, 180, 162, 20);
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
+        jPanel1.add(jComboBox1);
+        jComboBox1.setBounds(200, 170, 60, 35);
 
         jLabel2.setText("if he has");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(290, 180, 57, 18);
 
         jButton1.setText("Ask");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -84,11 +88,13 @@ public class DeprAskCard extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
+        jPanel1.add(jButton1);
+        jButton1.setBounds(200, 340, 34, 28);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         background.setText("jLabel1");
-        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 430));
+        jPanel1.add(background);
+        background.setBounds(0, 0, 480, 430);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

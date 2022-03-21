@@ -44,7 +44,7 @@ public class HelpScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         helpCloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/X_Button.png"))); // NOI18N
         helpCloseButton.setContentAreaFilled(false);
@@ -53,61 +53,73 @@ public class HelpScreen extends javax.swing.JFrame {
                 helpCloseButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(helpCloseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 40, 40));
+        jPanel1.add(helpCloseButton);
+        helpCloseButton.setBounds(440, 0, 40, 40);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Click on a card in your hand to declare the ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 360, -1));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(160, 110, 360, 17);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Attain 4 cards of the same rank (4 of a kind)");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(160, 180, 299, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("rank you want on your turn");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(160, 130, 184, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Click on the deck to draw a card");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(160, 60, 220, 17);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Drawing a card:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(50, 60, 107, 17);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("to score 1 point");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(160, 200, 109, 17);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Get 7 points before your opponent");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(160, 240, 240, 17);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("How to win:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(50, 240, 80, 17);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Choosing a card:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(50, 110, 117, 17);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("How to score:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(50, 180, 96, 17);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         background.setText("jLabel1");
-        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 430));
+        jPanel1.add(background);
+        background.setBounds(0, 0, 480, 430);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
