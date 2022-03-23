@@ -568,6 +568,12 @@ public class MainGui extends javax.swing.JFrame {
         pInfo.setText(currentPlayer +" is asking");
         jAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
     }
+    public void showCInfo(){
+        pInfo.setText(currentPlayer +" is asking");
+        pAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
+    
+    
+    }
     
     //populates the dropdown menu for asking options
     public void populateDropdown(){
@@ -779,13 +785,18 @@ public class MainGui extends javax.swing.JFrame {
         
         //if decksize is not equal to 0, set player to next and refresh UI
         if(Controller.getGame().getDeck().getSize()!=0 && deckLock != true){
+            //COMMENTING THIS OUT FOR DEBUGGING
             Controller.getGame().setNextPlayerTurn();
+            //TURN THIS BACK ON WHEN DONE
             refreshPlayerGUI();
             //deckLock = true;
+            //COMMENTING THIS OUT FOR DEBUGGING:
             this.deckLockToggle();
+            //TURN THIS BACK ON WHEN DONE
             //debugging, delete later
             System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
             System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size()); 
+            // debugging end
             
             /*add game flow for AI here. There needs to be some sort of interaction to break up the flow,
             if a match is found, a new button either pops in or is accessable. Player needs to press a confirm button
@@ -819,6 +830,20 @@ public class MainGui extends javax.swing.JFrame {
             
             this can be done with 2 seperate buttons, or one button with a 3way branch, whichever is easier.
             */
+            
+            //this crazy mother brings the selected card image back from the ai run method
+            url = ((Ai)Controller.getGame().getCurrentTurnPlayer()).runAi(Controller.getGame()).getImg();
+            System.out.println(url);
+            
+            System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
+            System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());             
+             
+            //Controller.getGame().getPlayer(1).getImg().get()
+            //Controller.getGame().setSpecificTurnplayer();
+            showCInfo();
+            refreshPlayerGUI();
+            
+            
             
             
             

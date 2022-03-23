@@ -1,17 +1,13 @@
 edu\wiu\gofish\MainGui$1.class
 edu\wiu\gofish\MainGui$13.class
-edu\wiu\gofish\AskResult.class
 edu\wiu\gofish\Controller$CloseButtonListener.class
 edu\wiu\gofish\MainGui$4.class
 edu\wiu\gofish\MainGui$AskCardListener.class
-edu\wiu\gofish\AskPlayer.class
 edu\wiu\gofish\MainGui$10.class
 edu\wiu\gofish\MainGui$20.class
 edu\wiu\gofish\Win_LossScreen$2.class
 edu\wiu\gofish\MainGui$7.class
 edu\wiu\gofish\Card.class
-edu\wiu\gofish\Ai.class
-edu\wiu\gofish\AskResult$1.class
 edu\wiu\gofish\MainGui$16.class
 edu\wiu\gofish\DeprAskCard$2.class
 edu\wiu\gofish\MainGui$19.class
@@ -39,7 +35,6 @@ edu\wiu\gofish\Win_LossScreen$3.class
 edu\wiu\gofish\MainGui$21.class
 edu\wiu\gofish\Controller$ResetButtonListener.class
 edu\wiu\gofish\StartPage$4.class
-edu\wiu\gofish\AskPlayer$1.class
 edu\wiu\gofish\Controller$HelpCloseButtonListener.class
 edu\wiu\gofish\StartPage.class
 edu\wiu\gofish\Controller.class
@@ -51,7 +46,6 @@ edu\wiu\gofish\MainGui.class
 edu\wiu\gofish\HelpScreen.class
 edu\wiu\gofish\MainGui$9.class
 edu\wiu\gofish\StartPage$3.class
-edu\wiu\gofish\GoFish.class
 edu\wiu\gofish\Player.class
 edu\wiu\gofish\MainGui$3.class
 edu\wiu\gofish\MainGui$14.class

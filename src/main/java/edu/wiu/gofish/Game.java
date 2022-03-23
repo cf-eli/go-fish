@@ -51,10 +51,13 @@ public class Game {
         return players.get(a);
     
     }
+    public ArrayList<Player> getPlayers(){
+    return this.players;
+    };
     //get deck object
     public Deck getDeck(){
         return this.deck;
-    }
+    };
     //create new player using a string input
     public void addPlayer(String a){
         Player b = new Player(a);       
@@ -76,7 +79,16 @@ public class Game {
         }
     
     }
-
+    //DEBIUGGING, DELETE LATER
+    public void setSpecificTurnAI(){
+        currentPlayerTurn = 1;
+    
+    }
+    public void setSpecificTurnplayer(){
+        currentPlayerTurn = 0;
+    
+    }    
+    //DEBUGGING, DELETE LATER
     
     public void startGame(){//method to start the game
         deck.shuffle();
@@ -132,10 +144,12 @@ public class Game {
         }
             
     }
+    /*NOT NEEDED
     public void setNextTurn(){// takes the first person on the list and places them at the end of the list
         players.add(players.remove(0));
  
     }
+    NOT NEEDED*/
     public String getCurrentTurnName(){ //return the current player's name
         return players.get(currentPlayerTurn).getName();
     }
@@ -143,7 +157,13 @@ public class Game {
     public int getCurrentTurn(){//Get the currentPlayerTrun
         return currentPlayerTurn;
     }
+    public Player getCurrentTurnPlayer(){
+        return this.getPlayer(currentPlayerTurn);
+    }
+    
+    //might need to be updated for more players
     public void setNextPlayerTurn(){//set the next player turn
+        
         players.get(currentPlayerTurn).addCard(deck.draw());
         
         //debuging
@@ -151,17 +171,20 @@ public class Game {
         System.out.println("current Player Turn+1: "+(currentPlayerTurn+1));
         System.out.println("current player turn: "+currentPlayerTurn);
         
-        if(players.size()==2 && currentPlayerTurn == 0){
-            currentPlayerTurn++;
+        if(players.size()==2 && currentPlayerTurn == 0){ //if playersize is 2 and the current turn is 0
+            currentPlayerTurn++; //set playerturn to one
             System.out.println("current turn: "+ currentPlayerTurn);
         }    
         else 
             currentPlayerTurn = 0;
         System.out.println("current player turn after else: "+currentPlayerTurn);        
     }
+    
+    
+    
     //player only, get image url for button icons
     public ArrayList<String> getImg(){
-       ArrayList<String> img = new ArrayList<>();
+       ArrayList<String> img = new ArrayList<>(); //make img arraylist of strings
        img = players.get(0).getImg();
        return img;
     }
@@ -214,13 +237,19 @@ public class Game {
         return players.get(currentPlayerTurn).getName();
     }
     //player and ai, return go fish or matched accordingly
-    public String isMatch(Card card, String name){
+    public String isMatch(Card card, String name){ //input is card from attacker, and name of the target
         ArrayList<Card>  matches = new ArrayList<>();
+        System.out.println("ismatch card passed is:"+card);
+        System.out.println("ismatch name passed is:"+ name);
+        
         for(int i = 0; i<players.size();i++){
+            System.out.println("is "+players.get(i).getName()+" == "+name+"?");
             if ((players.get(i).getName()).equals(name)){
+                System.out.println(players.get(i).getName()+" == "+name);
                 matches = players.get(i).isMatch(card);
             }
         }
+        System.out.println("found matches :"+matches.toString());
         if(matches.size()>0){
             for(int i = 0;i<matches.size();i++){
                 players.get(currentPlayerTurn).addCard(matches.get(i));
@@ -237,6 +266,7 @@ public class Game {
     public int getPlayerCount(){
         return players.size();
     }
+    
     
     
 }

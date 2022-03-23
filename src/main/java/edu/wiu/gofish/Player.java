@@ -19,6 +19,7 @@ public class Player {
     public Player(String name){
         playername = name;
     }
+    
     public ArrayList<Card> getHand(){
         return this.hand;
     }
@@ -85,7 +86,7 @@ public class Player {
           
     }
     
-    
+        
         public ArrayList<String> getImg(){//player only
         ArrayList<String> img = new ArrayList<>();
         ArrayList<Integer> occurred = new ArrayList<>();
