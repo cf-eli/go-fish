@@ -11,7 +11,7 @@ nbdist/
 .nb-gradle/
 
 #maven
-
+pom.xml
 target/
 pom.xml.tag
 pom.xml.releaseBackup
