@@ -841,7 +841,7 @@ public class MainGui extends javax.swing.JFrame {
             //Controller.getGame().getPlayer(1).getImg().get()
             //Controller.getGame().setSpecificTurnplayer();
             showCInfo();
-            refreshPlayerGUI();
+            refreshPlayerGUI();//
             
             
             
