@@ -594,7 +594,7 @@ public class MainGui extends javax.swing.JFrame {
             Controller.getGame().checkHand();
             refreshPlayerGUI();
             g.dispose();
-            AskResult g2 = new AskResult(choice, currentPlayer, url, findMatch);
+            DeprAskResult g2 = new DeprAskResult(choice, currentPlayer, url, findMatch);
             g2.setVisible(true);
             g2.addNextTurnButtonListener(new NextTurnListener());
 
