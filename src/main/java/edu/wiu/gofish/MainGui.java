@@ -26,6 +26,7 @@ public class MainGui extends javax.swing.JFrame {
        DeprAskCard g;
        Card card;
        boolean deckLock = true; // deck is locked if true, only put to false when its player's go fish phase
+       String cpuresult;
       // game.startGame();
     /**
      * Creates new form MainGui
@@ -831,17 +832,23 @@ public class MainGui extends javax.swing.JFrame {
             this can be done with 2 seperate buttons, or one button with a 3way branch, whichever is easier.
             */
             
-            //this crazy mother brings the selected card image back from the ai run method
-            url = ((Ai)Controller.getGame().getCurrentTurnPlayer()).runAi(Controller.getGame()).getImg();
-            System.out.println(url);
+            //sets a matched or go fish in cpuresult
+            cpuresult = ((Ai)Controller.getGame().getCurrentTurnPlayer()).runAi(Controller.getGame());
             
+            //sets the url to the currently selected card in AI class
+            url = ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().getImg();
+            
+            //debugging
             System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
             System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());             
              
             //Controller.getGame().getPlayer(1).getImg().get()
             //Controller.getGame().setSpecificTurnplayer();
+            //debugging
+            
             showCInfo();
-            refreshPlayerGUI();//
+            refreshPlayerGUI();
+            //next, need to have the player handle the ask. use the cpuresult for if it says "Go Fish" or "Matched"
             
             
             

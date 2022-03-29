@@ -1,14 +1,14 @@
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/Game.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/HelpScreen.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/StartPage.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/DeprAskCard.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/AskPlayer.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/Player.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/AskResult.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/Card.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/Controller.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/Ai.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/Win_LossScreen.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/MainGui.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/GoFish.java
-/home/eli/Documents/GitHub/go-fish/src/main/java/edu/wiu/gofish/Deck.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\Win_LossScreen.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\DeprAskCard.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\DeprAskPlayer.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\Deck.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\Game.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\Controller.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\StartPage.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\DeprAskResult.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\Ai.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\HelpScreen.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\GoFish.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\Card.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\MainGui.java
+C:\Code Projects\_git\gofish\src\main\java\edu\wiu\gofish\Player.java

@@ -14,7 +14,7 @@ import java.util.*;
 public class Ai extends Player{
     private int difficulty;//set this to 0-2, 0= easy, 1 = normal, 2 = hard
     private ArrayList<Card> memory = new ArrayList<Card>();
-    
+    private Card currentcard;
     
     Ai(String a, int i){
         super(a);
@@ -28,6 +28,9 @@ public class Ai extends Player{
     }
     public Ai getAi(){
         return this;
+    }
+    public Card getCurrentCard(){
+        return this.currentcard;
     }
     
     public void setMemory(int i, Card a){//if 0 is passed, only one is stored, if 1 is passed, 2 memory locations are stores, if 2 is passed, 3 is stored
@@ -139,21 +142,20 @@ public class Ai extends Player{
     
     //TODO:
     //need a AI turn function in here that does everything in one, make it look a bit cleaner on the button press
-    public Card runAi(Game game){ //playerlist from the game 
+    public String runAi(Game game){ //playerlist from the game 
         //fist decide what card to use (needs switch/if branch for
-        Card selectedcard = this.decideCardEasy();
-        System.out.println("selected card: "+selectedcard);
+        currentcard = this.decideCardEasy();
+        System.out.println("selected card: "+currentcard);
         
         
         //then decide what player to target
         String selectedplayer = this.decidePlayer(game.getPlayers());
         System.out.println("selected player: " +selectedplayer);
         //do the match with selected card and decided player
-        game.isMatch(selectedcard, selectedplayer);
+        String result = game.isMatch(currentcard, selectedplayer);
         
-        //needs to return the card seleced for gui
-        return selectedcard;
-    
+        //returns a "Go Fish" if no match is found, and a "Matched" if a match is found
+        return result;
     };
     
     
