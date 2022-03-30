@@ -26,6 +26,7 @@ public class MainGui extends javax.swing.JFrame {
        DeprAskCard g;
        Card card;
        boolean deckLock = true; // deck is locked if true, only put to false when its player's go fish phase
+       boolean askLock = false; //lock for the ask button, starts off as open, then locks it after a go fish. opens every time gofish is hit afterwards
        String cpuresult;
       // game.startGame();
     /**
@@ -479,6 +480,10 @@ public class MainGui extends javax.swing.JFrame {
     }
     public void deckLockToggle(){
         this.deckLock = this.deckLock != true;
+    
+    }
+    public void askLockToggle(){
+        this.askLock = this.askLock != true;
     
     }
     public void refreshPlayerGUI(){
@@ -939,6 +944,7 @@ public class MainGui extends javax.swing.JFrame {
             Controller.getGame().goFish();
             
             //gui elements
+            this.askLockToggle();
             this.gofish_confirm.setVisible(false);
             this.c1Fish.setText("");
             this.pInfo.setText("");
@@ -975,7 +981,7 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_pAskActionPerformed
 
     private void jAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAskActionPerformed
-        if (card != null && Controller.getGame().getCurrentTurn() == 0){//check for empty field and player turn
+        if (card != null && this.askLock == false){//check for empty field and player turn
             
             System.out.println("current card rank: "+ card.getRankString());
 
@@ -986,6 +992,7 @@ public class MainGui extends javax.swing.JFrame {
                 // make deck accessable, maybe a boolean to lock/unlock it
                 //deckLock=false;
                 this.deckLockToggle();
+                this.askLockToggle();
 
 
             }else{
