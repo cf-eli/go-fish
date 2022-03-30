@@ -79,7 +79,7 @@ public class MainGui extends javax.swing.JFrame {
         playerScore = new javax.swing.JLabel();
         playerName = new javax.swing.JLabel();
         deckCount = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        gofish_confirm = new javax.swing.JButton();
         viewPlayerTurn = new javax.swing.JLabel();
         pLabel1 = new javax.swing.JLabel();
         pLabel6 = new javax.swing.JLabel();
@@ -283,13 +283,13 @@ public class MainGui extends javax.swing.JFrame {
         deckCount.setText("Deck Count: 45");
         jPanel1.add(deckCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
 
-        jButton1.setText("GO FISH");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        gofish_confirm.setText("GO FISH");
+        gofish_confirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                gofish_confirmActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 640, -1, -1));
+        jPanel1.add(gofish_confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 640, -1, -1));
 
         viewPlayerTurn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewPlayerTurn.setForeground(new java.awt.Color(255, 255, 255));
@@ -850,7 +850,21 @@ public class MainGui extends javax.swing.JFrame {
             refreshPlayerGUI();
             //next, need to have the player handle the ask. use the cpuresult for if it says "Go Fish" or "Matched"
             
+            if("Matched".equals(cpuresult)){
+                
+                this.gofish_confirm.setText("GO FISH");
+                this.gofish_confirm.setVisible(true);
+                
             
+            
+            }else{
+                
+                this.gofish_confirm.setText("CONFIRM");
+                this.gofish_confirm.setVisible(true);
+            
+            
+            
+            }
             
             
             
@@ -910,11 +924,27 @@ public class MainGui extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_pButton9ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void gofish_confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gofish_confirmActionPerformed
+        //will need extra if statements for AI handleing multiple people
+
+        //if the returned value from the AI is go fish
+        if(this.cpuresult.equals("Go Fish")){
+            //
+          Controller.getGame().goFish();
+          this.gofish_confirm.setVisible(false);
+          //Controller.getGame().setNextPlayerTurn();
+        }else{
+        
+        this.gofish_confirm.setVisible(false);
+        }
+        System.out.println(Controller.getGame().getCurrentTurn());
+        refreshPlayerGUI();
+        
+        
+        /*
         Win_LossScreen g = new Win_LossScreen();
-        g.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        g.setVisible(true);*/
+    }//GEN-LAST:event_gofish_confirmActionPerformed
 
     private void pAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pAskActionPerformed
         // TODO add your handling code here:
@@ -1049,8 +1079,8 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel cpu1Score;
     private javax.swing.JButton deckButton;
     private javax.swing.JLabel deckCount;
+    private javax.swing.JButton gofish_confirm;
     private javax.swing.JButton jAsk;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menuButtonGUI;
     private javax.swing.JButton pAsk;
