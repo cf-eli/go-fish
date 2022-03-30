@@ -600,7 +600,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="210" y="390" width="-1" height="-1"/>
+              <AbsoluteConstraints x="450" y="230" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -612,11 +612,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Go Fish!"/>
+            <Property name="text" type="java.lang.String" value="c1Fish"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="490" y="210" width="-1" height="20"/>
+              <AbsoluteConstraints x="450" y="200" width="-1" height="20"/>
             </Constraint>
           </Constraints>
         </Component>

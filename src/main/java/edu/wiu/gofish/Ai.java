@@ -15,6 +15,7 @@ public class Ai extends Player{
     private int difficulty;//set this to 0-2, 0= easy, 1 = normal, 2 = hard
     private ArrayList<Card> memory = new ArrayList<Card>();
     private Card currentcard;
+    private String current_target;
     
     Ai(String a, int i){
         super(a);
@@ -31,6 +32,9 @@ public class Ai extends Player{
     }
     public Card getCurrentCard(){
         return this.currentcard;
+    }
+    public String getCurrent_Target(){
+        return this.current_target;
     }
     
     public void setMemory(int i, Card a){//if 0 is passed, only one is stored, if 1 is passed, 2 memory locations are stores, if 2 is passed, 3 is stored
@@ -102,22 +106,31 @@ public class Ai extends Player{
         double rand = Math.random();
         switch(playerlist.size()){ //check playerlist size
             case(2): //if playersize is 2
+                    this.current_target = playerlist.get(0).getName();
                     return playerlist.get(0).getName(); //return player
             case(3): //if playerlist is size 3
                 switch(this.getPlayernumber()){ //check playernumber
                     case(1) -> {
                         //if playernumber is 1
-                        if(rand>=.5) //if random is grater than or equal to 5
+                        if(rand>=.5){ //if random is grater than or equal to 5
+                            this.current_target = playerlist.get(0).getName();        
                             return playerlist.get(0).getName(); //return the player
-                        else
+                        }
+                        else{
+                            this.current_target = playerlist.get(2).getName();
                             return playerlist.get(2).getName(); //else return computer 2
+                        }    
                 }
                     case(2) -> {
                         //if playernumber is 2
-                        if(rand>=.5)
+                        if(rand>=.5){
+                            this.current_target = playerlist.get(0).getName();
                             return playerlist.get(0).getName(); //return player
-                        else
+                        }
+                        else{
+                            this.current_target = playerlist.get(1).getName();
                             return playerlist.get(1).getName(); //return computer 1
+                        }
                 }
                     default -> System.out.println("something went wrong with the size 3 ai decision");
                 }

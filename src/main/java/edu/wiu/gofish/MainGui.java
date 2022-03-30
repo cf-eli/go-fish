@@ -350,12 +350,12 @@ public class MainGui extends javax.swing.JFrame {
 
         pInfo.setForeground(new java.awt.Color(255, 255, 255));
         pInfo.setText("pinfo");
-        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
+        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, -1));
 
         c1Fish.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         c1Fish.setForeground(new java.awt.Color(255, 255, 255));
-        c1Fish.setText("Go Fish!");
-        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, 20));
+        c1Fish.setText("c1Fish");
+        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, -1, 20));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 700));
@@ -505,6 +505,7 @@ public class MainGui extends javax.swing.JFrame {
         setViewPlayerTurn();
         setDeckCount();
         setNames();
+        this.gofish_confirm.setVisible(false);
     
     }
 
@@ -845,22 +846,26 @@ public class MainGui extends javax.swing.JFrame {
             //Controller.getGame().getPlayer(1).getImg().get()
             //Controller.getGame().setSpecificTurnplayer();
             //debugging
-            
+            this.c1Fish.setText(Controller.getGame().getCurrentTurnPlayer().getName() 
+                    + " is asking " + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrent_Target() + " for a "
+                    + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().toString());
             showCInfo();
             refreshPlayerGUI();
             //next, need to have the player handle the ask. use the cpuresult for if it says "Go Fish" or "Matched"
             
             if("Matched".equals(cpuresult)){
                 
-                this.gofish_confirm.setText("GO FISH");
+                this.gofish_confirm.setText("CONTINUE");
                 this.gofish_confirm.setVisible(true);
+                this.pInfo.setText("Match found, press continue");
                 
             
             
             }else{
                 
-                this.gofish_confirm.setText("CONFIRM");
+                this.gofish_confirm.setText("GO FISH");
                 this.gofish_confirm.setVisible(true);
+                this.pInfo.setText("No match found, press GO FISH");
             
             
             
@@ -929,13 +934,32 @@ public class MainGui extends javax.swing.JFrame {
 
         //if the returned value from the AI is go fish
         if(this.cpuresult.equals("Go Fish")){
-            //
-          Controller.getGame().goFish();
-          this.gofish_confirm.setVisible(false);
-          //Controller.getGame().setNextPlayerTurn();
+            
+            //gofish() automatically sets the next turn
+            Controller.getGame().goFish();
+            
+            //gui elements
+            this.gofish_confirm.setVisible(false);
+            this.c1Fish.setText("");
+            this.pInfo.setText("");
+            
+            
+        //if a match is found, this will run instead:
         }else{
+            //need a message to say what happened
+            
+            //runs the AI again, this should happen until it doesnt get a match
+            cpuresult = ((Ai)Controller.getGame().getCurrentTurnPlayer()).runAi(Controller.getGame());
+            url = ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().getImg();
+            showCInfo();
+            refreshPlayerGUI();
+                this.c1Fish.setText(Controller.getGame().getCurrentTurnPlayer().getName() 
+                + " asked " + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrent_Target() + " for a "
+                + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().toString());
+            
+            
         
-        this.gofish_confirm.setVisible(false);
+        
         }
         System.out.println(Controller.getGame().getCurrentTurn());
         refreshPlayerGUI();
