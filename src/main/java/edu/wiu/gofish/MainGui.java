@@ -790,6 +790,24 @@ public class MainGui extends javax.swing.JFrame {
 
     private void deckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deckButtonActionPerformed
         
+        //if this returns 0, no change happened
+        switch(Controller.getGame().checkGameOver()){
+            case 1 -> {
+                //this should be for point win
+                Controller.getWin_Loss().setVisible(true);
+                Controller.getWin_Loss().setMainLabel("Win by Points!");
+                Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+
+                
+            }
+            case 2 ->{
+                //this should be for if someone loses by no cards
+                Controller.getWin_Loss().setVisible(true);
+                Controller.getWin_Loss().setMainLabel("No More Cards!");
+                Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+                
+            }
+        }
         //if decksize is not equal to 0, set player to next and refresh UI
         if(Controller.getGame().getDeck().getSize()!=0 && deckLock != true){
             //COMMENTING THIS OUT FOR DEBUGGING

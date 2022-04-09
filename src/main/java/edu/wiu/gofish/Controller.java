@@ -15,7 +15,7 @@ public class Controller{
         private StartPage startview = new StartPage();
         private MainGui mainview = new MainGui();
         private HelpScreen helpview = new HelpScreen();
-        private Win_LossScreen Win_lossview = new Win_LossScreen();
+        private static Win_LossScreen win_lossview = new Win_LossScreen();
         
         private static Game maingame = new Game();
         
@@ -29,6 +29,11 @@ public class Controller{
         }
         public static Game getGame(){
             return Controller.maingame;
+        }
+        public static Win_LossScreen getWin_Loss(){
+            return win_lossview;
+            
+        
         }
         
         

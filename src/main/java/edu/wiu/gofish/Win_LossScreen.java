@@ -19,6 +19,17 @@ public class Win_LossScreen extends javax.swing.JFrame {
     public Win_LossScreen() {
         initComponents();
     }
+    public void setMainLabel(String message){
+        this.mainmessage.setText(message);
+    
+    
+    }
+    
+    public void setWinner(String message){
+        this.winner.setText(message);
+    
+    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,18 +41,23 @@ public class Win_LossScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        mainmessage = new javax.swing.JLabel();
+        winner = new javax.swing.JLabel();
         playAgainButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("YOU WIN/YOU LOSE!");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        mainmessage.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        mainmessage.setText("YOU WIN/YOU LOSE!");
+        jPanel1.add(mainmessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
+
+        winner.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        winner.setText("winner :");
+        jPanel1.add(winner, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, 50));
 
         playAgainButton.setText("Play again?");
         playAgainButton.addActionListener(new java.awt.event.ActionListener() {
@@ -57,10 +73,10 @@ public class Win_LossScreen extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+        jPanel1.add(exitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/mainbg.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/mainbg.jpg"))); // NOI18N
+        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,10 +150,11 @@ public class Win_LossScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
     private javax.swing.JButton exitButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel mainmessage;
     private javax.swing.JButton playAgainButton;
+    private javax.swing.JLabel winner;
     // End of variables declaration//GEN-END:variables
 }

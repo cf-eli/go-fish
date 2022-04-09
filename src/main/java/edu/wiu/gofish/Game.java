@@ -18,6 +18,7 @@ public class Game {
     private String lastplayerturn;
     private String nextplayerturn;
     private Boolean isgameover;
+    private String winner;
     private int playercount;
     private ArrayList<Player> players = new ArrayList<Player>(); //this list also serves as the turn order. 
     //index 0 is the first player, rest are Ais
@@ -133,17 +134,47 @@ public class Game {
     }
     
         
-    public void endGame(){}
+    public void endGame(){
+        if(isgameover == true){
+        
+        
+        }
     
-    public void checkGameOver(){
-        for(int i=0; i<=players.size(); i++){
+    
+    }
+    
+    //returns 0 for no game over, 1 for score game over, and 2 for no cards in hand game over
+    public int checkGameOver(){
+        for(int i=0; i<=players.size()-1; i++){
+            //if score is >= 8, set gameover to true
             if (players.get(i).getScore()>=8){
                 isgameover = true;
-                //this.gameOver();//not functioning yet, not sure if it should go here yet
+                this.winner = this.players.get(i).getName();
+                return 1;
+            }else if(players.get(i).getHand().isEmpty()){
+                //only works 1player
+                if (players.get(i).equals(players.size()-1))    
+                    this.winner = players.get(0).getName();
+                else
+                    this.winner = players.get(1).getName();
+                
+                isgameover = true;
+                return 2;
             }
         }
+        return 0;
             
     }
+    
+    public boolean getGameOver(){
+        return this.isgameover;
+    }
+    
+    public String getWinner(){
+        return this.winner;
+    
+    }
+    
     /*NOT NEEDED
     public void setNextTurn(){// takes the first person on the list and places them at the end of the list
         players.add(players.remove(0));
