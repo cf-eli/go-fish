@@ -790,6 +790,7 @@ public class MainGui extends javax.swing.JFrame {
 
     private void deckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deckButtonActionPerformed
         
+        Controller.getGame().checkHand();
         //if this returns 0, no change happened
         switch(Controller.getGame().checkGameOver()){
             case 1 -> {
@@ -893,7 +894,7 @@ public class MainGui extends javax.swing.JFrame {
             
             
             }
-            
+            Controller.getGame().checkHand();
             
             
         }
@@ -961,6 +962,26 @@ public class MainGui extends javax.swing.JFrame {
             //gofish() automatically sets the next turn
             Controller.getGame().goFish();
             
+            //check for winner
+            Controller.getGame().checkHand();
+            switch(Controller.getGame().checkGameOver()){
+                case 1 -> {
+                    //this should be for point win
+                    Controller.getWin_Loss().setVisible(true);
+                    Controller.getWin_Loss().setMainLabel("Win by Points!");
+                    Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+
+
+                }
+                case 2 ->{
+                    //this should be for if someone loses by no cards
+                    Controller.getWin_Loss().setVisible(true);
+                    Controller.getWin_Loss().setMainLabel("No More Cards!");
+                    Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+
+                }
+            }
+            
             //gui elements
             this.askLockToggle();
             this.gofish_confirm.setVisible(false);
@@ -976,6 +997,26 @@ public class MainGui extends javax.swing.JFrame {
             cpuresult = ((Ai)Controller.getGame().getCurrentTurnPlayer()).runAi(Controller.getGame());
             url = ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().getImg();
             showCInfo();
+            
+                Controller.getGame().checkHand();
+                switch(Controller.getGame().checkGameOver()){
+                    case 1 -> {
+                        //this should be for point win
+                        Controller.getWin_Loss().setVisible(true);
+                        Controller.getWin_Loss().setMainLabel("Win by Points!");
+                        Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+
+
+                    }
+                    case 2 ->{
+                        //this should be for if someone loses by no cards
+                        Controller.getWin_Loss().setVisible(true);
+                        Controller.getWin_Loss().setMainLabel("No More Cards!");
+                        Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+
+                    }
+                }
+            
             refreshPlayerGUI();
                 this.c1Fish.setText(Controller.getGame().getCurrentTurnPlayer().getName() 
                 + " asked " + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrent_Target() + " for a "
@@ -1016,11 +1057,30 @@ public class MainGui extends javax.swing.JFrame {
             }else{
                 this.c1Fish.setText("Match is found! Take another turn!");
                 //maybe make the button reset to blank here
-            refreshPlayerGUI();
-            System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
-            System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());
-            System.out.println("current Player hand: "+Controller.getGame().getPlayer(0).getHand().toString());
-            System.out.println("Current CPU hand: "+Controller.getGame().getPlayer(1).getHand().toString());
+                Controller.getGame().checkHand();
+                switch(Controller.getGame().checkGameOver()){
+                    case 1 -> {
+                        //this should be for point win
+                        Controller.getWin_Loss().setVisible(true);
+                        Controller.getWin_Loss().setMainLabel("Win by Points!");
+                        Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+
+
+                    }
+                    case 2 ->{
+                        //this should be for if someone loses by no cards
+                        Controller.getWin_Loss().setVisible(true);
+                        Controller.getWin_Loss().setMainLabel("No More Cards!");
+                        Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+
+                    }
+                }
+                refreshPlayerGUI();
+                System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
+                System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());
+                System.out.println("current Player hand: "+Controller.getGame().getPlayer(0).getHand().toString());
+                System.out.println("Current CPU hand: "+Controller.getGame().getPlayer(1).getHand().toString());
+            
 
             }
         }

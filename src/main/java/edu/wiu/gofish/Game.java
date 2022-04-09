@@ -174,6 +174,12 @@ public class Game {
         return this.winner;
     
     }
+    //this needs to check the hands for 
+    /*public void checkHands(){
+    
+    
+    
+    }*/
     
     /*NOT NEEDED
     public void setNextTurn(){// takes the first person on the list and places them at the end of the list
