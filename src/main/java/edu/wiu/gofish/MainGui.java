@@ -516,7 +516,7 @@ public class MainGui extends javax.swing.JFrame {
         setDeckCount();
         setNames();
         this.gofish_confirm.setVisible(false);
-        this.pInfo.setText("");
+        this.pInfo.setText("Select a card to ask!");
         this.c1Fish.setText("");
     
     }
@@ -640,6 +640,7 @@ public class MainGui extends javax.swing.JFrame {
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
             showInfo();
+            this.pInfo.setText("Press the Card button on the right to ask!");
             //g = new AskCard(players,currentPlayer,url);
             //g.setVisible(true);
             //g.addAskButtonListener(new AskCardListener());
@@ -657,6 +658,7 @@ public class MainGui extends javax.swing.JFrame {
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
             showInfo();
+            this.pInfo.setText("Press the Card button on the right to ask!");
             //g = new AskCard(players,currentPlayer,url);
             //g.setVisible(true);
             //g.addAskButtonListener(new AskCardListener());
@@ -674,6 +676,7 @@ public class MainGui extends javax.swing.JFrame {
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
             showInfo();
+            this.pInfo.setText("Press the Card button on the right to ask!");
             //g = new AskCard(players,currentPlayer,url);
             //g.setVisible(true);
             //g.addAskButtonListener(new AskCardListener());
@@ -691,6 +694,7 @@ public class MainGui extends javax.swing.JFrame {
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
             showInfo();
+            this.pInfo.setText("Press the Card button on the right with a target to ask for that Card!");
             //g = new AskCard(players,currentPlayer,url);
             //g.setVisible(true);
             //g.addAskButtonListener(new AskCardListener());
@@ -708,6 +712,7 @@ public class MainGui extends javax.swing.JFrame {
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
             showInfo();
+            this.pInfo.setText("Press the Card button on the right to ask!");
             //g = new AskCard(players,currentPlayer,url);
             //g.setVisible(true);
             //g.addAskButtonListener(new AskCardListener());
@@ -725,6 +730,7 @@ public class MainGui extends javax.swing.JFrame {
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
             showInfo();
+            this.pInfo.setText("Press the Card button on the right to ask!");
             //g = new AskCard(players,currentPlayer,url);
             //g.setVisible(true);
             //g.addAskButtonListener(new AskCardListener());
@@ -741,6 +747,7 @@ public class MainGui extends javax.swing.JFrame {
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
             showInfo();
+            this.pInfo.setText("Press the Card button on the right to ask!");
             //g = new AskCard(players,currentPlayer,url);
             //g.setVisible(true);
             //g.addAskButtonListener(new AskCardListener());
@@ -757,6 +764,7 @@ public class MainGui extends javax.swing.JFrame {
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
             showInfo();
+            this.pInfo.setText("Press the Card button on the right to ask!");
             //g = new AskCard(players,currentPlayer,url);
             //g.setVisible(true);
             //g.addAskButtonListener(new AskCardListener());
@@ -773,6 +781,7 @@ public class MainGui extends javax.swing.JFrame {
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
             showInfo();
+            this.pInfo.setText("Press the Card button on the right to ask!");
             //g = new AskCard(players,currentPlayer,url);
             //g.setVisible(true);
             //g.addAskButtonListener(new AskCardListener());
@@ -789,6 +798,7 @@ public class MainGui extends javax.swing.JFrame {
             currentPlayer = Controller.getGame().getWhoAsked(); 
             System.out.println(currentPlayer);
             showInfo();
+            this.pInfo.setText("Press the Card button on the right to ask!");
             //g = new AskCard(players,currentPlayer,url);
             //g.setVisible(true);
             //g.addAskButtonListener(new AskCardListener());
@@ -1004,7 +1014,7 @@ public class MainGui extends javax.swing.JFrame {
             this.gofish_confirm.setVisible(false);
             this.c1Fish.setText("Computer Drew a Card");
             this.pInfo.setText("Select a new card to ask!");
-            this.pInfo.setText("");
+            //this.pInfo.setText("");
             
             
         //if a match is found, this will run instead:
@@ -1017,7 +1027,8 @@ public class MainGui extends javax.swing.JFrame {
             if (this.cpuresult.equals("Go Fish")){
                 this.gofish_confirm.setText("GO FISH");
                 this.c1Fish.setText("Computer Drew a Card");
-                this.pInfo.setText("Select a new card to ask!");
+                this.pInfo.setText("No match found. Press Go Fish to Continue.");
+                
             
             }
             
@@ -1062,6 +1073,7 @@ public class MainGui extends javax.swing.JFrame {
 
     private void jAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAskActionPerformed
         if (card != null && this.askLock == false){//check for empty field and player turn
+            this.pInfo.setText("");
             
             System.out.println("current card rank: "+ card.getRankString());
 
@@ -1077,6 +1089,7 @@ public class MainGui extends javax.swing.JFrame {
 
             }else{
                 this.c1Fish.setText("Match is found! Take another turn!");
+                this.pInfo.setText("Select another card");
                 //maybe make the button reset to blank here
                 Controller.getGame().checkHand();
                 switch(Controller.getGame().checkGameOver()){
