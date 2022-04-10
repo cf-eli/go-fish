@@ -67,12 +67,14 @@ public class MainGui extends javax.swing.JFrame {
         pButton3 = new javax.swing.JButton();
         pButton2 = new javax.swing.JButton();
         deckButton = new javax.swing.JButton();
+        deckLabel = new javax.swing.JLabel();
         pButton13 = new javax.swing.JButton();
         pButton1 = new javax.swing.JButton();
         pButton9 = new javax.swing.JButton();
-        pAsk = new javax.swing.JButton();
         jAsk = new javax.swing.JButton();
+        pAsk = new javax.swing.JLabel();
         askTarget = new javax.swing.JComboBox<>();
+        deckLabel1 = new javax.swing.JLabel();
         cpu1Deck = new javax.swing.JLabel();
         cpu1Score = new javax.swing.JLabel();
         cpu1Name = new javax.swing.JLabel();
@@ -140,28 +142,28 @@ public class MainGui extends javax.swing.JFrame {
                 pButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 510, 70, 90));
+        jPanel1.add(pButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 560, 70, 90));
 
         pButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton12ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 510, 70, 90));
+        jPanel1.add(pButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 560, 70, 90));
 
         pButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton11ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 510, 70, 90));
+        jPanel1.add(pButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 560, 70, 90));
 
         pButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton10ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, 70, 90));
+        jPanel1.add(pButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 560, 70, 90));
 
         pButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/11h.png"))); // NOI18N
         pButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +171,7 @@ public class MainGui extends javax.swing.JFrame {
                 pButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 70, 90));
+        jPanel1.add(pButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 560, 70, 90));
 
         pButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/10c.png"))); // NOI18N
         pButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -177,35 +179,35 @@ public class MainGui extends javax.swing.JFrame {
                 pButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 70, 90));
+        jPanel1.add(pButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 70, 90));
 
         pButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 70, 90));
+        jPanel1.add(pButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, 70, 90));
 
         pButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 70, 90));
+        jPanel1.add(pButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 70, 90));
 
         pButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, 70, 90));
+        jPanel1.add(pButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, 70, 90));
 
         pButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 70, 90));
+        jPanel1.add(pButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 560, 70, 90));
 
         deckButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
         deckButton.addActionListener(new java.awt.event.ActionListener() {
@@ -213,36 +215,33 @@ public class MainGui extends javax.swing.JFrame {
                 deckButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(deckButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 70, 90));
+        jPanel1.add(deckButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 70, 90));
+
+        deckLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(deckLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, -1, 90));
 
         pButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton13ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 510, 70, 90));
+        jPanel1.add(pButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 70, 90));
 
         pButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 70, 90));
+        jPanel1.add(pButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 70, 90));
 
         pButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButton9ActionPerformed(evt);
             }
         });
-        jPanel1.add(pButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 510, 70, 90));
+        jPanel1.add(pButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 560, 70, 90));
 
-        pAsk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pAskActionPerformed(evt);
-            }
-        });
-        jPanel1.add(pAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 70, 90));
-
+        jAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
         jAsk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jAskActionPerformed(evt);
@@ -250,39 +249,45 @@ public class MainGui extends javax.swing.JFrame {
         });
         jPanel1.add(jAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, 70, 90));
 
+        pAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(pAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
+
         askTarget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(askTarget, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 330, -1, -1));
 
+        deckLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(deckLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, -1, 90));
+
         cpu1Deck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jPanel1.add(cpu1Deck, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
+        jPanel1.add(cpu1Deck, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
 
         cpu1Score.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cpu1Score.setForeground(new java.awt.Color(255, 255, 255));
         cpu1Score.setText("Score: 0");
-        jPanel1.add(cpu1Score, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+        jPanel1.add(cpu1Score, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
 
         cpu1Name.setForeground(new java.awt.Color(255, 255, 255));
         cpu1Name.setText("NAME");
-        jPanel1.add(cpu1Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+        jPanel1.add(cpu1Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
 
         cpu1HandCount.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cpu1HandCount.setForeground(new java.awt.Color(255, 255, 255));
         cpu1HandCount.setText("5");
-        jPanel1.add(cpu1HandCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
+        jPanel1.add(cpu1HandCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, -1));
 
         playerScore.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         playerScore.setForeground(new java.awt.Color(255, 255, 255));
         playerScore.setText("Score: 0");
-        jPanel1.add(playerScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
+        jPanel1.add(playerScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, -1, -1));
 
         playerName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         playerName.setForeground(new java.awt.Color(255, 255, 255));
         playerName.setText("NAME");
-        jPanel1.add(playerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, -1, -1));
+        jPanel1.add(playerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 510, -1, -1));
 
         deckCount.setForeground(new java.awt.Color(255, 255, 255));
         deckCount.setText("Deck Count: 45");
-        jPanel1.add(deckCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
+        jPanel1.add(deckCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, -1, -1));
 
         gofish_confirm.setText("GO FISH");
         gofish_confirm.addActionListener(new java.awt.event.ActionListener() {
@@ -290,7 +295,7 @@ public class MainGui extends javax.swing.JFrame {
                 gofish_confirmActionPerformed(evt);
             }
         });
-        jPanel1.add(gofish_confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 640, -1, -1));
+        jPanel1.add(gofish_confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, -1, -1));
 
         viewPlayerTurn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewPlayerTurn.setForeground(new java.awt.Color(255, 255, 255));
@@ -299,64 +304,64 @@ public class MainGui extends javax.swing.JFrame {
 
         pLabel1.setForeground(new java.awt.Color(255, 255, 255));
         pLabel1.setText("3");
-        jPanel1.add(pLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 10, -1));
+        jPanel1.add(pLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 10, -1));
 
         pLabel6.setForeground(new java.awt.Color(255, 255, 255));
         pLabel6.setText("3");
-        jPanel1.add(pLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 10, -1));
+        jPanel1.add(pLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 540, 10, -1));
 
         pLabel3.setForeground(new java.awt.Color(255, 255, 255));
         pLabel3.setText("3");
-        jPanel1.add(pLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 490, 10, -1));
+        jPanel1.add(pLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 540, 10, -1));
 
         pLabel13.setForeground(new java.awt.Color(255, 255, 255));
         pLabel13.setText("2");
-        jPanel1.add(pLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 490, -1, -1));
+        jPanel1.add(pLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 540, -1, -1));
 
         pLabel2.setForeground(new java.awt.Color(255, 255, 255));
         pLabel2.setText("3");
-        jPanel1.add(pLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, 10, -1));
+        jPanel1.add(pLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 540, 10, -1));
 
         pLabel5.setForeground(new java.awt.Color(255, 255, 255));
         pLabel5.setText("2");
-        jPanel1.add(pLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, -1));
+        jPanel1.add(pLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 540, -1, -1));
 
         pLabel4.setForeground(new java.awt.Color(255, 255, 255));
         pLabel4.setText("2");
-        jPanel1.add(pLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, -1, -1));
+        jPanel1.add(pLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, -1, -1));
 
         pLabel12.setForeground(new java.awt.Color(255, 255, 255));
         pLabel12.setText("2");
-        jPanel1.add(pLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, -1, -1));
+        jPanel1.add(pLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, -1, -1));
 
         pLabel11.setForeground(new java.awt.Color(255, 255, 255));
         pLabel11.setText("2");
-        jPanel1.add(pLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 490, -1, -1));
+        jPanel1.add(pLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 540, -1, -1));
 
         pLabel10.setForeground(new java.awt.Color(255, 255, 255));
         pLabel10.setText("2");
-        jPanel1.add(pLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 490, -1, -1));
+        jPanel1.add(pLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, -1, -1));
 
         pLabel9.setForeground(new java.awt.Color(255, 255, 255));
         pLabel9.setText("2");
-        jPanel1.add(pLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, -1, -1));
+        jPanel1.add(pLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 540, -1, -1));
 
         pLabel8.setForeground(new java.awt.Color(255, 255, 255));
         pLabel8.setText("2");
-        jPanel1.add(pLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
+        jPanel1.add(pLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 540, -1, -1));
 
         pLabel7.setForeground(new java.awt.Color(255, 255, 255));
         pLabel7.setText("2");
-        jPanel1.add(pLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, -1, -1));
+        jPanel1.add(pLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, -1, -1));
 
         pInfo.setForeground(new java.awt.Color(255, 255, 255));
         pInfo.setText("pinfo");
-        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, -1));
+        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, -1, -1));
 
         c1Fish.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         c1Fish.setForeground(new java.awt.Color(255, 255, 255));
         c1Fish.setText("c1Fish");
-        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, -1, 20));
+        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, 20));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 700));
@@ -877,6 +882,12 @@ public class MainGui extends javax.swing.JFrame {
                     + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().toString());
             showCInfo();
             refreshPlayerGUI();
+            
+            //turn the buttons off until need them again (after a computer go fish)
+            this.deckButton.setVisible(false);
+            this.jAsk.setVisible(false);
+            this.askTarget.setVisible(false);
+            
             //next, need to have the player handle the ask. use the cpuresult for if it says "Go Fish" or "Matched"
             
             if("Matched".equals(cpuresult)){
@@ -985,9 +996,14 @@ public class MainGui extends javax.swing.JFrame {
             }
             
             //gui elements
+            this.deckButton.setVisible(true);
+            this.jAsk.setVisible(true);
+            this.askTarget.setVisible(true);
+            
             this.askLockToggle();
             this.gofish_confirm.setVisible(false);
             this.c1Fish.setText("Computer Drew a Card");
+            this.pInfo.setText("Select a new card to ask!");
             this.pInfo.setText("");
             
             
@@ -1001,6 +1017,7 @@ public class MainGui extends javax.swing.JFrame {
             if (this.cpuresult.equals("Go Fish")){
                 this.gofish_confirm.setText("GO FISH");
                 this.c1Fish.setText("Computer Drew a Card");
+                this.pInfo.setText("Select a new card to ask!");
             
             }
             
@@ -1043,10 +1060,6 @@ public class MainGui extends javax.swing.JFrame {
         g.setVisible(true);*/
     }//GEN-LAST:event_gofish_confirmActionPerformed
 
-    private void pAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pAskActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pAskActionPerformed
-
     private void jAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAskActionPerformed
         if (card != null && this.askLock == false){//check for empty field and player turn
             
@@ -1055,7 +1068,7 @@ public class MainGui extends javax.swing.JFrame {
             findMatch = Controller.getGame().isMatch(card, "computer1"); //change to the dropdwon value when working
             if(findMatch.equals("Go Fish")){
                 System.out.println(findMatch); //debug, delete later
-                this.c1Fish.setText(findMatch);
+                this.c1Fish.setText("Go Fish, draw from the pile.");
                 // make deck accessable, maybe a boolean to lock/unlock it
                 //deckLock=false;
                 this.deckLockToggle();
@@ -1196,11 +1209,13 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel cpu1Score;
     private javax.swing.JButton deckButton;
     private javax.swing.JLabel deckCount;
+    private javax.swing.JLabel deckLabel;
+    private javax.swing.JLabel deckLabel1;
     private javax.swing.JButton gofish_confirm;
     private javax.swing.JButton jAsk;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menuButtonGUI;
-    private javax.swing.JButton pAsk;
+    private javax.swing.JLabel pAsk;
     private javax.swing.JButton pButton1;
     private javax.swing.JButton pButton10;
     private javax.swing.JButton pButton11;
