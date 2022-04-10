@@ -511,6 +511,8 @@ public class MainGui extends javax.swing.JFrame {
         setDeckCount();
         setNames();
         this.gofish_confirm.setVisible(false);
+        this.pInfo.setText("");
+        this.c1Fish.setText("");
     
     }
 
@@ -572,11 +574,11 @@ public class MainGui extends javax.swing.JFrame {
         
         
         
-        pInfo.setText(currentPlayer +" is asking");
+        //pInfo.setText(currentPlayer +" is asking");
         jAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
     }
     public void showCInfo(){
-        pInfo.setText(currentPlayer +" is asking");
+        //pInfo.setText(currentPlayer +" is asking");
         pAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
     
     
@@ -963,7 +965,7 @@ public class MainGui extends javax.swing.JFrame {
             Controller.getGame().goFish();
             
             //check for winner
-            Controller.getGame().checkHand();
+            //Controller.getGame().checkHand();
             switch(Controller.getGame().checkGameOver()){
                 case 1 -> {
                     //this should be for point win
@@ -985,7 +987,7 @@ public class MainGui extends javax.swing.JFrame {
             //gui elements
             this.askLockToggle();
             this.gofish_confirm.setVisible(false);
-            this.c1Fish.setText("");
+            this.c1Fish.setText("Computer Drew a Card");
             this.pInfo.setText("");
             
             
@@ -996,26 +998,32 @@ public class MainGui extends javax.swing.JFrame {
             //runs the AI again, this should happen until it doesnt get a match
             cpuresult = ((Ai)Controller.getGame().getCurrentTurnPlayer()).runAi(Controller.getGame());
             url = ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().getImg();
+            if (this.cpuresult.equals("Go Fish")){
+                this.gofish_confirm.setText("GO FISH");
+                this.c1Fish.setText("Computer Drew a Card");
+            
+            }
+            
             showCInfo();
             
-                Controller.getGame().checkHand();
-                switch(Controller.getGame().checkGameOver()){
-                    case 1 -> {
-                        //this should be for point win
-                        Controller.getWin_Loss().setVisible(true);
-                        Controller.getWin_Loss().setMainLabel("Win by Points!");
-                        Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+            Controller.getGame().checkHand();
+            switch(Controller.getGame().checkGameOver()){
+                case 1 -> {
+                    //this should be for point win
+                    Controller.getWin_Loss().setVisible(true);
+                    Controller.getWin_Loss().setMainLabel("Win by Points!");
+                    Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
 
 
-                    }
-                    case 2 ->{
-                        //this should be for if someone loses by no cards
-                        Controller.getWin_Loss().setVisible(true);
-                        Controller.getWin_Loss().setMainLabel("No More Cards!");
-                        Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
-
-                    }
                 }
+                case 2 ->{
+                    //this should be for if someone loses by no cards
+                    Controller.getWin_Loss().setVisible(true);
+                    Controller.getWin_Loss().setMainLabel("No More Cards!");
+                    Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+
+                }
+            }
             
             refreshPlayerGUI();
                 this.c1Fish.setText(Controller.getGame().getCurrentTurnPlayer().getName() 

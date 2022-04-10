@@ -34,7 +34,7 @@ public class DeprAskCard extends javax.swing.JFrame {
             model[i] = cPlayers.get(i+1);
         }
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(model));
-        jLabel5.setText(player +" is asking");
+        //jLabel5.setText(player +" is asking");
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" +cardUrl)));
     }
     /**
