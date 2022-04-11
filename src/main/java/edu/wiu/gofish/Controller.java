@@ -57,8 +57,8 @@ public class Controller{
                 //mainview
                // maingame.setTurnOrder();
                 //set the main view as visible and dispose of the startview
-                mainview.Init();
-                
+                mainview.beginGame();
+                mainview.setVisible(true);
                 startview.dispose();
                 
                 //add game listeners here
@@ -129,6 +129,7 @@ public class Controller{
                 Game game = new Game();
                 Controller control = new Controller(start, game);
                 start.setVisible(true);
+
 
 
             } 

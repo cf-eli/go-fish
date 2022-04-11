@@ -502,9 +502,9 @@ public class MainGui extends javax.swing.JFrame {
     }
     
     //this is run once, at the start of the game OR maybe reset of the game
-    public void Init(){
+    public void beginGame(){
        
-        setVisible(true);
+        //setVisible(true);
         populateButtons();
         populateLabels(); 
         populateDropdown();
@@ -622,9 +622,9 @@ public class MainGui extends javax.swing.JFrame {
 
     private void resetButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonGUIActionPerformed
         // TODO add your handling code here:
-        MainGui g = new MainGui();
-        g.setVisible(true);
-        dispose();
+//        MainGui g = new MainGui();
+//        g.setVisible(true);
+//        dispose();
         
         //prolly need to reset deck and hands later lol
     }//GEN-LAST:event_resetButtonGUIActionPerformed
@@ -1121,7 +1121,7 @@ public class MainGui extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jAskActionPerformed
     void addHelpGameListener(ActionListener Listener){
-        resetButtonGUI.addActionListener(Listener);        
+        menuButtonGUI.addActionListener(Listener);        
     }
     void addCloseGameListener(ActionListener Listener){
         closeButtonGUI.addActionListener(Listener);
