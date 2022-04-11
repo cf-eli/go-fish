@@ -14,16 +14,19 @@ import java.util.*;//example\
  */
 public class Deck {
     private int cardsInDeck; //use this to keep place in the deck when populating, increment when card is changed, in theory anyway
-    private final ArrayList<Card> decklist = new ArrayList<>();
+    private final ArrayList<Card> decklist = new ArrayList<>();//All cards in deck
     
     
     public Deck(){
         
     }
+    
+    //Return size of deck
     public int getSize(){
         return this.decklist.size();
     
     }
+    
     
     public void reset(){ //populate the deck in this method
         cardsInDeck = 0;
@@ -45,6 +48,8 @@ public class Deck {
         
         
         }
+    
+    //Draw a card from the deck, and remove it form the deck
     public Card draw(){
         cardsInDeck = decklist.size()-1;
         return this.decklist.remove(0);
