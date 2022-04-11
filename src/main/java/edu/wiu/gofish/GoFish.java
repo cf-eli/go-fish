@@ -16,7 +16,7 @@ import java.util.Random;
 
 
 
-
+//main class
 public class GoFish {
     /**
      * @param args the command line arguments

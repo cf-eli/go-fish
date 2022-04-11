@@ -18,13 +18,14 @@ import java.util.regex.Matcher;
 public class MainGui extends javax.swing.JFrame {
        
        //Game game = Controller.getGame();
+        //hold list of player buttons
        ArrayList<JButton> pButtons = new ArrayList<JButton>();
+       //hold list of play labels
        ArrayList<JLabel> pLabels = new ArrayList<JLabel>();
-       String findMatch;
-       String url;
-       String currentPlayer;
-       DeprAskCard g;
-       Card card;
+       String findMatch; //string that will hold match if found
+       String url; //string that hold url 
+       String currentPlayer; //string that will keep track of current player
+       Card card; //hold card object
        boolean deckLock = true; // deck is locked if true, only put to false when its player's go fish phase
        boolean askLock = false; //lock for the ask button, starts off as open, then locks it after a go fish. opens every time gofish is hit afterwards
        String cpuresult;
@@ -380,6 +381,7 @@ public class MainGui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //Set the urlIcon  of each button associated with the cards in player hands accordingly
+   //set the button icon for each card in the player hand
     public void setButtonIcon(){
         ArrayList<String> img = new ArrayList<>();
         //img = Controller.getGame().getImg();
@@ -388,7 +390,7 @@ public class MainGui extends javax.swing.JFrame {
         for (i = 0; i<img.size();i++){
             pButtons.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + img.get(i)))); 
         }
-        for(i = i;i<13;i++){
+        for(i = i;i<13;i++){//set the rest of the hand with background images
             pButtons.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png")));
         }
     
@@ -433,14 +435,16 @@ public class MainGui extends javax.swing.JFrame {
             points.add(Controller.getGame().getPlayer(i).getScore());
         }*/
     }
+    //Set text to current player turn
     public void setViewPlayerTurn(){
         this.viewPlayerTurn.setText("Current Turn: "+ Controller.getGame().getCurrentTurnName());
     }
-    
+    //set deck count to current cpu size
     public void setDeckCount(){
         this.deckCount.setText("Deck Count: "+ Controller.getGame().getDeck().getSize());
     
     }
+    //set the cpu hand
     public void setCpuHand(){
         switch(Controller.getGame().getPlayerCount()){
             case 2: 
@@ -460,6 +464,7 @@ public class MainGui extends javax.swing.JFrame {
                 break;
         }
     }
+    //set names for ai
     public void setNames(){
         switch(Controller.getGame().getPlayerCount()){
             case 2: 
@@ -483,14 +488,17 @@ public class MainGui extends javax.swing.JFrame {
     
         }
     }
+    //set deck toggle
     public void deckLockToggle(){
         this.deckLock = this.deckLock != true;
     
     }
+    //asklock toggle
     public void askLockToggle(){
         this.askLock = this.askLock != true;
     
     }
+    //refreshplayergui after every turn
     public void refreshPlayerGUI(){
         setButtonIcon();
         setLabelText();
@@ -567,7 +575,7 @@ public class MainGui extends javax.swing.JFrame {
             System.out.println(currentPlayer);
         }
     }
-    //Listener for ask button in AskCard class
+    //show what card player is asking for
     public void showInfo(){
         /* broke this up into a separate method, commenting out incase it's needed later
         ArrayList<String> players = Controller.getGame().getCurrentPlayers();
@@ -582,6 +590,7 @@ public class MainGui extends javax.swing.JFrame {
         //pInfo.setText(currentPlayer +" is asking");
         jAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
     }
+    //show what card cpu is asking for
     public void showCInfo(){
         //pInfo.setText(currentPlayer +" is asking");
         pAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
@@ -597,22 +606,6 @@ public class MainGui extends javax.swing.JFrame {
             model[i] = players.get(i+1);
         }
         askTarget.setModel(new javax.swing.DefaultComboBoxModel<>(model));           
-    }
-    class AskCardListener implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent e){
-            String choice = g.getChoice();
-            System.out.println(choice);
-            findMatch = Controller.getGame().isMatch(card, choice);
-            System.out.println(findMatch);
-            Controller.getGame().checkHand();
-            refreshPlayerGUI();
-            g.dispose();
-            DeprAskResult g2 = new DeprAskResult(choice, currentPlayer, url, findMatch);
-            g2.setVisible(true);
-            g2.addNextTurnButtonListener(new NextTurnListener());
-
-        }
     }
     private void menuButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonGUIActionPerformed
         // TODO add your handling code here:

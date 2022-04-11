@@ -15,21 +15,24 @@ public class Player {
     private ArrayList<Card> hand = new ArrayList<Card>();
     private int score;
     private int playerid = 0; //this will always be 0 for a player, there should only be one
-    
+   //Hold player name 
     public Player(String name){
         playername = name;
     }
-    
+    //Hold player hand
     public ArrayList<Card> getHand(){
         return this.hand;
     }
+    //grab a card in player hand
     public int getCard(int a){
         hand.get(a);
         return a;
     }
+    //return the player name
     public String getName(){//returns the player name
         return this.playername;
     }
+
     public void addCard(Card c){//takes in a card object and places it in the hand.
         this.hand.add(c);
         //System.out.println(c.getImg()); test
@@ -43,19 +46,22 @@ public class Player {
     public void increaseScore(){//increments the score, if someone reaches 8 the game should be set to over
         this.score ++;
     }
+    //return player number
     public int getPlayernumber(){
         return playerid;
     }
+    //set player id
     public int setPlayerid(int i){
         playerid = i;
         return playerid;
     }
+    //return amount in hand
     public int getAmountInHand(){
     
         return this.hand.size();
     }
     
-            
+    //check hand for matches        
     public void checkHand(){//player and ai
         ArrayList<Integer> temp = new ArrayList<>();
         for(int i=0;i<hand.size();i++){ //add all ranks in hand to a temp array
@@ -86,8 +92,8 @@ public class Player {
           
     }
     
-        
-        public ArrayList<String> getImg(){//player only
+    //look at player hand for images  
+    public ArrayList<String> getImg(){//player only
         ArrayList<String> img = new ArrayList<>();
         ArrayList<Integer> occurred = new ArrayList<>();
         for(int i =0;i<hand.size();i++){
@@ -98,7 +104,7 @@ public class Player {
         System.out.println(img);//test
         return img;
     }
-    
+    //get freq for how many time a rank shows up in hand
     public ArrayList<Integer> getHandFreq(){//player only
         ArrayList<Integer> freq = new ArrayList<>();
         ArrayList<Integer> temp = new ArrayList<>();

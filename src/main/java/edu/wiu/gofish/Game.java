@@ -47,13 +47,14 @@ public class Game {
         
     }
     
-    
+    //Return the player
     public Player getPlayer(int a){
         return players.get(a);
     
     }
+    //return list of player
     public ArrayList<Player> getPlayers(){
-    return this.players;
+        return this.players;
     };
     //get deck object
     public Deck getDeck(){
@@ -133,7 +134,7 @@ public class Game {
         return a;
     }
     
-        
+    //End the game, WIP    
     public void endGame(){
         if(isgameover == true){
         
@@ -174,26 +175,17 @@ public class Game {
         return this.winner;
     
     }
-    //this needs to check the hands for 
-    /*public void checkHands(){
+
     
-    
-    
-    }*/
-    
-    /*NOT NEEDED
-    public void setNextTurn(){// takes the first person on the list and places them at the end of the list
-        players.add(players.remove(0));
- 
-    }
-    NOT NEEDED*/
+
     public String getCurrentTurnName(){ //return the current player's name
         return players.get(currentPlayerTurn).getName();
     }
     
-    public int getCurrentTurn(){//Get the currentPlayerTrun
+    public int getCurrentTurn(){//Get the currentPlayerTrun, testing only
         return currentPlayerTurn;
     }
+    
     public Player getCurrentTurnPlayer(){
         return this.getPlayer(currentPlayerTurn);
     }
@@ -300,6 +292,7 @@ public class Game {
     public void checkHand(){
         players.get(currentPlayerTurn).checkHand();
     }
+    //Return number of player
     public int getPlayerCount(){
         return players.size();
     }
