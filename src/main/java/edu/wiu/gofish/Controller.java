@@ -119,7 +119,7 @@ public class Controller{
                 
             } 
         }
-        //Doesn't reset the game
+        //Send the player back to the startpage screen
         class ResetButtonListener implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {

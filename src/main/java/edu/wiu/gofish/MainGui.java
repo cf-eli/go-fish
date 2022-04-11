@@ -616,8 +616,8 @@ public class MainGui extends javax.swing.JFrame {
     }
     private void menuButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonGUIActionPerformed
         // TODO add your handling code here:
-        HelpScreen g = new HelpScreen();
-        g.setVisible(true);
+//        HelpScreen g = new HelpScreen();
+//       // g.setVisible(true);
     }//GEN-LAST:event_menuButtonGUIActionPerformed
 
     private void resetButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonGUIActionPerformed
