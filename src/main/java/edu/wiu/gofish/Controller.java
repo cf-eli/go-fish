@@ -119,6 +119,7 @@ public class Controller{
                 
             } 
         }
+        //Doesn't reset the game
         class ResetButtonListener implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -127,10 +128,12 @@ public class Controller{
                 StartPage start = new StartPage();
                 Game game = new Game();
                 Controller control = new Controller(start, game);
-                start.setVisible(true);                
+                start.setVisible(true);
+
 
             } 
         }
+        
         class DeckButtonListener implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
