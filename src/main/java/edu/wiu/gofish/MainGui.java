@@ -679,7 +679,7 @@ public class MainGui extends javax.swing.JFrame {
         Controller.getGame().checkHand();
         //if this returns 0, no change happened
         switch(Controller.getGame().checkGameOver()){
-            case 1 -> {
+            case 1: {
                 //this should be for point win
                 Controller.getWin_Loss().setVisible(true);
                 Controller.getWin_Loss().setMainLabel("Win by Points!");
@@ -687,7 +687,7 @@ public class MainGui extends javax.swing.JFrame {
 
                 
             }
-            case 2 ->{
+            case 2:{
                 //this should be for if someone loses by no cards
                 Controller.getWin_Loss().setVisible(true);
                 Controller.getWin_Loss().setMainLabel("No More Cards!");
@@ -821,7 +821,7 @@ public class MainGui extends javax.swing.JFrame {
             //check for winner
             //Controller.getGame().checkHand();
             switch(Controller.getGame().checkGameOver()){
-                case 1 -> {
+                case 1: {
                     //this should be for point win
                     Controller.getWin_Loss().setVisible(true);
                     Controller.getWin_Loss().setMainLabel("Win by Points!");
@@ -829,7 +829,7 @@ public class MainGui extends javax.swing.JFrame {
 
 
                 }
-                case 2 ->{
+                case 2: {
                     //this should be for if someone loses by no cards
                     Controller.getWin_Loss().setVisible(true);
                     Controller.getWin_Loss().setMainLabel("No More Cards!");
@@ -869,7 +869,7 @@ public class MainGui extends javax.swing.JFrame {
             
             Controller.getGame().checkHand();
             switch(Controller.getGame().checkGameOver()){
-                case 1 -> {
+                case 1: {
                     //this should be for point win
                     Controller.getWin_Loss().setVisible(true);
                     Controller.getWin_Loss().setMainLabel("Win by Points!");
@@ -877,7 +877,7 @@ public class MainGui extends javax.swing.JFrame {
 
 
                 }
-                case 2 ->{
+                case 2: {
                     //this should be for if someone loses by no cards
                     Controller.getWin_Loss().setVisible(true);
                     Controller.getWin_Loss().setMainLabel("No More Cards!");
@@ -926,7 +926,7 @@ public class MainGui extends javax.swing.JFrame {
                 //maybe make the button reset to blank here
                 Controller.getGame().checkHand();
                 switch(Controller.getGame().checkGameOver()){
-                    case 1 -> {
+                    case 1 : {
                         //this should be for point win
                         Controller.getWin_Loss().setVisible(true);
                         Controller.getWin_Loss().setMainLabel("Win by Points!");
@@ -934,7 +934,7 @@ public class MainGui extends javax.swing.JFrame {
 
 
                     }
-                    case 2 ->{
+                    case 2 : {
                         //this should be for if someone loses by no cards
                         Controller.getWin_Loss().setVisible(true);
                         Controller.getWin_Loss().setMainLabel("No More Cards!");
