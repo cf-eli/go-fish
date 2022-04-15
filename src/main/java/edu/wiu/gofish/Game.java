@@ -161,6 +161,18 @@ public class Game {
                 
                 isgameover = true;
                 return 2;
+            }else if(this.getDeck().getSize() == 0){
+                switch(this.players.size()){
+                    case 2:{
+                        if(players.get(0).getScore() > players.get(1).getScore()){
+                            this.winner = players.get(0).getName();
+                        }else
+                            this.winner = players.get(1).getName();
+                        break;
+                    }
+                }
+                isgameover = true;
+                return 3;
             }
         }
         return 0;

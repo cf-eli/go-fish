@@ -79,7 +79,6 @@ public class MainGui extends javax.swing.JFrame {
         asked_for_info = new javax.swing.JLabel();
         ask_name = new javax.swing.JLabel();
         askcurrentplayer = new javax.swing.JLabel();
-        deckLabel1 = new javax.swing.JLabel();
         cpu1Deck = new javax.swing.JLabel();
         cpu1Score = new javax.swing.JLabel();
         cpu1Name = new javax.swing.JLabel();
@@ -277,9 +276,6 @@ public class MainGui extends javax.swing.JFrame {
         askcurrentplayer.setForeground(new java.awt.Color(255, 255, 255));
         askcurrentplayer.setText("Currentai");
         jPanel1.add(askcurrentplayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, -1));
-
-        deckLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jPanel1.add(deckLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 440, -1, 90));
 
         cpu1Deck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
         jPanel1.add(cpu1Deck, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
@@ -678,8 +674,8 @@ public class MainGui extends javax.swing.JFrame {
         askTarget.setModel(new javax.swing.DefaultComboBoxModel<>(model));           
     }
     //checks for a winner
-    //TODO: gotta add in condition for deck is empty, should run gameover
     public void winnerCheck(){
+        
         Controller.getGame().checkHand();
         
         switch(Controller.getGame().checkGameOver()){
@@ -699,6 +695,12 @@ public class MainGui extends javax.swing.JFrame {
                 Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
                 break;
 
+            }
+            case 3:{
+                Controller.getWin_Loss().setVisible(true);
+                Controller.getWin_Loss().setMainLabel("No More Cards!");
+                Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+            
             }
         }
     
@@ -834,6 +836,10 @@ public class MainGui extends javax.swing.JFrame {
             this.playerAsk.setVisible(false);
             this.askTarget.setVisible(false);
             this.next_turn.setVisible(true);
+            this.playerAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png")));
+            this.url = null;
+            this.card = null;
+            
             
             //updating drawn card info
             this.drawn_card_info.setText("You Drew:");
@@ -1041,6 +1047,7 @@ public class MainGui extends javax.swing.JFrame {
         }
         Controller.getGame().checkHand();
         this.next_turn.setVisible(false);
+        this.url = null;
     }//GEN-LAST:event_next_turnActionPerformed
     void addHelpGameListener(ActionListener Listener){
         menuButtonGUI.addActionListener(Listener);        
@@ -1148,7 +1155,6 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JButton deckButton;
     private javax.swing.JLabel deckCount;
     private javax.swing.JLabel deckLabel;
-    private javax.swing.JLabel deckLabel1;
     private javax.swing.JLabel drawn_card_graphic0;
     private javax.swing.JLabel drawn_card_graphic1;
     private javax.swing.JLabel drawn_card_graphic2;
