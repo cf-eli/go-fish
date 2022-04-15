@@ -29,6 +29,7 @@ public class MainGui extends javax.swing.JFrame {
        boolean deckLock = true; // deck is locked if true, only put to false when its player's go fish phase
        boolean askLock = false; //lock for the ask button, starts off as open, then locks it after a go fish. opens every time gofish is hit afterwards
        String cpuresult;
+       Card drawncard;
       // game.startGame();
     /**
      * Creates new form MainGui
@@ -72,9 +73,12 @@ public class MainGui extends javax.swing.JFrame {
         pButton13 = new javax.swing.JButton();
         pButton1 = new javax.swing.JButton();
         pButton9 = new javax.swing.JButton();
-        jAsk = new javax.swing.JButton();
+        playerAsk = new javax.swing.JButton();
         pAsk = new javax.swing.JLabel();
         askTarget = new javax.swing.JComboBox<>();
+        asked_for_info = new javax.swing.JLabel();
+        ask_name = new javax.swing.JLabel();
+        askcurrentplayer = new javax.swing.JLabel();
         deckLabel1 = new javax.swing.JLabel();
         cpu1Deck = new javax.swing.JLabel();
         cpu1Score = new javax.swing.JLabel();
@@ -83,8 +87,14 @@ public class MainGui extends javax.swing.JFrame {
         playerScore = new javax.swing.JLabel();
         playerName = new javax.swing.JLabel();
         deckCount = new javax.swing.JLabel();
+        next_turn = new javax.swing.JButton();
         gofish_confirm = new javax.swing.JButton();
         viewPlayerTurn = new javax.swing.JLabel();
+        drawn_card_graphic0 = new javax.swing.JLabel();
+        drawn_card_graphic1 = new javax.swing.JLabel();
+        drawn_card_graphic2 = new javax.swing.JLabel();
+        drawn_card_info = new javax.swing.JLabel();
+        drawn_name = new javax.swing.JLabel();
         pLabel1 = new javax.swing.JLabel();
         pLabel6 = new javax.swing.JLabel();
         pLabel3 = new javax.swing.JLabel();
@@ -242,39 +252,51 @@ public class MainGui extends javax.swing.JFrame {
         });
         jPanel1.add(pButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 560, 70, 90));
 
-        jAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jAsk.addActionListener(new java.awt.event.ActionListener() {
+        playerAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        playerAsk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jAskActionPerformed(evt);
+                playerAskActionPerformed(evt);
             }
         });
-        jPanel1.add(jAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, 70, 90));
+        jPanel1.add(playerAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 440, 70, 90));
 
         pAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jPanel1.add(pAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
+        jPanel1.add(pAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 70, 90));
 
         askTarget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(askTarget, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 330, -1, -1));
+        jPanel1.add(askTarget, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 400, -1, -1));
+
+        asked_for_info.setForeground(new java.awt.Color(255, 255, 255));
+        asked_for_info.setText("for a:");
+        jPanel1.add(asked_for_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, -1, -1));
+
+        ask_name.setForeground(new java.awt.Color(255, 255, 255));
+        ask_name.setText("NAME");
+        jPanel1.add(ask_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, -1, -1));
+
+        askcurrentplayer.setForeground(new java.awt.Color(255, 255, 255));
+        askcurrentplayer.setText("Currentai");
+        jPanel1.add(askcurrentplayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, -1));
 
         deckLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jPanel1.add(deckLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, -1, 90));
+        jPanel1.add(deckLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 440, -1, 90));
 
         cpu1Deck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        jPanel1.add(cpu1Deck, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+        jPanel1.add(cpu1Deck, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
 
         cpu1Score.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cpu1Score.setForeground(new java.awt.Color(255, 255, 255));
         cpu1Score.setText("Score: 0");
-        jPanel1.add(cpu1Score, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
+        jPanel1.add(cpu1Score, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         cpu1Name.setForeground(new java.awt.Color(255, 255, 255));
         cpu1Name.setText("NAME");
-        jPanel1.add(cpu1Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
+        jPanel1.add(cpu1Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
         cpu1HandCount.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cpu1HandCount.setForeground(new java.awt.Color(255, 255, 255));
         cpu1HandCount.setText("5");
-        jPanel1.add(cpu1HandCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, -1));
+        jPanel1.add(cpu1HandCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
         playerScore.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         playerScore.setForeground(new java.awt.Color(255, 255, 255));
@@ -290,18 +312,44 @@ public class MainGui extends javax.swing.JFrame {
         deckCount.setText("Deck Count: 45");
         jPanel1.add(deckCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, -1, -1));
 
+        next_turn.setText("Next Turn");
+        next_turn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                next_turnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(next_turn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, 100, -1));
+
         gofish_confirm.setText("GO FISH");
         gofish_confirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gofish_confirmActionPerformed(evt);
             }
         });
-        jPanel1.add(gofish_confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, -1, -1));
+        jPanel1.add(gofish_confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, 100, -1));
 
         viewPlayerTurn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         viewPlayerTurn.setForeground(new java.awt.Color(255, 255, 255));
         viewPlayerTurn.setText("Player Turn:");
-        jPanel1.add(viewPlayerTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+        jPanel1.add(viewPlayerTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
+
+        drawn_card_graphic0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(drawn_card_graphic0, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 70, 90));
+
+        drawn_card_graphic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(drawn_card_graphic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 70, 90));
+
+        drawn_card_graphic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(drawn_card_graphic2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 70, 90));
+
+        drawn_card_info.setBackground(new java.awt.Color(255, 255, 255));
+        drawn_card_info.setForeground(new java.awt.Color(255, 255, 255));
+        drawn_card_info.setText("You Drew:");
+        jPanel1.add(drawn_card_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, -1, -1));
+
+        drawn_name.setForeground(new java.awt.Color(255, 255, 255));
+        drawn_name.setText("NAME:");
+        jPanel1.add(drawn_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
         pLabel1.setForeground(new java.awt.Color(255, 255, 255));
         pLabel1.setText("3");
@@ -357,12 +405,12 @@ public class MainGui extends javax.swing.JFrame {
 
         pInfo.setForeground(new java.awt.Color(255, 255, 255));
         pInfo.setText("pinfo");
-        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, -1, -1));
+        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, -1, -1));
 
         c1Fish.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         c1Fish.setForeground(new java.awt.Color(255, 255, 255));
         c1Fish.setText("c1Fish");
-        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, 20));
+        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, -1, 20));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 700));
@@ -526,6 +574,16 @@ public class MainGui extends javax.swing.JFrame {
         this.gofish_confirm.setVisible(false);
         this.pInfo.setText("Select a card to ask!");
         this.c1Fish.setText("");
+        this.next_turn.setVisible(false);
+        this.drawn_card_info.setVisible(false);
+        this.drawn_card_graphic0.setVisible(false);
+        this.drawn_card_graphic1.setVisible(false);
+        this.drawn_card_graphic2.setVisible(false);
+        this.pAsk.setVisible(false);
+        this.ask_name.setVisible(false);
+        this.asked_for_info.setVisible(false);
+        this.drawn_name.setVisible(false);
+        this.askcurrentplayer.setVisible(false);
     
     }
 
@@ -600,7 +658,7 @@ public class MainGui extends javax.swing.JFrame {
         
         
         //pInfo.setText(currentPlayer +" is asking");
-        jAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
+        playerAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
     }
     //show what card cpu is asking for
     public void showCInfo(){
@@ -618,6 +676,77 @@ public class MainGui extends javax.swing.JFrame {
             model[i] = players.get(i+1);
         }
         askTarget.setModel(new javax.swing.DefaultComboBoxModel<>(model));           
+    }
+    //checks for a winner
+    //TODO: gotta add in condition for deck is empty, should run gameover
+    public void winnerCheck(){
+        Controller.getGame().checkHand();
+        
+        switch(Controller.getGame().checkGameOver()){
+            case 1: {
+                //this should be for point win
+                Controller.getWin_Loss().setVisible(true);
+                Controller.getWin_Loss().setMainLabel("Win by Points!");
+                Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+                break;
+
+
+            }
+            case 2: {
+                //this should be for if someone loses by no cards
+                Controller.getWin_Loss().setVisible(true);
+                Controller.getWin_Loss().setMainLabel("No More Cards!");
+                Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
+                break;
+
+            }
+        }
+    
+    }
+    
+    //checks the current target of the AI, then used the recently lost array to show cards that were lost
+    //should only be for player
+    public void showMatchedPlayer(){
+        //check the size of how many cards were lost
+        switch(((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrent_Target().getRecently_Lost().size()){
+
+            //if one card is lost
+            case 1 : {
+                //set the picture to that card lost
+                this.drawn_name.setVisible(true);
+                this.drawn_name.setText(Controller.getGame().getCurrentPlayers().get(0));
+                this.drawn_card_info.setText("Lost:");
+                this.drawn_card_graphic0.setVisible(true);
+                this.drawn_card_graphic0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(0).getRecently_Lost().get(0).getImg())));
+                break;
+            }
+            //if 2 cards are lost
+            case 2 : {
+                this.drawn_name.setVisible(true);
+                this.drawn_name.setText(Controller.getGame().getCurrentPlayers().get(0));
+                this.drawn_card_info.setText("Lost:");
+                this.drawn_card_graphic0.setVisible(true);
+                this.drawn_card_graphic1.setVisible(true);
+                this.drawn_card_graphic0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(0).getRecently_Lost().get(0).getImg())));
+                this.drawn_card_graphic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(0).getRecently_Lost().get(1).getImg())));
+                break;
+            }
+            //if 3 cards are lost
+            case 3 : {
+                this.drawn_name.setVisible(true);
+                this.drawn_name.setText(Controller.getGame().getCurrentPlayers().get(0));
+                this.drawn_card_info.setText("Lost:");
+                this.drawn_card_graphic0.setVisible(true);
+                this.drawn_card_graphic1.setVisible(true);
+                this.drawn_card_graphic2.setVisible(true);
+                this.drawn_card_graphic0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(0).getRecently_Lost().get(0).getImg())));
+                this.drawn_card_graphic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(0).getRecently_Lost().get(1).getImg())));
+                this.drawn_card_graphic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(0).getRecently_Lost().get(2).getImg())));
+                break;
+            }
+    
+    
+        }
     }
     private void menuButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonGUIActionPerformed
         // TODO add your handling code here:
@@ -676,29 +805,14 @@ public class MainGui extends javax.swing.JFrame {
 
     private void deckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deckButtonActionPerformed
         
+        //TODO might just combine this with the winnercheck
         Controller.getGame().checkHand();
-        //if this returns 0, no change happened
-        switch(Controller.getGame().checkGameOver()){
-            case 1: {
-                //this should be for point win
-                Controller.getWin_Loss().setVisible(true);
-                Controller.getWin_Loss().setMainLabel("Win by Points!");
-                Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
-
-                
-            }
-            case 2:{
-                //this should be for if someone loses by no cards
-                Controller.getWin_Loss().setVisible(true);
-                Controller.getWin_Loss().setMainLabel("No More Cards!");
-                Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
-                
-            }
-        }
+        //check for winner
+        this.winnerCheck();
         //if decksize is not equal to 0, set player to next and refresh UI
         if(Controller.getGame().getDeck().getSize()!=0 && deckLock != true){
             //COMMENTING THIS OUT FOR DEBUGGING
-            Controller.getGame().setNextPlayerTurn();
+            this.drawncard = Controller.getGame().setNextPlayerTurn();
             //TURN THIS BACK ON WHEN DONE
             refreshPlayerGUI();
             //deckLock = true;
@@ -710,83 +824,24 @@ public class MainGui extends javax.swing.JFrame {
             System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size()); 
             // debugging end
             
-            /*add game flow for AI here. There needs to be some sort of interaction to break up the flow,
-            if a match is found, a new button either pops in or is accessable. Player needs to press a confirm button
-            after showing the player the card that the AI picked. All this button does is redo the AI portion of the deck button
-            code. the other 
             
-            if there isnt a match, the other button/function of the confirm button says "go fish" and does the next turn function,
-            setting it to the PC player again.
-            
-            I think it should be possbile to do this with 1 button, and using set visible/set text to do, im not 100% though.
-            we should use the "go fish" button we already have to do that, and only make it visible in both if branches, then make it not
-            visible after clicking the confirm/gofish button.
-            
-            so logic should be -> do match in this button press
-                                ->  if ai matches card with someone:
-                                    ->  make confirm button visible
-                                ->  if ai doesnt match with player:
-                                    ->  make "gofish" button visible
-                                ->  if ai matches card with other ai(not player)
-                                    ->make confirm button visible
-            
-            
-            And then for the button:
-            Confirm:
-                -> needs to have 2 conditions
-                -> not the current target of the ai
-                -> if it is the current target of the ai and match is found
-            
-            Go fish
-                -> only available if player is the current target and no match is found
-            
-            this can be done with 2 seperate buttons, or one button with a 3way branch, whichever is easier.
-            */
-            
-            //sets a matched or go fish in cpuresult
-            cpuresult = ((Ai)Controller.getGame().getCurrentTurnPlayer()).runAi(Controller.getGame());
-            
-            //sets the url to the currently selected card in AI class
-            url = ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().getImg();
-            
-            //debugging
-            System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
-            System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());             
-             
-            //Controller.getGame().getPlayer(1).getImg().get()
-            //Controller.getGame().setSpecificTurnplayer();
-            //debugging
-            this.c1Fish.setText(Controller.getGame().getCurrentTurnPlayer().getName() 
-                    + " is asking " + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrent_Target() + " for a "
-                    + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().toString());
-            showCInfo();
             refreshPlayerGUI();
+            
+            this.c1Fish.setText("");
             
             //turn the buttons off until need them again (after a computer go fish)
             this.deckButton.setVisible(false);
-            this.jAsk.setVisible(false);
+            this.playerAsk.setVisible(false);
             this.askTarget.setVisible(false);
+            this.next_turn.setVisible(true);
             
-            //next, need to have the player handle the ask. use the cpuresult for if it says "Go Fish" or "Matched"
-            
-            if("Matched".equals(cpuresult)){
-                
-                this.gofish_confirm.setText("CONTINUE");
-                this.gofish_confirm.setVisible(true);
-                this.pInfo.setText("Match found, press continue");
-                
+            //updating drawn card info
+            this.drawn_card_info.setText("You Drew:");
+            this.drawn_card_info.setVisible(true);
+            this.drawn_card_graphic0.setVisible(true);
+            this.drawn_card_graphic0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + this.drawncard.getImg())));
             
             
-            }else{
-                
-                this.gofish_confirm.setText("GO FISH");
-                this.gofish_confirm.setVisible(true);
-                this.pInfo.setText("No match found, press GO FISH");
-            
-            
-            
-            }
-            Controller.getGame().checkHand();
             
             
         }
@@ -818,30 +873,19 @@ public class MainGui extends javax.swing.JFrame {
             //gofish() automatically sets the next turn
             Controller.getGame().goFish();
             
+            
             //check for winner
-            //Controller.getGame().checkHand();
-            switch(Controller.getGame().checkGameOver()){
-                case 1: {
-                    //this should be for point win
-                    Controller.getWin_Loss().setVisible(true);
-                    Controller.getWin_Loss().setMainLabel("Win by Points!");
-                    Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
-
-
-                }
-                case 2: {
-                    //this should be for if someone loses by no cards
-                    Controller.getWin_Loss().setVisible(true);
-                    Controller.getWin_Loss().setMainLabel("No More Cards!");
-                    Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
-
-                }
-            }
+            this.winnerCheck();
             
             //gui elements
             this.deckButton.setVisible(true);
-            this.jAsk.setVisible(true);
+            this.playerAsk.setVisible(true);
             this.askTarget.setVisible(true);
+            
+            this.askcurrentplayer.setVisible(false);
+            this.asked_for_info.setVisible(false);
+            this.ask_name.setVisible(false);
+            this.pAsk.setVisible(false);
             
             this.askLockToggle();
             this.gofish_confirm.setVisible(false);
@@ -857,40 +901,36 @@ public class MainGui extends javax.swing.JFrame {
             //runs the AI again, this should happen until it doesnt get a match
             cpuresult = ((Ai)Controller.getGame().getCurrentTurnPlayer()).runAi(Controller.getGame());
             url = ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().getImg();
+            
+            //show the result to gui:
+            this.showMatchedPlayer();
+            
+            
             if (this.cpuresult.equals("Go Fish")){
                 this.gofish_confirm.setText("GO FISH");
                 this.c1Fish.setText("Computer Drew a Card");
                 this.pInfo.setText("No match found. Press Go Fish to Continue.");
+                this.drawn_card_graphic0.setVisible(false);
+                this.drawn_card_graphic1.setVisible(false);
+                this.drawn_card_graphic2.setVisible(false);
+                this.drawn_card_info.setVisible(false);
+                this.drawn_name.setVisible(false);
                 
             
             }
             
             showCInfo();
             
+            //check the hands for scores
             Controller.getGame().checkHand();
-            switch(Controller.getGame().checkGameOver()){
-                case 1: {
-                    //this should be for point win
-                    Controller.getWin_Loss().setVisible(true);
-                    Controller.getWin_Loss().setMainLabel("Win by Points!");
-                    Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
-
-
-                }
-                case 2: {
-                    //this should be for if someone loses by no cards
-                    Controller.getWin_Loss().setVisible(true);
-                    Controller.getWin_Loss().setMainLabel("No More Cards!");
-                    Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
-
-                }
-            }
+            //check for game over
+            this.winnerCheck();
             
             refreshPlayerGUI();
-                this.c1Fish.setText(Controller.getGame().getCurrentTurnPlayer().getName() 
-                + " asked " + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrent_Target() + " for a "
-                + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().toString());
             
+                /*this.c1Fish.setText(Controller.getGame().getCurrentTurnPlayer().getName() 
+                + " asked " + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrent_Target() + " for a "
+                + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().toString());*/
             
         
         
@@ -904,7 +944,7 @@ public class MainGui extends javax.swing.JFrame {
         g.setVisible(true);*/
     }//GEN-LAST:event_gofish_confirmActionPerformed
 
-    private void jAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAskActionPerformed
+    private void playerAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerAskActionPerformed
         if (card != null && this.askLock == false){//check for empty field and player turn
             this.pInfo.setText("");
             
@@ -925,23 +965,10 @@ public class MainGui extends javax.swing.JFrame {
                 this.pInfo.setText("Select another card");
                 //maybe make the button reset to blank here
                 Controller.getGame().checkHand();
-                switch(Controller.getGame().checkGameOver()){
-                    case 1 : {
-                        //this should be for point win
-                        Controller.getWin_Loss().setVisible(true);
-                        Controller.getWin_Loss().setMainLabel("Win by Points!");
-                        Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
-
-
-                    }
-                    case 2 : {
-                        //this should be for if someone loses by no cards
-                        Controller.getWin_Loss().setVisible(true);
-                        Controller.getWin_Loss().setMainLabel("No More Cards!");
-                        Controller.getWin_Loss().setWinner("Winner :"+Controller.getGame().getWinner());
-
-                    }
-                }
+                
+                //check for winner
+                this.winnerCheck();
+                
                 refreshPlayerGUI();
                 System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
                 System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());
@@ -952,7 +979,69 @@ public class MainGui extends javax.swing.JFrame {
             }
         }
         
-    }//GEN-LAST:event_jAskActionPerformed
+    }//GEN-LAST:event_playerAskActionPerformed
+
+    private void next_turnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next_turnActionPerformed
+
+        //sets a matched or go fish in cpuresult
+        cpuresult = ((Ai)Controller.getGame().getCurrentTurnPlayer()).runAi(Controller.getGame());
+
+        //sets the url to the currently selected card in AI class
+        url = ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().getImg();
+
+        //debugging
+        System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
+        System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());             
+
+        //Controller.getGame().getPlayer(1).getImg().get()
+        //Controller.getGame().setSpecificTurnplayer();
+        //debugging
+        /*this.c1Fish.setText(Controller.getGame().getCurrentTurnPlayer().getName() 
+                + " is asking " + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrent_Target() + " for a "
+                + ((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrentCard().toString());*/
+        showCInfo();
+        refreshPlayerGUI();
+        this.pAsk.setVisible(true);
+        this.askcurrentplayer.setVisible(true);
+        this.asked_for_info.setVisible(true);
+        this.ask_name.setVisible(true);
+        this.askcurrentplayer.setText(Controller.getGame().getCurrentTurnName()+" asked");
+        this.ask_name.setText(((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrent_Target().getName());
+        this.asked_for_info.setText("for:");
+        
+        
+        //next, need to have the player handle the ask. use the cpuresult for if it says "Go Fish" or "Matched"
+        //if the currentplayer target is == the player, do this
+        if(((Ai)Controller.getGame().getCurrentTurnPlayer()).getCurrent_Target() == Controller.getGame().getPlayers().get(0)){
+            if("Matched".equals(cpuresult)){
+                
+                
+                //show the matched cards on gui
+                this.showMatchedPlayer();
+                    
+                //gui actions
+                this.pAsk.setVisible(true);
+                this.gofish_confirm.setText("CONTINUE");
+                this.gofish_confirm.setVisible(true);
+                this.pInfo.setText("Match found, press continue");
+
+
+
+            }else{
+                
+                this.drawn_card_graphic0.setVisible(false);
+                this.drawn_card_info.setVisible(false);
+                this.gofish_confirm.setText("GO FISH");
+                this.gofish_confirm.setVisible(true);
+                this.pInfo.setText("No match found, press GO FISH");
+
+
+
+            }
+        }
+        Controller.getGame().checkHand();
+        this.next_turn.setVisible(false);
+    }//GEN-LAST:event_next_turnActionPerformed
     void addHelpGameListener(ActionListener Listener){
         menuButtonGUI.addActionListener(Listener);        
     }
@@ -1046,6 +1135,9 @@ public class MainGui extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> askTarget;
+    private javax.swing.JLabel ask_name;
+    private javax.swing.JLabel askcurrentplayer;
+    private javax.swing.JLabel asked_for_info;
     private javax.swing.JLabel background;
     private javax.swing.JLabel c1Fish;
     private javax.swing.JButton closeButtonGUI;
@@ -1057,10 +1149,15 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel deckCount;
     private javax.swing.JLabel deckLabel;
     private javax.swing.JLabel deckLabel1;
+    private javax.swing.JLabel drawn_card_graphic0;
+    private javax.swing.JLabel drawn_card_graphic1;
+    private javax.swing.JLabel drawn_card_graphic2;
+    private javax.swing.JLabel drawn_card_info;
+    private javax.swing.JLabel drawn_name;
     private javax.swing.JButton gofish_confirm;
-    private javax.swing.JButton jAsk;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menuButtonGUI;
+    private javax.swing.JButton next_turn;
     private javax.swing.JLabel pAsk;
     private javax.swing.JButton pButton1;
     private javax.swing.JButton pButton10;
@@ -1089,6 +1186,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel pLabel7;
     private javax.swing.JLabel pLabel8;
     private javax.swing.JLabel pLabel9;
+    private javax.swing.JButton playerAsk;
     private javax.swing.JLabel playerName;
     private javax.swing.JLabel playerScore;
     private javax.swing.JButton resetButtonGUI;

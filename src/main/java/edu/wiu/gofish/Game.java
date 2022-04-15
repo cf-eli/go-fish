@@ -191,9 +191,10 @@ public class Game {
     }
     
     //might need to be updated for more players
-    public void setNextPlayerTurn(){//set the next player turn
+    public Card setNextPlayerTurn(){//set the next player turn
+        Card drawn;
         
-        players.get(currentPlayerTurn).addCard(deck.draw());
+        drawn = players.get(currentPlayerTurn).addCard(deck.draw());
         
         //debuging
         System.out.println("players.size():"+ players.size());
@@ -206,7 +207,8 @@ public class Game {
         }    
         else 
             currentPlayerTurn = 0;
-        System.out.println("current player turn after else: "+currentPlayerTurn);        
+        System.out.println("current player turn after else: "+currentPlayerTurn);
+        return drawn;
     }
     
     

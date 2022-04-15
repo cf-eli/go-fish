@@ -15,6 +15,7 @@ public class Player {
     private ArrayList<Card> hand = new ArrayList<Card>();
     private int score;
     private int playerid = 0; //this will always be 0 for a player, there should only be one
+    private ArrayList<Card> recently_lost = new ArrayList<Card>();
    //Hold player name 
     public Player(String name){
         playername = name;
@@ -33,8 +34,9 @@ public class Player {
         return this.playername;
     }
 
-    public void addCard(Card c){//takes in a card object and places it in the hand.
+    public Card addCard(Card c){//takes in a card object and places it in the hand.
         this.hand.add(c);
+        return c;
         //System.out.println(c.getImg()); test
     }
     public void removeCard(Card c){//removes a specific card from the hand, should always be pairs with a addCard function on another
@@ -59,6 +61,10 @@ public class Player {
     public int getAmountInHand(){
     
         return this.hand.size();
+    }
+    //returns the recently lost array list, used for GUI
+    public ArrayList<Card> getRecently_Lost(){
+        return this.recently_lost;
     }
     
     //check hand for matches        
@@ -142,10 +148,13 @@ public class Player {
     public ArrayList<Card> isMatch(Card card){//player and ai - Remove ALL ranks that is similar to rank asked for
         Boolean match = false;
         ArrayList<Card> matches = new ArrayList<>();
+        if (!this.recently_lost.isEmpty()){
+            this.recently_lost.clear();
+        }
         for(int i = 0; i<hand.size();i++){
             if(hand.get(i).getRank()==card.getRank()){
                 matches.add(hand.get(i));
-                hand.remove(i);
+                this.recently_lost.add(hand.remove(i));
                 match = true;
                 System.out.println(hand);//test
             }
