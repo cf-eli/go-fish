@@ -290,6 +290,10 @@ public class Game {
             if ((players.get(i).getName()).equals(name)){
                 System.out.println(players.get(i).getName()+" == "+name);
                 matches = players.get(i).isMatch(card);
+                //this adds the ai target into the PC target variable
+                if (Controller.getGame().getCurrentTurnPlayer() == Controller.getGame().getPlayers().get(0)){
+                    Controller.getGame().getCurrentTurnPlayer().setlast_Ai_tart((Ai)players.get(i));
+                }
             }
         }
         System.out.println("found matches :"+matches.toString());

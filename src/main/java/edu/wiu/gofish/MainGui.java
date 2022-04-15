@@ -73,7 +73,6 @@ public class MainGui extends javax.swing.JFrame {
         pButton13 = new javax.swing.JButton();
         pButton1 = new javax.swing.JButton();
         pButton9 = new javax.swing.JButton();
-        playerAsk = new javax.swing.JButton();
         pAsk = new javax.swing.JLabel();
         askTarget = new javax.swing.JComboBox<>();
         asked_for_info = new javax.swing.JLabel();
@@ -94,6 +93,7 @@ public class MainGui extends javax.swing.JFrame {
         drawn_card_graphic2 = new javax.swing.JLabel();
         drawn_card_info = new javax.swing.JLabel();
         drawn_name = new javax.swing.JLabel();
+        ptarget_info = new javax.swing.JLabel();
         pLabel1 = new javax.swing.JLabel();
         pLabel6 = new javax.swing.JLabel();
         pLabel3 = new javax.swing.JLabel();
@@ -251,18 +251,15 @@ public class MainGui extends javax.swing.JFrame {
         });
         jPanel1.add(pButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 560, 70, 90));
 
-        playerAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
-        playerAsk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playerAskActionPerformed(evt);
-            }
-        });
-        jPanel1.add(playerAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 440, 70, 90));
-
         pAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
         jPanel1.add(pAsk, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 70, 90));
 
         askTarget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        askTarget.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                askTargetActionPerformed(evt);
+            }
+        });
         jPanel1.add(askTarget, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 400, -1, -1));
 
         asked_for_info.setForeground(new java.awt.Color(255, 255, 255));
@@ -347,6 +344,10 @@ public class MainGui extends javax.swing.JFrame {
         drawn_name.setText("NAME:");
         jPanel1.add(drawn_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
+        ptarget_info.setForeground(new java.awt.Color(255, 255, 255));
+        ptarget_info.setText("Target:");
+        jPanel1.add(ptarget_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 380, -1, -1));
+
         pLabel1.setForeground(new java.awt.Color(255, 255, 255));
         pLabel1.setText("3");
         jPanel1.add(pLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 10, -1));
@@ -401,12 +402,12 @@ public class MainGui extends javax.swing.JFrame {
 
         pInfo.setForeground(new java.awt.Color(255, 255, 255));
         pInfo.setText("pinfo");
-        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, -1, -1));
+        jPanel1.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 660, -1, -1));
 
         c1Fish.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         c1Fish.setForeground(new java.awt.Color(255, 255, 255));
         c1Fish.setText("c1Fish");
-        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, -1, 20));
+        jPanel1.add(c1Fish, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, -1, 20));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/Gofishbackground.png"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 700));
@@ -654,7 +655,7 @@ public class MainGui extends javax.swing.JFrame {
         
         
         //pInfo.setText(currentPlayer +" is asking");
-        playerAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
+        //playerAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + url)));
     }
     //show what card cpu is asking for
     public void showCInfo(){
@@ -750,6 +751,60 @@ public class MainGui extends javax.swing.JFrame {
     
         }
     }
+    public void showMatchedAi(){
+    
+    
+    
+    
+    
+    
+    }
+    
+    public void playeraskAction(){
+        
+        if (card != null && this.askLock == false){//check for empty field and player turn
+            this.pInfo.setText("");
+            
+            System.out.println("current card rank: "+ card.getRankString());
+
+            findMatch = Controller.getGame().isMatch(card, "computer1"); //change to the dropdwon value when working
+            if(findMatch.equals("Go Fish")){
+                System.out.println(findMatch); //debug, delete later
+                this.c1Fish.setText("Go Fish, draw from the pile.");
+                // make deck accessable, maybe a boolean to lock/unlock it
+                //deckLock=false;
+                this.deckLockToggle();
+                this.askLockToggle();
+
+
+            }else{
+                this.c1Fish.setText("Match is found! Take another turn!");
+                this.pInfo.setText("Select another card");
+                //maybe make the button reset to blank here
+                Controller.getGame().checkHand();
+                
+                //check for winner
+                this.winnerCheck();
+                
+                refreshPlayerGUI();
+                System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
+                System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());
+                System.out.println("current Player hand: "+Controller.getGame().getPlayer(0).getHand().toString());
+                System.out.println("Current CPU hand: "+Controller.getGame().getPlayer(1).getHand().toString());
+            
+
+            }
+        }
+        
+    
+    
+    
+    
+    
+    
+    }
+    
+    
     private void menuButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonGUIActionPerformed
         // TODO add your handling code here:
 //        HelpScreen g = new HelpScreen();
@@ -767,42 +822,52 @@ public class MainGui extends javax.swing.JFrame {
 
     private void pButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton8ActionPerformed
         getButtonImg(2);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton8ActionPerformed
 
     private void pButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton12ActionPerformed
         getButtonImg(10);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton12ActionPerformed
 
     private void pButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton11ActionPerformed
         getButtonImg(8);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton11ActionPerformed
 
     private void pButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton10ActionPerformed
         getButtonImg(6);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton10ActionPerformed
 
     private void pButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton7ActionPerformed
         getButtonImg(0);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton7ActionPerformed
 
     private void pButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton6ActionPerformed
         getButtonImg(1);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton6ActionPerformed
 
     private void pButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton5ActionPerformed
         getButtonImg(3);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton5ActionPerformed
 
     private void pButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton4ActionPerformed
         getButtonImg(5);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton4ActionPerformed
 
     private void pButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton3ActionPerformed
         getButtonImg(7);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton3ActionPerformed
 
     private void pButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton2ActionPerformed
         getButtonImg(9);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton2ActionPerformed
 
     private void deckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deckButtonActionPerformed
@@ -833,10 +898,9 @@ public class MainGui extends javax.swing.JFrame {
             
             //turn the buttons off until need them again (after a computer go fish)
             this.deckButton.setVisible(false);
-            this.playerAsk.setVisible(false);
             this.askTarget.setVisible(false);
+            this.ptarget_info.setVisible(false);
             this.next_turn.setVisible(true);
-            this.playerAsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png")));
             this.url = null;
             this.card = null;
             
@@ -855,10 +919,12 @@ public class MainGui extends javax.swing.JFrame {
 
     private void pButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton13ActionPerformed
         getButtonImg(12);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton13ActionPerformed
 
     private void pButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton1ActionPerformed
         getButtonImg(11);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton1ActionPerformed
 
     private void closeButtonGUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonGUIActionPerformed
@@ -868,6 +934,7 @@ public class MainGui extends javax.swing.JFrame {
 
     private void pButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton9ActionPerformed
         getButtonImg(4);
+        this.playeraskAction();
     }//GEN-LAST:event_pButton9ActionPerformed
 
     private void gofish_confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gofish_confirmActionPerformed
@@ -885,8 +952,8 @@ public class MainGui extends javax.swing.JFrame {
             
             //gui elements
             this.deckButton.setVisible(true);
-            this.playerAsk.setVisible(true);
             this.askTarget.setVisible(true);
+            this.ptarget_info.setVisible(true);
             
             this.askcurrentplayer.setVisible(false);
             this.asked_for_info.setVisible(false);
@@ -950,43 +1017,6 @@ public class MainGui extends javax.swing.JFrame {
         g.setVisible(true);*/
     }//GEN-LAST:event_gofish_confirmActionPerformed
 
-    private void playerAskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerAskActionPerformed
-        if (card != null && this.askLock == false){//check for empty field and player turn
-            this.pInfo.setText("");
-            
-            System.out.println("current card rank: "+ card.getRankString());
-
-            findMatch = Controller.getGame().isMatch(card, "computer1"); //change to the dropdwon value when working
-            if(findMatch.equals("Go Fish")){
-                System.out.println(findMatch); //debug, delete later
-                this.c1Fish.setText("Go Fish, draw from the pile.");
-                // make deck accessable, maybe a boolean to lock/unlock it
-                //deckLock=false;
-                this.deckLockToggle();
-                this.askLockToggle();
-
-
-            }else{
-                this.c1Fish.setText("Match is found! Take another turn!");
-                this.pInfo.setText("Select another card");
-                //maybe make the button reset to blank here
-                Controller.getGame().checkHand();
-                
-                //check for winner
-                this.winnerCheck();
-                
-                refreshPlayerGUI();
-                System.out.println("current player hand:"+Controller.getGame().getPlayer(0).getHand().size());
-                System.out.println("current cpu hand:"+Controller.getGame().getPlayer(1).getHand().size());
-                System.out.println("current Player hand: "+Controller.getGame().getPlayer(0).getHand().toString());
-                System.out.println("Current CPU hand: "+Controller.getGame().getPlayer(1).getHand().toString());
-            
-
-            }
-        }
-        
-    }//GEN-LAST:event_playerAskActionPerformed
-
     private void next_turnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next_turnActionPerformed
 
         //sets a matched or go fish in cpuresult
@@ -1049,6 +1079,10 @@ public class MainGui extends javax.swing.JFrame {
         this.next_turn.setVisible(false);
         this.url = null;
     }//GEN-LAST:event_next_turnActionPerformed
+
+    private void askTargetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_askTargetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_askTargetActionPerformed
     void addHelpGameListener(ActionListener Listener){
         menuButtonGUI.addActionListener(Listener);        
     }
@@ -1192,9 +1226,9 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel pLabel7;
     private javax.swing.JLabel pLabel8;
     private javax.swing.JLabel pLabel9;
-    private javax.swing.JButton playerAsk;
     private javax.swing.JLabel playerName;
     private javax.swing.JLabel playerScore;
+    private javax.swing.JLabel ptarget_info;
     private javax.swing.JButton resetButtonGUI;
     private javax.swing.JLabel viewPlayerTurn;
     // End of variables declaration//GEN-END:variables

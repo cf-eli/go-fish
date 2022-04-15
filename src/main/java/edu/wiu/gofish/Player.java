@@ -16,6 +16,7 @@ public class Player {
     private int score;
     private int playerid = 0; //this will always be 0 for a player, there should only be one
     private ArrayList<Card> recently_lost = new ArrayList<Card>();
+    private Ai last_ai_target;
    //Hold player name 
     public Player(String name){
         playername = name;
@@ -61,6 +62,17 @@ public class Player {
     public int getAmountInHand(){
     
         return this.hand.size();
+    }
+    
+    //used to get the last ai target for gui
+    public Ai getLast_Ai_Target(){
+        return this.last_ai_target;
+    
+    
+    }
+    public void setlast_Ai_tart(Ai target){
+        this.last_ai_target = target;
+    
     }
     //returns the recently lost array list, used for GUI
     public ArrayList<Card> getRecently_Lost(){
