@@ -78,6 +78,12 @@ public class MainGui extends javax.swing.JFrame {
         asked_for_info = new javax.swing.JLabel();
         ask_name = new javax.swing.JLabel();
         askcurrentplayer = new javax.swing.JLabel();
+        score_graphic_view0 = new javax.swing.JLabel();
+        score_graphic_view1 = new javax.swing.JLabel();
+        score_graphic_view2 = new javax.swing.JLabel();
+        score_graphic_view3 = new javax.swing.JLabel();
+        scoreLabel0 = new javax.swing.JLabel();
+        scoreLabel1 = new javax.swing.JLabel();
         cpu1Deck = new javax.swing.JLabel();
         cpu1Score = new javax.swing.JLabel();
         cpu1Name = new javax.swing.JLabel();
@@ -273,6 +279,24 @@ public class MainGui extends javax.swing.JFrame {
         askcurrentplayer.setForeground(new java.awt.Color(255, 255, 255));
         askcurrentplayer.setText("Currentai");
         jPanel1.add(askcurrentplayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, -1));
+
+        score_graphic_view0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(score_graphic_view0, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, -1, -1));
+
+        score_graphic_view1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(score_graphic_view1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
+
+        score_graphic_view2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(score_graphic_view2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, -1, -1));
+
+        score_graphic_view3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
+        jPanel1.add(score_graphic_view3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
+
+        scoreLabel0.setText("NAME");
+        jPanel1.add(scoreLabel0, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
+
+        scoreLabel1.setText("Score +1");
+        jPanel1.add(scoreLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, -1, -1));
 
         cpu1Deck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png"))); // NOI18N
         jPanel1.add(cpu1Deck, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
@@ -581,6 +605,7 @@ public class MainGui extends javax.swing.JFrame {
         this.asked_for_info.setVisible(false);
         this.drawn_name.setVisible(false);
         this.askcurrentplayer.setVisible(false);
+        this.clearScoreCards();
     
     }
 
@@ -677,7 +702,14 @@ public class MainGui extends javax.swing.JFrame {
     //checks for a winner
     public void winnerCheck(){
         
-        Controller.getGame().checkHand();
+        int handcheck = Controller.getGame().checkHand();
+        if (handcheck == 1){
+            this.displayScoreCards();
+        
+        }else{
+            this.clearScoreCards();
+        
+        }
         
         switch(Controller.getGame().checkGameOver()){
             case 1: {
@@ -751,7 +783,51 @@ public class MainGui extends javax.swing.JFrame {
     
         }
     }
+    //for when the player gets cards from an AI specifically 
     public void showMatchedAi(){
+        
+        switch (Controller.getGame().getCurrentTurnPlayer().getLast_Ai_Target().getRecently_Lost().size()){
+             case 1 : {
+                //set the picture to that card lost
+                this.drawn_name.setVisible(true);
+                this.drawn_card_info.setVisible(true);
+                this.drawn_name.setText(Controller.getGame().getCurrentTurnName());
+                this.drawn_card_info.setText("Gained:");
+                this.drawn_card_graphic0.setVisible(true);
+                this.drawn_card_graphic0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(1).getRecently_Lost().get(0).getImg())));
+                break;
+            }
+            //if 2 cards are lost
+            case 2 : {
+                this.drawn_name.setVisible(true);
+                this.drawn_card_info.setVisible(true);
+                this.drawn_name.setText(Controller.getGame().getCurrentTurnName());
+                this.drawn_card_info.setText("Gained:");
+                this.drawn_card_graphic0.setVisible(true);
+                this.drawn_card_graphic1.setVisible(true);
+                this.drawn_card_graphic0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(1).getRecently_Lost().get(0).getImg())));
+                this.drawn_card_graphic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(1).getRecently_Lost().get(1).getImg())));
+                break;
+            }
+            //if 3 cards are lost
+            case 3 : {
+                this.drawn_name.setVisible(true);
+                this.drawn_card_info.setVisible(true);
+                this.drawn_name.setText(Controller.getGame().getCurrentTurnName());
+                this.drawn_card_info.setText("Gained:");
+                this.drawn_card_graphic0.setVisible(true);
+                this.drawn_card_graphic1.setVisible(true);
+                this.drawn_card_graphic2.setVisible(true);
+                this.drawn_card_graphic0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(1).getRecently_Lost().get(0).getImg())));
+                this.drawn_card_graphic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(1).getRecently_Lost().get(1).getImg())));
+                this.drawn_card_graphic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getPlayers().get(1).getRecently_Lost().get(2).getImg())));
+                break;
+            }
+            
+        
+        
+        
+        }
     
     
     
@@ -759,6 +835,80 @@ public class MainGui extends javax.swing.JFrame {
     
     
     }
+    public void clearLostView(){
+        this.drawn_card_graphic0.setVisible(false);
+        this.drawn_card_graphic1.setVisible(false);
+        this.drawn_card_graphic2.setVisible(false);
+        this.drawn_card_info.setVisible(false);
+        this.drawn_name.setVisible(false);
+        
+    
+    
+    }
+    
+    public void displayScoreCards(){
+        //if the current turn player is player1
+        if(Controller.getGame().getCurrentTurnPlayer() == Controller.getGame().getPlayers().get(0)){
+            //Controller.getGame().getCurrentTurnPlayer().getRecently_Scored().get(0).getImg()
+            
+            //set the cards
+            this.score_graphic_view0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getCurrentTurnPlayer().getRecently_Scored().get(0).getImg())));
+            this.score_graphic_view1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getCurrentTurnPlayer().getRecently_Scored().get(1).getImg())));
+            this.score_graphic_view2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getCurrentTurnPlayer().getRecently_Scored().get(2).getImg())));
+            this.score_graphic_view3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card" + Controller.getGame().getCurrentTurnPlayer().getRecently_Scored().get(3).getImg())));
+            
+            //set the text messages
+            this.scoreLabel0.setText(Controller.getGame().getCurrentTurnName());
+            
+            
+            
+            //display the interface
+            this.scoreLabel0.setVisible(true);
+            this.scoreLabel1.setVisible(true);
+            this.score_graphic_view0.setVisible(true);
+            this.score_graphic_view1.setVisible(true);
+            this.score_graphic_view2.setVisible(true);
+            this.score_graphic_view3.setVisible(true);
+            
+            
+            
+        
+        
+        
+        
+        }else{
+            
+            this.score_graphic_view0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png")));
+            this.score_graphic_view1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png")));
+            this.score_graphic_view2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png")));
+            this.score_graphic_view3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/card/back.png")));
+            
+            this.scoreLabel0.setText(Controller.getGame().getCurrentTurnName());
+        
+            this.scoreLabel0.setVisible(true);
+            this.scoreLabel1.setVisible(true);
+            this.score_graphic_view0.setVisible(true);
+            this.score_graphic_view1.setVisible(true);
+            this.score_graphic_view2.setVisible(true);
+            this.score_graphic_view3.setVisible(true);
+        
+        
+        }
+    
+    
+    }
+    
+    public void clearScoreCards(){
+        this.scoreLabel0.setVisible(false);
+        this.scoreLabel1.setVisible(false);
+        this.score_graphic_view0.setVisible(false);
+        this.score_graphic_view1.setVisible(false);
+        this.score_graphic_view2.setVisible(false);
+        this.score_graphic_view3.setVisible(false);
+    
+    
+    }
+    
     
     public void playeraskAction(){
         
@@ -768,6 +918,7 @@ public class MainGui extends javax.swing.JFrame {
             System.out.println("current card rank: "+ card.getRankString());
 
             findMatch = Controller.getGame().isMatch(card, "computer1"); //change to the dropdwon value when working
+            
             if(findMatch.equals("Go Fish")){
                 System.out.println(findMatch); //debug, delete later
                 this.c1Fish.setText("Go Fish, draw from the pile.");
@@ -783,6 +934,8 @@ public class MainGui extends javax.swing.JFrame {
                 //maybe make the button reset to blank here
                 Controller.getGame().checkHand();
                 
+                //display lost cards
+                this.showMatchedAi();
                 //check for winner
                 this.winnerCheck();
                 
@@ -821,51 +974,61 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_resetButtonGUIActionPerformed
 
     private void pButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton8ActionPerformed
+        this.clearLostView();
         getButtonImg(2);
         this.playeraskAction();
     }//GEN-LAST:event_pButton8ActionPerformed
 
     private void pButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton12ActionPerformed
+        this.clearLostView();
         getButtonImg(10);
         this.playeraskAction();
     }//GEN-LAST:event_pButton12ActionPerformed
 
     private void pButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton11ActionPerformed
+        this.clearLostView();
         getButtonImg(8);
         this.playeraskAction();
     }//GEN-LAST:event_pButton11ActionPerformed
 
     private void pButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton10ActionPerformed
+        this.clearLostView();
         getButtonImg(6);
         this.playeraskAction();
     }//GEN-LAST:event_pButton10ActionPerformed
 
     private void pButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton7ActionPerformed
+        this.clearLostView();
         getButtonImg(0);
         this.playeraskAction();
     }//GEN-LAST:event_pButton7ActionPerformed
 
     private void pButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton6ActionPerformed
+        this.clearLostView();
         getButtonImg(1);
         this.playeraskAction();
     }//GEN-LAST:event_pButton6ActionPerformed
 
     private void pButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton5ActionPerformed
+        this.clearLostView();
         getButtonImg(3);
         this.playeraskAction();
     }//GEN-LAST:event_pButton5ActionPerformed
 
     private void pButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton4ActionPerformed
+        this.clearLostView();
         getButtonImg(5);
         this.playeraskAction();
     }//GEN-LAST:event_pButton4ActionPerformed
 
     private void pButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton3ActionPerformed
+        this.clearLostView();
         getButtonImg(7);
         this.playeraskAction();
     }//GEN-LAST:event_pButton3ActionPerformed
 
     private void pButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton2ActionPerformed
+        this.clearLostView();
         getButtonImg(9);
         this.playeraskAction();
     }//GEN-LAST:event_pButton2ActionPerformed
@@ -918,11 +1081,13 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_deckButtonActionPerformed
 
     private void pButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton13ActionPerformed
+        this.clearLostView();
         getButtonImg(12);
         this.playeraskAction();
     }//GEN-LAST:event_pButton13ActionPerformed
 
     private void pButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton1ActionPerformed
+        this.clearLostView();
         getButtonImg(11);
         this.playeraskAction();
     }//GEN-LAST:event_pButton1ActionPerformed
@@ -933,6 +1098,7 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_closeButtonGUIActionPerformed
 
     private void pButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pButton9ActionPerformed
+        this.clearLostView();
         getButtonImg(4);
         this.playeraskAction();
     }//GEN-LAST:event_pButton9ActionPerformed
@@ -1230,6 +1396,12 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel playerScore;
     private javax.swing.JLabel ptarget_info;
     private javax.swing.JButton resetButtonGUI;
+    private javax.swing.JLabel scoreLabel0;
+    private javax.swing.JLabel scoreLabel1;
+    private javax.swing.JLabel score_graphic_view0;
+    private javax.swing.JLabel score_graphic_view1;
+    private javax.swing.JLabel score_graphic_view2;
+    private javax.swing.JLabel score_graphic_view3;
     private javax.swing.JLabel viewPlayerTurn;
     // End of variables declaration//GEN-END:variables
 }

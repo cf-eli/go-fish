@@ -307,8 +307,8 @@ public class Game {
         return "Go Fish"; 
     }
     //tell checkHand function in playerhand which to check current player
-    public void checkHand(){
-        players.get(currentPlayerTurn).checkHand();
+    public int checkHand(){
+        return players.get(currentPlayerTurn).checkHand();
     }
     //Return number of player
     public int getPlayerCount(){
