@@ -654,19 +654,7 @@ public class MainGui extends javax.swing.JFrame {
         pLabels.add(pLabel13);
     }
     
-    //Listener for next turn button in AskResult class
-    class NextTurnListener implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent e){
-            System.out.println("Next turn button was pressed");
-            if(findMatch.equals("Go Fish")){
-                Controller.getGame().setNextPlayerTurn();
-                //refreshPlayerGUI();
-            }
-            System.out.println("nextTurn(); or at least what would've what happened if I was coded");//next turn function goes here
-            System.out.println(currentPlayer);
-        }
-    }
+    
     //show what card player is asking for
     public void showInfo(){
         /* broke this up into a separate method, commenting out incase it's needed later
@@ -932,7 +920,7 @@ public class MainGui extends javax.swing.JFrame {
                 this.c1Fish.setText("Match is found! Take another turn!");
                 this.pInfo.setText("Select another card");
                 //maybe make the button reset to blank here
-                Controller.getGame().checkHand();
+                //Controller.getGame().checkHand();
                 
                 //display lost cards
                 this.showMatchedAi();
@@ -1036,9 +1024,6 @@ public class MainGui extends javax.swing.JFrame {
     private void deckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deckButtonActionPerformed
         
         //TODO might just combine this with the winnercheck
-        Controller.getGame().checkHand();
-        //check for winner
-        this.winnerCheck();
         //if decksize is not equal to 0, set player to next and refresh UI
         if(Controller.getGame().getDeck().getSize()!=0 && deckLock != true){
             //COMMENTING THIS OUT FOR DEBUGGING
@@ -1056,6 +1041,11 @@ public class MainGui extends javax.swing.JFrame {
             
             
             refreshPlayerGUI();
+            
+            //TODO might just combine this with the winnercheck
+            //Controller.getGame().checkHand();
+            //check for winner
+            this.winnerCheck();
             
             this.c1Fish.setText("");
             
@@ -1161,7 +1151,7 @@ public class MainGui extends javax.swing.JFrame {
             showCInfo();
             
             //check the hands for scores
-            Controller.getGame().checkHand();
+            //Controller.getGame().checkHand();
             //check for game over
             this.winnerCheck();
             
@@ -1241,7 +1231,8 @@ public class MainGui extends javax.swing.JFrame {
 
             }
         }
-        Controller.getGame().checkHand();
+        this.winnerCheck();
+        //Controller.getGame().checkHand();
         this.next_turn.setVisible(false);
         this.url = null;
     }//GEN-LAST:event_next_turnActionPerformed
