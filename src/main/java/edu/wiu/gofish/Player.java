@@ -98,7 +98,7 @@ public class Player {
         System.out.println(temp);//This is just a test
         //check from rank 0-13 and see if theres 4 of the same matches, if so, remove that array and call the 
         //increaseScore() function
-        for(int i=0;i<13;i++){ 
+        for(int i=0;i<=13;i++){ 
             int occurrences = Collections.frequency(temp, i);
             System.out.printf("\n%d: %d",i,occurrences);//Also test(delete)
             if (occurrences==4){
