@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package edu.wiu.gofish;
 import java.util.*;//example\
 //import java.util.ArrayList;
@@ -24,30 +24,38 @@ public class Deck {
     //Return size of deck
     public int getSize(){
         return this.decklist.size();
-    
+        
     }
     
     
     public void reset(){ //populate the deck in this method
         cardsInDeck = 0;
-
-       for(int i = 0; i < 4; i++){ //4 suits
-            for(int j = 1; j<14; j++) //13 cards per suit
-            {
-                this.decklist.add(new Card(j,i));
-                cardsInDeck++;
-                //System.out.println(decklist.size());
+        
+        if (this.decklist.isEmpty()){
+            for(int i = 0; i < 4; i++){ //4 suits
+                for(int j = 1; j<14; j++) //13 cards per suit
+                {
+                    this.decklist.add(new Card(j,i));
+                    cardsInDeck++;
+                }
             }
-       }
-
-
+        }else{
+            this.decklist.clear();
+            for(int i = 0; i < 4; i++){ //4 suits
+                for(int j = 1; j<14; j++) //13 cards per suit
+                {
+                    this.decklist.add(new Card(j,i));
+                    cardsInDeck++;
+                }
+            }
+        }
     }
     
     public void shuffle(){//shuffle deck
         Collections.shuffle(this.decklist);
         
         
-        }
+    }
     
     //Draw a card from the deck, and remove it form the deck
     public Card draw(){
@@ -59,13 +67,13 @@ public class Deck {
         
         
         
-    
+        
     }
     @Override
     public String toString(){// prints out the values of the decklist
         String a = this.decklist.toString();
         return a;
-    
+        
     }
     
 }

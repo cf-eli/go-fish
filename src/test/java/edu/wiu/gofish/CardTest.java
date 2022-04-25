@@ -6,6 +6,7 @@ package edu.wiu.gofish;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import org.junit.Before;
@@ -103,6 +104,7 @@ public class CardTest {
     /**
      * Test of getImg method, of class Card.
      */
+    /*
     @Test
     public void testGetImg() {
         System.out.println("getImg");
@@ -112,11 +114,12 @@ public class CardTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
 
     /**
      * Test of toString method, of class Card.
      */
+    /*
     @Test
     public void testToString() {
         System.out.println("toString");
@@ -126,6 +129,6 @@ public class CardTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
     
 }
