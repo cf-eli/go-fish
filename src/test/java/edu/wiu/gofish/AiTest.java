@@ -8,6 +8,14 @@ import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+//import java.util.ArrayList;
+//import java.util.Collection;
+//import org.junit.Before;
+import org.junit.BeforeClass;
+//import org.junit.runner.RunWith; 
+//import org.junit.runners.Parameterized; 
+//import org.junit.runners.Parameterized.Parameters;
+
 /**
  *
  * @author Alex
@@ -16,7 +24,17 @@ public class AiTest {
     
     public AiTest() {
     }
+    @BeforeClass
+    public static void init(){
 
+        Controller testcontrol = new Controller(false);
+        
+        testcontrol.setPlayer("testplayer");
+        testcontrol.setAi("testai", 1);
+        testcontrol.setAiDifficulty("Easy", 1);
+    
+    
+    }
     /**
      * Test of getAi method, of class Ai.
      */

@@ -22,11 +22,10 @@ public class GoFish {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       // TODO code application logic here
-       StartPage start = new StartPage();
-       Game game = new Game();
-       Controller control = new Controller(start, game);
-       start.setVisible(true);
+        
+       //changed this a bit to be easier to test with, pass true if you want the GUI to show
+       //pass false if you do not want it to show
+       Controller control = new Controller(true);
 
 
 
