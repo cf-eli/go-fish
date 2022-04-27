@@ -12,20 +12,21 @@ import java.awt.event.*;
  */
 
 public class Controller{
-        private StartPage startview = new StartPage();
+        private StartPage startview;
         private MainGui mainview = new MainGui();
         private HelpScreen helpview = new HelpScreen();
         private static Win_LossScreen win_lossview = new Win_LossScreen();
         
-        private static Game maingame = new Game();
+        private static Game maingame;
         
-        public Controller(StartPage view, Game model){
-            this.startview = view;
-            this.maingame = model;
+        public Controller(boolean startpagebool){
+            this.startview = new StartPage();
+            Controller.maingame = new Game();
             
             //these are are calling the methods in the ui file with the actionlistioner class from below, whatever is passed is the function that button will be assigned
             this.startview.addStartGameListener(new StartButtonListener());
             this.startview.addHelpGameListener(new HelpButtonListener());
+            this.startview.setVisible(startpagebool);
         }
         public static Game getGame(){
             return Controller.maingame;
@@ -34,6 +35,18 @@ public class Controller{
             return win_lossview;
             
         
+        }
+        
+        //setters for debugging
+        public void setPlayer(String name){
+            maingame.addPlayer(name);
+        }
+        public void setAi(String name, int playerid){
+        maingame.addAi(name, playerid);
+        }
+        //should be "Easy" "Medium" and "Hard"
+        public void setAiDifficulty(String difficulty, int playerid){
+            ((Ai)maingame.getPlayer(playerid)).setDifficulty(difficulty);
         }
         
         
@@ -127,7 +140,7 @@ public class Controller{
                 mainview.dispose();
                 StartPage start = new StartPage();
                 Game game = new Game();
-                Controller control = new Controller(start, game);
+                Controller control = new Controller(true);
                 start.setVisible(true);
 
 

@@ -15,6 +15,9 @@ public class Player {
     private ArrayList<Card> hand = new ArrayList<Card>();
     private int score;
     private int playerid = 0; //this will always be 0 for a player, there should only be one
+    private ArrayList<Card> recently_lost = new ArrayList<Card>();
+    private Ai last_ai_target;
+    private ArrayList<Card> recently_scored = new ArrayList<Card>();
    //Hold player name 
     public Player(String name){
         playername = name;
@@ -33,8 +36,9 @@ public class Player {
         return this.playername;
     }
 
-    public void addCard(Card c){//takes in a card object and places it in the hand.
+    public Card addCard(Card c){//takes in a card object and places it in the hand.
         this.hand.add(c);
+        return c;
         //System.out.println(c.getImg()); test
     }
     public void removeCard(Card c){//removes a specific card from the hand, should always be pairs with a addCard function on another
@@ -61,8 +65,32 @@ public class Player {
         return this.hand.size();
     }
     
+    //used to get the last ai target for gui
+    public Ai getLast_Ai_Target(){
+        return this.last_ai_target;
+    
+    
+    }
+    public void setlast_Ai_tart(Ai target){
+        this.last_ai_target = target;
+    
+    }
+    //returns the recently lost array list, used for GUI
+    public ArrayList<Card> getRecently_Lost(){
+        return this.recently_lost;
+    }
+    
+    //return the variable recently scored, this should always be updated when a score is made, and cleared before a new score is made
+    public ArrayList<Card> getRecently_Scored(){
+        return this.recently_scored;
+    }
+    
     //check hand for matches        
-    public void checkHand(){//player and ai
+    public int checkHand(){//player and ai
+        //clear the recently scored
+        int returnvalue = 0;
+        this.getRecently_Scored().clear();
+        
         ArrayList<Integer> temp = new ArrayList<>();
         for(int i=0;i<hand.size();i++){ //add all ranks in hand to a temp array
             temp.add(hand.get(i).getRank());
@@ -70,16 +98,19 @@ public class Player {
         System.out.println(temp);//This is just a test
         //check from rank 0-13 and see if theres 4 of the same matches, if so, remove that array and call the 
         //increaseScore() function
-        for(int i=0;i<13;i++){ 
+        for(int i=0;i<=13;i++){ 
             int occurrences = Collections.frequency(temp, i);
             System.out.printf("\n%d: %d",i,occurrences);//Also test(delete)
             if (occurrences==4){
                 int rank = i;
+                returnvalue = 1;
                 //int size = hand.size();
                 ArrayList<Card> tempHand = hand;
                 for(int j=0;j<hand.size();j++){
                     if (hand.get(j).getRank()==rank){
-                        tempHand.remove(j);
+                        //this should add the removed items into the recently scored
+                        this.getRecently_Scored().add(tempHand.remove(j));
+                        //tempHand.remove(j);
                         j--;
                     }
                     
@@ -88,6 +119,7 @@ public class Player {
             }
         }
         System.out.println(hand);//test
+        return returnvalue;
         
           
     }
@@ -142,10 +174,13 @@ public class Player {
     public ArrayList<Card> isMatch(Card card){//player and ai - Remove ALL ranks that is similar to rank asked for
         Boolean match = false;
         ArrayList<Card> matches = new ArrayList<>();
+        if (!this.recently_lost.isEmpty()){
+            this.recently_lost.clear();
+        }
         for(int i = 0; i<hand.size();i++){
             if(hand.get(i).getRank()==card.getRank()){
                 matches.add(hand.get(i));
-                hand.remove(i);
+                this.recently_lost.add(hand.remove(i));
                 match = true;
                 System.out.println(hand);//test
             }
