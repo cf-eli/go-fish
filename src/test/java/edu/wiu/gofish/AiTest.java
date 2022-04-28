@@ -33,7 +33,7 @@ public class AiTest {
         testcontrol.setAi("testai", 1);
         testcontrol.setAiDifficulty("Easy", 1);
     
-    
+        
     }
     /**
      * Test of getAi method, of class Ai.
