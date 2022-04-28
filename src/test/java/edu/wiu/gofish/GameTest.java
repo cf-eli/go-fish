@@ -175,7 +175,7 @@ public class GameTest {
     }
 
     /**
-     * Test of getWinner method, of class Game.
+     * Set player 0 (Eli) as winner and check if he won
      */
     @Test
     public void testGetWinner() {
@@ -185,62 +185,52 @@ public class GameTest {
         game.checkGameOver();
         assertEquals("Eli", game.getWinner());
     }
-//
-//    /**
-//     * Test of getCurrentTurnName method, of class Game.
-//     */
-//    @Test
-//    public void testGetCurrentTurnName() {
-//        System.out.println("getCurrentTurnName");
-//        Game instance = new Game();
-//        String expResult = "";
-//        String result = instance.getCurrentTurnName();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getCurrentTurn method, of class Game.
-//     */
-//    @Test
-//    public void testGetCurrentTurn() {
-//        System.out.println("getCurrentTurn");
-//        Game instance = new Game();
-//        int expResult = 0;
-//        int result = instance.getCurrentTurn();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getCurrentTurnPlayer method, of class Game.
-//     */
-//    @Test
-//    public void testGetCurrentTurnPlayer() {
-//        System.out.println("getCurrentTurnPlayer");
-//        Game instance = new Game();
-//        Player expResult = null;
-//        Player result = instance.getCurrentTurnPlayer();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of setNextPlayerTurn method, of class Game.
-//     */
-//    @Test
-//    public void testSetNextPlayerTurn() {
-//        System.out.println("setNextPlayerTurn");
-//        Game instance = new Game();
-//        Card expResult = null;
-//        Card result = instance.setNextPlayerTurn();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+
+    /**
+     * get current turn name of the player which in this case is Eli
+     * since player always go first then set next turn and test to see if it's 
+     * computer since Computer is next after Eli
+     */
+    @Test
+    public void testGetCurrentTurnName() {
+        assertEquals("Eli", game.getCurrentTurnName());
+        game.setNextPlayerTurn();
+        assertEquals("Computer", game.getCurrentTurnName());
+    }
+
+    /**
+     * Make sure it return the correct turn number
+     */
+    @Test
+    public void testGetCurrentTurn() {
+        assertEquals(0, game.getCurrentTurn());
+        game.setNextPlayerTurn();
+        assertEquals(1, game.getCurrentTurn());
+    }
+
+    /**
+     * Similar to getCurrentTurnName method, except it returns the player class
+     * 
+     */
+    @Test
+    public void testGetCurrentTurnPlayer() {
+        assertEquals("Eli", game.getCurrentTurnPlayer().getName());
+        game.setNextPlayerTurn();
+        assertEquals("Computer", game.getCurrentTurnPlayer().getName());
+    }
+
+    /**
+     * Similar to last few methods, set the next turn, set next turn 53 times 
+     * and check to make sure it lands on ai
+     */
+    @Test
+    public void testSetNextPlayerTurn() {
+        assertEquals(0, game.getCurrentTurn());
+        for(int i = 0; i<47;i++){
+            game.setNextPlayerTurn();
+        }
+        assertEquals(1,game.getCurrentTurn());
+    }
 //
 //    /**
 //     * Test of getImg method, of class Game.
@@ -297,23 +287,20 @@ public class GameTest {
 //        fail("The test case is a prototype.");
 //    }
 //
-//    /**
-//     * Test of createCard method, of class Game.
-//     */
-//    @Test
-//    public void testCreateCard() {
-//        System.out.println("createCard");
-//        String url = "";
-//        Game instance = new Game();
-//        Card expResult = null;
-//        Card result = instance.createCard(url);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    /**
+     * Use url to create card and match it to expected
+     */
+    @Test
+    public void testCreateCard() {
+        String url = "/1c.png";
+        Card card = game.createCard(url);
+        Card trueCard = new Card(1,0);
+        assertEquals(trueCard.getRank(), card.getRank());
+        assertEquals(trueCard.getSuit(), card.getSuit());
+    }
 //
 //    /**
-//     * Test of getWhoAsked method, of class Game.
+//     * Get currentTurnName, same as previous
 //     */
 //    @Test
 //    public void testGetWhoAsked() {
@@ -327,7 +314,8 @@ public class GameTest {
 //    }
 //
 //    /**
-//     * Test of isMatch method, of class Game.
+//     * If I wanted to 5head here, clone a card from player and check if it
+    //match
 //     */
 //    @Test
 //    public void testIsMatch() {
@@ -343,7 +331,7 @@ public class GameTest {
 //    }
 //
 //    /**
-//     * Test of checkHand method, of class Game.
+//     * Not sure how to test this 
 //     */
 //    @Test
 //    public void testCheckHand() {
@@ -355,19 +343,17 @@ public class GameTest {
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
 //    }
-//
-//    /**
-//     * Test of getPlayerCount method, of class Game.
-//     */
-//    @Test
-//    public void testGetPlayerCount() {
-//        System.out.println("getPlayerCount");
-//        Game instance = new Game();
-//        int expResult = 0;
-//        int result = instance.getPlayerCount();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//    
+
+    /**
+     * Check if there's 2 players which is given, then add another player and 
+     * check for 3 players
+     */
+    @Test
+    public void testGetPlayerCount() {
+        assertEquals(2,game.getPlayerCount());
+        game.addPlayer("Alex");
+        assertEquals(3,game.getPlayerCount());
+        
+    }
+    
 }
