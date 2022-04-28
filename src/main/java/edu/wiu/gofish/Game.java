@@ -280,7 +280,7 @@ public class Game {
         return players.get(currentPlayerTurn).getName();
     }
     //player and ai, return go fish or matched accordingly
-    public String isMatch(Card card, String name){ //input is card from attacker, and name of the target
+    public String isMatch(Card card, String name, Game currentgame){ //input is card from attacker, and name of the target
         ArrayList<Card>  matches = new ArrayList<>();
         System.out.println("ismatch card passed is:"+card);
         System.out.println("ismatch name passed is:"+ name);
@@ -291,8 +291,8 @@ public class Game {
                 System.out.println(players.get(i).getName()+" == "+name);
                 matches = players.get(i).isMatch(card);
                 //this adds the ai target into the PC target variable
-                if (Controller.getGame().getCurrentTurnPlayer() == Controller.getGame().getPlayers().get(0)){
-                    Controller.getGame().getCurrentTurnPlayer().setlast_Ai_tart((Ai)players.get(i));
+                if (currentgame.getCurrentTurnPlayer() == Controller.getGame().getPlayers().get(0)){
+                    currentgame.getCurrentTurnPlayer().setlast_Ai_tart((Ai)players.get(i));
                 }
             }
         }

@@ -165,7 +165,7 @@ public class Ai extends Player{
         String selectedplayer = this.decidePlayer(game.getPlayers());
         System.out.println("selected player: " +selectedplayer);
         //do the match with selected card and decided player
-        String result = game.isMatch(currentcard, selectedplayer);
+        String result = game.isMatch(currentcard, selectedplayer, Controller.getGame());
         
         //returns a "Go Fish" if no match is found, and a "Matched" if a match is found
         return result;

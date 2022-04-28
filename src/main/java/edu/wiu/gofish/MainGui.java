@@ -905,7 +905,7 @@ public class MainGui extends javax.swing.JFrame {
             
             System.out.println("current card rank: "+ card.getRankString());
 
-            findMatch = Controller.getGame().isMatch(card, "computer1"); //change to the dropdwon value when working
+            findMatch = Controller.getGame().isMatch(card, "computer1", Controller.getGame()); //change to the dropdwon value when working
             
             if(findMatch.equals("Go Fish")){
                 System.out.println(findMatch); //debug, delete later
