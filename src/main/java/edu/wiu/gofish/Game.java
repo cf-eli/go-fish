@@ -66,12 +66,20 @@ public class Game {
         players.add(b);
     
     };
+    public void addPlayer(Player newplayer){
+        players.add(newplayer);
+    
+    }
     
     //create new Ai using a string input
     public void addAi(String a, int i){
         
         Ai b = new Ai(a, i);
         players.add(b);
+    }
+    public void addAi(Ai newai){
+        players.add(newai);
+
     }
     //this sets the turn order in the array list. *check later: currently only works with one Ai, modify if we make more ai's a final decision*
     public void setTurnOrder(){
@@ -291,7 +299,7 @@ public class Game {
                 System.out.println(players.get(i).getName()+" == "+name);
                 matches = players.get(i).isMatch(card);
                 //this adds the ai target into the PC target variable
-                if (currentgame.getCurrentTurnPlayer() == Controller.getGame().getPlayers().get(0)){
+                if (currentgame.getCurrentTurnPlayer() == currentgame.getPlayers().get(0)){
                     currentgame.getCurrentTurnPlayer().setlast_Ai_tart((Ai)players.get(i));
                 }
             }

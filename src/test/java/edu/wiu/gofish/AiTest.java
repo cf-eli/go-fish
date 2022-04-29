@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 //import java.util.ArrayList;
 //import java.util.Collection;
-//import org.junit.Before;
+import org.junit.Before;
 import org.junit.BeforeClass;
 //import org.junit.runner.RunWith; 
 //import org.junit.runners.Parameterized; 
@@ -21,19 +21,37 @@ import org.junit.BeforeClass;
  * @author Alex
  */
 public class AiTest {
+    Game testgame;
+    Ai testai;
+    Player testplayer;
+    
     
     public AiTest() {
     }
-    @BeforeClass
+    /*@BeforeClass
     public static void init(){
 
-        Controller testcontrol = new Controller(false);
+        //Controller testcontrol = new Controller(false);
         
-        testcontrol.setPlayer("testplayer");
-        testcontrol.setAi("testai", 1);
-        testcontrol.setAiDifficulty("Easy", 1);
+        //testcontrol.setPlayer("testplayer");
+        //testcontrol.setAi("testai", 1);
+        //testcontrol.setAiDifficulty("Easy", 1);
+        Game testgame = new Game();
+        testgame.addPlayer("testplayer");
+        testgame.addAi("testAI", 1); 
+        
     
         
+    }*/
+    @Before
+    public void before(){
+        testgame = new Game();
+        testai = new Ai("testai", 1);
+        testplayer = new Player("testplayer");
+        
+        testgame.addAi(testai);
+        testgame.addPlayer(testplayer);
+    
     }
     /**
      * Test of getAi method, of class Ai.
@@ -41,12 +59,11 @@ public class AiTest {
     @Test
     public void testGetAi() {
         System.out.println("getAi");
-        Ai instance = null;
-        Ai expResult = null;
-        Ai result = instance.getAi();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        testgame.addAi(testai);
+
+        assertTrue(testai.equals(testgame.getPlayer(0)));
+        
+        
     }
 
     /**
@@ -54,13 +71,17 @@ public class AiTest {
      */
     @Test
     public void testGetCurrentCard() {
-        System.out.println("getCurrentCard");
-        Ai instance = null;
-        Card expResult = null;
-        Card result = instance.getCurrentCard();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Card testcard = new Card(0,0);
+        testai.setCurrentCard(testcard);
+        assertTrue(testcard.equals(testai.getCurrentCard()));
+        
+    }
+    @Test
+    public void testsetCurrentCard() {
+        Card testcard = new Card(0,0);
+        Card returnedcard = testai.setCurrentCard(testcard);
+        assertTrue(testcard.equals(returnedcard));
+        
     }
 
     /**
@@ -68,18 +89,21 @@ public class AiTest {
      */
     @Test
     public void testGetCurrent_Target() {
-        System.out.println("getCurrent_Target");
-        Ai instance = null;
-        Player expResult = null;
-        Player result = instance.getCurrent_Target();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        testai.setCurrent_Target(testplayer);
+        assertTrue(testai.getCurrent_Target().equals(testplayer));
+    }
+    
+    @Test
+    public void testsetCurrent_Target() {
+        Player returnedplayer = testai.setCurrent_Target(testplayer);
+        assertTrue(testai.getCurrent_Target().equals(returnedplayer));
     }
 
     /**
      * Test of setMemory method, of class Ai.
+     * not currently in use
      */
+    /*
     @Test
     public void testSetMemory() {
         System.out.println("setMemory");
@@ -93,7 +117,9 @@ public class AiTest {
 
     /**
      * Test of getMemory method, of class Ai.
+     * Not currently in use
      */
+    /*
     @Test
     public void testGetMemory() {
         System.out.println("getMemory");
@@ -178,7 +204,7 @@ public class AiTest {
 
     /**
      * Test of toString method, of class Ai.
-     */
+     *//*
     @Test
     public void testToString() {
         System.out.println("toString");
@@ -188,6 +214,6 @@ public class AiTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
     
 }

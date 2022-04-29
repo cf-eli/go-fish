@@ -33,7 +33,15 @@ public class Ai extends Player{
     public Card getCurrentCard(){
         return this.currentcard;
     }
+    public Card setCurrentCard(Card card){
+        this.currentcard = card;
+        return currentcard;
+    }
     public Player getCurrent_Target(){
+        return this.current_target;
+    }
+    public Player setCurrent_Target(Player target){
+        this.current_target = target;
         return this.current_target;
     }
     
@@ -165,7 +173,7 @@ public class Ai extends Player{
         String selectedplayer = this.decidePlayer(game.getPlayers());
         System.out.println("selected player: " +selectedplayer);
         //do the match with selected card and decided player
-        String result = game.isMatch(currentcard, selectedplayer, Controller.getGame());
+        String result = game.isMatch(currentcard, selectedplayer, game);
         
         //returns a "Go Fish" if no match is found, and a "Matched" if a match is found
         return result;

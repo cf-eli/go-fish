@@ -26,6 +26,9 @@ public class Deck {
         return this.decklist.size();
         
     }
+    public Card getCard(int a){
+        return decklist.get(a);
+    }
     
     
     public void reset(){ //populate the deck in this method
