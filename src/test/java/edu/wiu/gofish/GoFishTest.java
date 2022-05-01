@@ -70,7 +70,7 @@ public class GoFishTest {
             checkgameover_result0.add(testgame.checkGameOver());
 
 
-            if(match_result.equals("GoFish")){
+            if(match_result.equals("Go Fish")){
                 //draw  button
                 testgame.setNextPlayerTurn();
                 checkgameover_result1.add(testgame.checkGameOver());
@@ -113,10 +113,19 @@ public class GoFishTest {
             System.out.println("something went wrong with ai");
         
         }
+     
+    }
+    public void clearArrayPlayer(){
+        this.cardpick.clear();
+        this.checkgameover_result0.clear();
+        this.checkgameover_result1.clear();
+    }
+    public void clearArrayAi(){
     
-    
-    
-    
+        this.ai_cardpick.clear();
+        this.ai_checkgameover_result0.clear();
+        this.ai_checkgameover_result1.clear();
+        
     }
 
     /**
@@ -126,36 +135,53 @@ public class GoFishTest {
     public void testRoundAA() {
         
         this.taketurn_player();
+        //add asserts here
+        
+        clearArrayPlayer();
 
     }
     @Test
     public void testRoundAB() {
         
         this.taketurn_ai();
+        //add asserts here
+        clearArrayAi();
 
     }
     
     @Test
     public void testRoundBA() {
         this.taketurn_player();
+        //add asserts here
+        
+        clearArrayPlayer();
 
     }
     @Test
     public void testRoundBB() {
         
         this.taketurn_ai();
+        //add asserts here
+        
+        clearArrayAi();
 
     }
     @Test
     public void testRoundCA() {
         
         this.taketurn_player();
+        //add asserts here
+        
+        clearArrayPlayer();
 
     }
     @Test
     public void testRoundCB() {
         
         this.taketurn_ai();
+        //add asserts here
+        
+        clearArrayAi();
 
     }
     
@@ -163,12 +189,21 @@ public class GoFishTest {
     public void testRoundDA() {
         
         this.taketurn_player();
+        
+        //add asserts here
+        
+        clearArrayPlayer();
 
     }
+    
+    //make this one the "winning" game
     @Test
     public void testRoundDB() {
         
         this.taketurn_ai();
+        //add asserts here
+        
+        clearArrayAi();
 
     }
     
