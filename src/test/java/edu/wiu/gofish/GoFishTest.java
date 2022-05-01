@@ -32,11 +32,13 @@ public class GoFishTest {
     private ArrayList<Integer> checkgameover_result0 = new ArrayList<>();
     private ArrayList<Integer> checkgameover_result1 = new ArrayList<>();
     private ArrayList<Card> cardpick = new ArrayList<>();
+    private ArrayList<Card> player_draw = new ArrayList<>();
     
     private String ai_match_result;
     private ArrayList<Integer> ai_checkgameover_result0 = new ArrayList<>();
     private ArrayList<Integer> ai_checkgameover_result1 = new ArrayList<>();
     private ArrayList<Card> ai_cardpick = new ArrayList<>();
+    private ArrayList<Card> ai_draw = new ArrayList<>();
     
     int turncounter = 0;
     String cpuresult;
@@ -72,13 +74,13 @@ public class GoFishTest {
 
             if(match_result.equals("Go Fish")){
                 //draw  button
-                testgame.setNextPlayerTurn();
+                player_draw.add(testgame.setNextPlayerTurn());
                 checkgameover_result1.add(testgame.checkGameOver());
                 turncounter = 0;
 
             }else{
                 turncounter++;
-                if(turncounter >= testgame.getCurrentTurnPlayer().getHand().size())
+                if(turncounter >= testgame.getCurrentTurnPlayer().getHand().size()-1)
                     turncounter = 0;
                 taketurn_player();
 
@@ -92,17 +94,23 @@ public class GoFishTest {
     //recursive method simulating a ai turn
     public void taketurn_ai(){
         if(testgame.getCurrentTurnPlayer() != testplayer){
-            //pick card
+            //picks a card and sets it in cpuresult
             cpuresult = ((Ai)testgame.getCurrentTurnPlayer()).runAi(testgame);
+            
+            //adds what card the ai chose and placed it in the array
             ai_cardpick.add(((Ai)testgame.getCurrentTurnPlayer()).getCurrentCard());
+            //checks if game over and adds it to the gameover result arry
             ai_checkgameover_result0.add(testgame.checkGameOver());
             
+            //if the result from runai() = matched:
             if(cpuresult.equals("matched")){
+                //increment counter and go through method again
                 turncounter++;
                 taketurn_ai(); 
                 
             }else{
-                testgame.goFish();
+                //run the goFish() method, and store the checkgameover in a different array
+                ai_draw.add(testgame.goFish());
                 ai_checkgameover_result1.add(testgame.checkGameOver());
                 if(turncounter >= testgame.getCurrentTurnPlayer().getHand().size())
                     turncounter = 0;
@@ -130,14 +138,18 @@ public class GoFishTest {
 
     /**
      * Test of main method, of class GoFish.
+     * 
      */
     @Test
     public void testRoundAA() {
         
         this.taketurn_player();
         //add asserts here
+        assertTrue(testgame.getCurrentTurnPlayer().equals(testai));
+        
         
         clearArrayPlayer();
+        
 
     }
     @Test

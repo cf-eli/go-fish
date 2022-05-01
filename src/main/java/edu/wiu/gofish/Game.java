@@ -129,10 +129,10 @@ public class Game {
     
     
     
-    public void goFish(){
+    public Card goFish(){
         //method for clicking on the deck
         //players.get(currentPlayerTurn).addCard(deck.draw());//draws a card and places it into the current player's hand
-        this.setNextPlayerTurn(); // cycles the first person to the back of the line
+        return this.setNextPlayerTurn();// cycles the first person to the back of the line
         
         
     }
