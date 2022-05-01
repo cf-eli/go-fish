@@ -45,7 +45,7 @@ public class StartPage extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        difficultySelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Easy", "Normal", "Hard" }));
+        difficultySelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Easy" }));
         jPanel1.add(difficultySelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
 
         helpButton.setText("How to Play");
@@ -72,7 +72,12 @@ public class StartPage extends javax.swing.JFrame {
         });
         jPanel1.add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 100, 30));
 
-        playerNumber.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4" }));
+        playerNumber.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2" }));
+        playerNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerNumberActionPerformed(evt);
+            }
+        });
         jPanel1.add(playerNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
@@ -124,6 +129,10 @@ public class StartPage extends javax.swing.JFrame {
         //HelpScreen g = new HelpScreen();
         //g.setVisible(true);
     }//GEN-LAST:event_helpButtonActionPerformed
+
+    private void playerNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playerNumberActionPerformed
     //getters/setters/actions here
     public String getPlayerName(){
         return nameField.getText();
