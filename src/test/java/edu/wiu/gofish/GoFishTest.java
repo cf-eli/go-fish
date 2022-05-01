@@ -44,6 +44,19 @@ public class GoFishTest {
     String cpuresult;
     
     
+    //each round, test the:
+    
+    //current player
+    //turn order
+    //match result
+    //checkgameover result 0 cards
+    //checkgameover result 1 cards
+    //card pick cards
+    //game over condition
+    //deck count
+    //hand count
+    
+    
     public GoFishTest() {
     }
     
@@ -150,8 +163,12 @@ public class GoFishTest {
         
         clearArrayPlayer();
         
-
     }
+    public void testRoundAAA() {
+        
+    
+    }
+    
     @Test
     public void testRoundAB() {
         
