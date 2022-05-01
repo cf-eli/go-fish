@@ -29,14 +29,14 @@ public class GoFishTest {
     static Player testplayer;
     
     private String match_result;
-    private int[] checkgameover_result0;
-    private int[] checkgameover_result1;
-    private ArrayList<Card> cardpick;
+    private ArrayList<Integer> checkgameover_result0 = new ArrayList<>();
+    private ArrayList<Integer> checkgameover_result1 = new ArrayList<>();
+    private ArrayList<Card> cardpick = new ArrayList<>();
     
     private String ai_match_result;
-    private int[] ai_checkgameover_result0;
-    private int[] ai_checkgameover_result1;
-    private ArrayList<Card> ai_cardpick;
+    private ArrayList<Integer> ai_checkgameover_result0 = new ArrayList<>();
+    private ArrayList<Integer> ai_checkgameover_result1 = new ArrayList<>();
+    private ArrayList<Card> ai_cardpick = new ArrayList<>();
     
     int turncounter = 0;
     String cpuresult;
@@ -62,24 +62,25 @@ public class GoFishTest {
     public void taketurn_player(){
         if(testgame.getCurrentTurnPlayer().equals(testplayer)){
             //pick card button
+            //cardpick.add(testgame.getPlayer(0).getHand().get(0));
             cardpick.add(testgame.getCurrentTurnPlayer().getHand().get(0));
 
             //ask button
             match_result = testgame.isMatch(cardpick.get(turncounter), "testai", testgame);
-            checkgameover_result0[turncounter] = testgame.checkGameOver();
+            checkgameover_result0.add(testgame.checkGameOver());
 
 
             if(match_result.equals("GoFish")){
                 //draw  button
                 testgame.setNextPlayerTurn();
-                checkgameover_result1[turncounter] = testgame.checkGameOver();
+                checkgameover_result1.add(testgame.checkGameOver());
                 turncounter = 0;
 
             }else{
                 turncounter++;
                 if(turncounter >= testgame.getCurrentTurnPlayer().getHand().size())
                     turncounter = 0;
-                taketurn_player();
+                //taketurn_player();
 
             }
         }else{
@@ -94,7 +95,7 @@ public class GoFishTest {
             //pick card
             cpuresult = ((Ai)testgame.getCurrentTurnPlayer()).runAi(testgame);
             ai_cardpick.add(((Ai)testgame.getCurrentTurnPlayer()).getCurrentCard());
-            ai_checkgameover_result0[turncounter] = testgame.checkGameOver();
+            ai_checkgameover_result0.add(testgame.checkGameOver());
             
             if(cpuresult.equals("matched")){
                 turncounter++;
@@ -102,7 +103,7 @@ public class GoFishTest {
                 
             }else{
                 testgame.goFish();
-                ai_checkgameover_result1[turncounter] = testgame.checkGameOver();
+                ai_checkgameover_result1.add(testgame.checkGameOver());
                 if(turncounter >= testgame.getCurrentTurnPlayer().getHand().size())
                     turncounter = 0;
                 turncounter = 0;
