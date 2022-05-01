@@ -63,7 +63,7 @@ public class GoFishTest {
         if(testgame.getCurrentTurnPlayer().equals(testplayer)){
             //pick card button
             //cardpick.add(testgame.getPlayer(0).getHand().get(0));
-            cardpick.add(testgame.getCurrentTurnPlayer().getHand().get(0));
+            cardpick.add(testgame.getCurrentTurnPlayer().getHand().get(turncounter));
 
             //ask button
             match_result = testgame.isMatch(cardpick.get(turncounter), "testai", testgame);
@@ -80,7 +80,7 @@ public class GoFishTest {
                 turncounter++;
                 if(turncounter >= testgame.getCurrentTurnPlayer().getHand().size())
                     turncounter = 0;
-                //taketurn_player();
+                taketurn_player();
 
             }
         }else{
