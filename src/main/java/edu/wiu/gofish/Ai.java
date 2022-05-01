@@ -81,13 +81,14 @@ public class Ai extends Player{
     }
     
     
-    public void setDifficulty(String a){
+    public int setDifficulty(String a){
         if (a == "Easy")
             this.difficulty = 0;
         else if( a == "Normal")
             this.difficulty = 1;
         else
             this.difficulty = 2;
+        return this.difficulty;
     }
     public int getDifficulty(){
         return this.difficulty;

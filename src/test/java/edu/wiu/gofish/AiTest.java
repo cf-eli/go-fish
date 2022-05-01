@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 //import java.util.ArrayList;
-//import java.util.Collection;
+import java.util.Collection;
 import org.junit.Before;
 import org.junit.BeforeClass;
 //import org.junit.runner.RunWith; 
@@ -46,11 +46,11 @@ public class AiTest {
     @Before
     public void before(){
         testgame = new Game();
-        testai = new Ai("testai", 1);
         testplayer = new Player("testplayer");
+        testai = new Ai("testai", 1);
         
-        testgame.addAi(testai);
         testgame.addPlayer(testplayer);
+        testgame.addAi(testai);
     
     }
     /**
@@ -61,7 +61,7 @@ public class AiTest {
         System.out.println("getAi");
         testgame.addAi(testai);
 
-        assertTrue(testai.equals(testgame.getPlayer(0)));
+        assertTrue(testai.equals(testgame.getPlayer(1)));
         
         
     }
@@ -135,27 +135,34 @@ public class AiTest {
      * Test of setDifficulty method, of class Ai.
      */
     @Test
-    public void testSetDifficulty() {
-        System.out.println("setDifficulty");
-        String a = "";
-        Ai instance = null;
-        instance.setDifficulty(a);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetDifficulty0() {
+        int testreturn = testai.setDifficulty("Easy");
+        assertTrue(testreturn == 0);
+        
     }
+    
+    @Test
+    public void testSetDifficulty1() {
+        int testreturn = testai.setDifficulty("Normal");
+        assertTrue(testreturn == 1);
+        
+    }
+    
+    @Test
+    public void testSetDifficulty2() {
+        int testreturn = testai.setDifficulty("Hard");
+        assertTrue(testreturn == 2);
+        
+    }
+    
 
     /**
      * Test of getDifficulty method, of class Ai.
      */
     @Test
     public void testGetDifficulty() {
-        System.out.println("getDifficulty");
-        Ai instance = null;
-        int expResult = 0;
-        int result = instance.getDifficulty();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int testreturn = testai.setDifficulty("Easy");
+        assertTrue(testai.getDifficulty() == testreturn);
     }
 
     /**
@@ -163,33 +170,29 @@ public class AiTest {
      */
     @Test
     public void testDecideCardEasy() {
-        System.out.println("decideCardEasy");
-        Ai instance = null;
-        Card expResult = null;
-        Card result = instance.decideCardEasy();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        testgame.startGame();
+        
+        Card randomcard = testai.decideCardEasy();
+        assertTrue(testgame.getPlayers().get(1).getHand().contains(randomcard));
+        
+        //assertEquals(,randomcard);
     }
 
     /**
      * Test of decidePlayer method, of class Ai.
+     * 
      */
     @Test
     public void testDecidePlayer() {
-        System.out.println("decidePlayer");
-        ArrayList<Player> playerlist = null;
-        Ai instance = null;
-        String expResult = "";
-        String result = instance.decidePlayer(playerlist);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result = testai.decidePlayer(testgame.getPlayers());
+        assertEquals(result,testgame.getPlayer(0).getName()); 
     }
 
     /**
      * Test of runAi method, of class Ai.
+     * 
      */
+    /*
     @Test
     public void testRunAi() {
         System.out.println("runAi");
