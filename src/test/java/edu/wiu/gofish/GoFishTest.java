@@ -42,6 +42,7 @@ public class GoFishTest {
     
     int turncounter = 0;
     String cpuresult;
+    int turncountfinal = 0;
     
     
     //each round, test the:
@@ -89,6 +90,7 @@ public class GoFishTest {
                 //draw  button
                 player_draw.add(testgame.setNextPlayerTurn());
                 checkgameover_result1.add(testgame.checkGameOver());
+                turncountfinal = turncounter;
                 turncounter = 0;
 
             }else{
@@ -116,7 +118,7 @@ public class GoFishTest {
             ai_checkgameover_result0.add(testgame.checkGameOver());
             
             //if the result from runai() = matched:
-            if(cpuresult.equals("matched")){
+            if(cpuresult.equals("Matched")){
                 //increment counter and go through method again
                 turncounter++;
                 taketurn_ai(); 
@@ -125,8 +127,11 @@ public class GoFishTest {
                 //run the goFish() method, and store the checkgameover in a different array
                 ai_draw.add(testgame.goFish());
                 ai_checkgameover_result1.add(testgame.checkGameOver());
-                if(turncounter >= testgame.getCurrentTurnPlayer().getHand().size())
+                if(turncounter >= testgame.getCurrentTurnPlayer().getHand().size()){
+                    turncountfinal += turncounter;
                     turncounter = 0;
+                }
+                turncountfinal += turncounter;
                 turncounter = 0;
                         
             }
@@ -155,27 +160,89 @@ public class GoFishTest {
      */
     @Test
     public void testRoundAA() {
-        
+        clearArrayPlayer();
         this.taketurn_player();
         //add asserts here
-        assertTrue(testgame.getCurrentTurnPlayer().equals(testai));
+        
+
+        //check if it ends on "Go Fish"
+        assertTrue(match_result.equals("Go Fish"));
+        
+        //loop through each checkgameover, should all be 0
+        for(int i = 0; i <= checkgameover_result0.size()-1; i++){
+            assertTrue(this.checkgameover_result0.get(i) == 0);
+            
+        }
+        for(int i = 0; i <= checkgameover_result1.size()-1; i++){
+            assertTrue(this.checkgameover_result1.get(i) == 0);
+            
+        }
+        
+        for (int i =0; i<= this.cardpick.size()-1; i++){
+            assertTrue(testplayer.getHand().contains(cardpick.get(i)));
+            
+        }
+        for (int i =0; i<= this.player_draw.size()-1; i++){
+            assertTrue(testplayer.getHand().contains(this.player_draw.get(0)));
+        }
         
         
-        clearArrayPlayer();
-        
-    }
-    public void testRoundAAA() {
-        
-    
     }
     
     @Test
-    public void testRoundAB() {
+    public void testRoundAAAdeckcount() {
+        assertTrue(testgame.getDeck().getSize() == 37);
         
+    }
+    
+    @Test
+    public void testRoundAACgetcurrentplayer() {
+        assertTrue(testgame.getCurrentTurnName().equals("testai"));
+        
+    }
+
+        
+    
+    
+    @Test
+    public void testRoundAB() {
+
         this.taketurn_ai();
         //add asserts here
-        clearArrayAi();
 
+        //check if it ends on "Go Fish"
+        assertEquals(this.cpuresult,"Go Fish");
+        
+        //loop through each checkgameover, should all be 0
+        for(int i = 0; i <= ai_checkgameover_result0.size()-1; i++){
+            assertTrue(this.ai_checkgameover_result0.get(i) == 0);
+            
+        }
+        for(int i = 0; i <= ai_checkgameover_result1.size()-1; i++){
+            assertTrue(this.ai_checkgameover_result1.get(i) == 0);
+            
+        }
+        
+        for (int i =0; i<= this.ai_cardpick.size()-1; i++){
+            assertTrue(testai.getHand().contains(ai_cardpick.get(i)));
+            
+        }
+        for (int i =0; i<= this.ai_draw.size()-1; i++){
+            assertTrue(testai.getHand().contains(this.ai_draw.get(0)));
+        }
+
+    }
+    
+    @Test
+    public void testRoundABAdeckcount() {
+        assertTrue(testgame.getDeck().getSize() == 36);
+        
+    }
+    
+    @Test
+    public void testRoundABCgetcurrentplayer() {
+        assertTrue(testgame.getCurrentTurnName().equals("testplayer"));
+        
     }
     
     @Test
@@ -183,17 +250,76 @@ public class GoFishTest {
         this.taketurn_player();
         //add asserts here
         
-        clearArrayPlayer();
+        //check if it ends on "Go Fish"
+        assertTrue(match_result.equals("Go Fish"));
+        
+        //loop through each checkgameover, should all be 0
+        for(int i = 0; i <= checkgameover_result0.size()-1; i++){
+            assertTrue(this.checkgameover_result0.get(i) == 0);
+            
+        }
+        for(int i = 0; i <= checkgameover_result1.size()-1; i++){
+            assertTrue(this.checkgameover_result1.get(i) == 0);
+            
+        }
+        
+        for (int i =0; i<= this.cardpick.size()-1; i++){
+            assertTrue(testplayer.getHand().contains(cardpick.get(i)));
+            
+        }
+        for (int i =0; i<= this.player_draw.size()-1; i++){
+            assertTrue(testplayer.getHand().contains(this.player_draw.get(0)));
+        }
 
+    }
+    @Test
+    public void testRoundBAAdeckcount() {
+        assertTrue(testgame.getDeck().getSize() == 35);
+        
+    }
+    
+    @Test
+    public void testRoundBABgetcurrentplayer() {
+        assertTrue(testgame.getCurrentTurnName().equals("testai"));
+        
     }
     @Test
     public void testRoundBB() {
         
         this.taketurn_ai();
         //add asserts here
+        //check if it ends on "Go Fish"
+        assertEquals(this.cpuresult,"Go Fish");
         
-        clearArrayAi();
+        //loop through each checkgameover, should all be 0
+        for(int i = 0; i <= ai_checkgameover_result0.size()-1; i++){
+            assertTrue(this.ai_checkgameover_result0.get(i) == 0);
+            
+        }
+        for(int i = 0; i <= ai_checkgameover_result1.size()-1; i++){
+            assertTrue(this.ai_checkgameover_result1.get(i) == 0);
+            
+        }
+        
+        for (int i =0; i<= this.ai_cardpick.size()-1; i++){
+            assertTrue(testai.getHand().contains(ai_cardpick.get(i)));
+            
+        }
+        for (int i =0; i<= this.ai_draw.size()-1; i++){
+            assertTrue(testai.getHand().contains(this.ai_draw.get(0)));
+        }
 
+    }
+    @Test
+    public void testRoundBBAdeckcount() {
+        assertEquals(testgame.getDeck().getSize(), 34);
+        
+    }
+    
+    @Test
+    public void testRoundBBCgetcurrentplayer() {
+        assertTrue(testgame.getCurrentTurnName().equals("testplayer"));
+        
     }
     @Test
     public void testRoundCA() {
@@ -201,8 +327,38 @@ public class GoFishTest {
         this.taketurn_player();
         //add asserts here
         
-        clearArrayPlayer();
+        //check if it ends on "Go Fish"
+        assertTrue(match_result.equals("Go Fish"));
+        
+        //loop through each checkgameover, should all be 0
+        for(int i = 0; i <= checkgameover_result0.size()-1; i++){
+            assertTrue(this.checkgameover_result0.get(i) == 0);
+            
+        }
+        for(int i = 0; i <= checkgameover_result1.size()-1; i++){
+            assertTrue(this.checkgameover_result1.get(i) == 0);
+            
+        }
+        
+        for (int i =0; i<= this.cardpick.size()-1; i++){
+            assertTrue(testplayer.getHand().contains(cardpick.get(i)));
+            
+        }
+        for (int i =0; i<= this.player_draw.size()-1; i++){
+            assertTrue(testplayer.getHand().contains(this.player_draw.get(0)));
+        }
 
+    }
+    @Test
+    public void testRoundCAAdeckcount() {
+        assertTrue(testgame.getDeck().getSize() == 33);
+        
+    }
+    
+    @Test
+    public void testRoundCABgetcurrentplayer() {
+        assertTrue(testgame.getCurrentTurnName().equals("testai"));
+        
     }
     @Test
     public void testRoundCB() {
@@ -210,21 +366,51 @@ public class GoFishTest {
         this.taketurn_ai();
         //add asserts here
         
-        clearArrayAi();
+        //check if it ends on "Go Fish"
+        assertEquals(this.cpuresult,"Go Fish");
+        
+        //loop through each checkgameover, should all be 0
+        for(int i = 0; i <= ai_checkgameover_result0.size()-1; i++){
+            assertTrue(this.ai_checkgameover_result0.get(i) == 0);
+            
+        }
+        for(int i = 0; i <= ai_checkgameover_result1.size()-1; i++){
+            assertTrue(this.ai_checkgameover_result1.get(i) == 0);
+            
+        }
+        
+        for (int i =0; i<= this.ai_cardpick.size()-1; i++){
+            assertTrue(testai.getHand().contains(ai_cardpick.get(i)));
+            
+        }
+        for (int i =0; i<= this.ai_draw.size()-1; i++){
+            assertTrue(testai.getHand().contains(this.ai_draw.get(0)));
+        }
 
+    }
+    @Test
+    public void testRoundCBAdeckcount() {
+        assertEquals(32, testgame.getDeck().getSize());
+        
+    }
+    
+    @Test
+    public void testRoundCBCgetcurrentplayer() {
+        assertTrue(testgame.getCurrentTurnName().equals("testplayer"));
+        
     }
     
     @Test
     public void testRoundDA() {
-        
+        this.testgame.getPlayer(0).setPlayerscore(8);
         this.taketurn_player();
-        
+        assertEquals(true, testgame.getGameOver());
         //add asserts here
         
         clearArrayPlayer();
 
     }
-    
+    /*
     //make this one the "winning" game
     @Test
     public void testRoundDB() {
@@ -234,6 +420,6 @@ public class GoFishTest {
         
         clearArrayAi();
 
-    }
+    }*/
     
 }

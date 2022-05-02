@@ -59,6 +59,10 @@ public class Player {
         playerid = i;
         return playerid;
     }
+    public int setPlayerscore(int x){
+        this.score = x;
+        return this.score;
+    }
     //return amount in hand
     public int getAmountInHand(){
     
