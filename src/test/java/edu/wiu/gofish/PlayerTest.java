@@ -120,7 +120,7 @@ public class PlayerTest {
     public void testGetAmountInHand() {
         assertEquals(1,eli.getAmountInHand());
     }
-//
+
 //    /**
 //     * Test of getLast_Ai_Target method, of class Player.
 //     */

@@ -1,13 +1,15 @@
 # **Software Requirements Specification**
 ## **Go Fish**
 
-**Version 1.0 approved**
+**Version 1.4 approved**
 
 **Prepared by**  **Chandler Fletcher and Alexander Hannen**
 
 **Western Illinois University**
 
 **09/30/2021**
+
+**https://github.com/cf-eli/go-fish**
 
 -----
 
@@ -93,7 +95,10 @@
 | --- | --- | --- | --- |
 | Hannen, Fletcher | 9/27/21 | Initial Copy | 1.0 |
 | Hannen, Fletcher | 11/02/21 | Updated Analysis Models | 1.1 |
-| Hanne, Fletcher | 12/04/21 | Updated Analysis Models and Table of Contents | 1.2 |
+| Hannen, Fletcher | 12/04/21 | Updated Analysis Models and Table of Contents | 1.2 |
+| Hannen, Fletcher | 05/01/22 | added github link | 1.2 |
+| Hannen, Fletcher | 05/01/22 | Final revisions | 1.2 |
+
 
 
 # **1. Introduction**
@@ -163,7 +168,7 @@ _This game is designed to run on anything that can run JAVA._
 
 ## **2.5 Design and Implementation Constraints**
 
-_This simple game should be run in JAVA 16.0.2. This game may not work on newer or older versions._
+_This simple game should be run in JAVA 8. This game may not work on newer or older versions._
 
 ## **2.6 User Documentation**
 
@@ -171,7 +176,7 @@ _A user manual will be available on Go Fish._
 
 ## **2.7 Assumptions and Dependencies**
 
-_There should be at least one user with one(or more) computer players._
+_There should be at least one user with one computer players._
 
 # **3. System Features**
 
@@ -201,7 +206,7 @@ _There should be at least one user with one(or more) computer players._
 
   _REQ-5: Cards dealt to each player_
 
-  _REQ-6: 52 cards in play, seven in each hand if only two players_
+  _REQ-6: 52 cards in play, seven in each hand 
 
 ## 3.2 Play Instructions
 
@@ -283,7 +288,7 @@ _There should be at least one user with one(or more) computer players._
 
 * 3.5.3 Functional Requirements
 
-  _REQ-1: First player in the game to a score of 8(depending on the amount of players) wins the game_
+  _REQ-1: First player in the game to a score of 8 wins the game_
 
 ## 3.6 Ending or Restarting the Game
 
@@ -352,6 +357,8 @@ _There are currently no requirements. This may be subjected to change._
 _Go - to move from one place to another_
 
 _Fish - a cold-blooded animal that lives in the water_
+
+_Go Fish - a traditional card game
 
 _User- human intended as the main player for the game_
 
