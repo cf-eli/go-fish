@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="266" failures="0" name="edu.wiu.gofish.AllTest" time="0.013" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\bin"/>
+    <property name="java.vm.version" value="25.202-b08"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Code Projects\_git\gofish"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Code Projects\_git\gofish"/>
+    <property name="java.runtime.version" value="1.8.0_202-b08"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\Alex\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-13\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\NetBeans-13\netbeans\java\maven\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_202\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Git\cmd;C:\Users\Alex\AppData\Local\Programs\Python\Python310;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\dotnet\;C:\Users\Alex\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Alex\AppData\Local\Programs\Python\Python310\;C:\Users\Alex\AppData\Local\Microsoft\WindowsApps;C:\Users\Alex\.dotnet\tools;C:\Program Files\JetBrains\PyCharm Community Edition 2021.3.2\bin;C:\Users\Alex\AppData\Local\atom\bin;C:\Users\Alex\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\bin;;C:\Users\Alex\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\bin;;C:\Program Files\JetBrains\PyCharm 2021.3.2\bin;;."/>
+    <property name="maven.conf" value="C:\Program Files\NetBeans-13\netbeans\java\maven/conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Program Files\NetBeans-13\netbeans\java\maven\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\Alex"/>
+    <property name="user.timezone" value="America/Chicago"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="Alex"/>
+    <property name="java.class.path" value="C:\Program Files\NetBeans-13\netbeans\java\maven\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_202\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans-13\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_202"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_202\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_202\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\NetBeans-13\netbeans\java\maven"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testsetCurrentCard" time="0"/>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testGetCurrentCard" time="0"/>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testGetAi" time="0.001"/>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testsetCurrent_Target" time="0"/>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testGetDifficulty" time="0"/>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testGetCurrent_Target" time="0"/>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testDecideCardEasy" time="0.001"/>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testDecidePlayer" time="0"/>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testSetDifficulty0" time="0"/>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testSetDifficulty1" time="0"/>
+  <testcase classname="edu.wiu.gofish.AiTest" name="testSetDifficulty2" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[0]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[0]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[0]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[0]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[1]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[1]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[1]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[1]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[2]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[2]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[2]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[2]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[3]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[3]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[3]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[3]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[4]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[4]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[4]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[4]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[5]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[5]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[5]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[5]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[6]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[6]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[6]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[6]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[7]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[7]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[7]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[7]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[8]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[8]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[8]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[8]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[9]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[9]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[9]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[9]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[10]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[10]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[10]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[10]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[11]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[11]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[11]" time="0.001"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[11]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[12]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[12]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[12]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[12]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[13]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[13]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[13]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[13]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[14]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[14]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[14]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[14]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[15]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[15]" time="0.001"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[15]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[15]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[16]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[16]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[16]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[16]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[17]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[17]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[17]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[17]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[18]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[18]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[18]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[18]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[19]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[19]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[19]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[19]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[20]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[20]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[20]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[20]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[21]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[21]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[21]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[21]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[22]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[22]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[22]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[22]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[23]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[23]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[23]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[23]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[24]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[24]" time="0.001"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[24]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[24]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[25]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[25]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[25]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[25]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[26]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[26]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[26]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[26]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[27]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[27]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[27]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[27]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[28]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[28]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[28]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[28]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[29]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[29]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[29]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[29]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[30]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[30]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[30]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[30]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[31]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[31]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[31]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[31]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[32]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[32]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[32]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[32]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[33]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[33]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[33]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[33]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[34]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[34]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[34]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[34]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[35]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[35]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[35]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[35]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[36]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[36]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[36]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[36]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[37]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[37]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[37]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[37]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[38]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[38]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[38]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[38]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[39]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[39]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[39]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[39]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[40]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[40]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[40]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[40]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[41]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[41]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[41]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[41]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[42]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[42]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[42]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[42]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[43]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[43]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[43]" time="0.001"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[43]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[44]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[44]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[44]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[44]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[45]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[45]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[45]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[45]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[46]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[46]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[46]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[46]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[47]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[47]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[47]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[47]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[48]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[48]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[48]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[48]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[49]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[49]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[49]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[49]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[50]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[50]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[50]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[50]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRankString[51]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetRank[51]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuit[51]" time="0"/>
+  <testcase classname="edu.wiu.gofish.CardTest" name="testGetSuitString[51]" time="0"/>
+  <testcase classname="edu.wiu.gofish.DeckTest" name="testGetSize1" time="0"/>
+  <testcase classname="edu.wiu.gofish.DeckTest" name="testGetSize2" time="0"/>
+  <testcase classname="edu.wiu.gofish.DeckTest" name="testReset" time="0"/>
+  <testcase classname="edu.wiu.gofish.DeckTest" name="testDraw" time="0"/>
+  <testcase classname="edu.wiu.gofish.DeckTest" name="testShuffle" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testCheckGameOver" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testStartGame" time="0.002"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testGetPlayerCount" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testGetCurrentTurn" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testGetDeck" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testGetGameOver" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testGetPlayers" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testGetCurrentTurnName" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testCreateCard" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testGetCurrentTurnPlayer" time="0.001"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testGoFish" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testGetPlayer" time="0"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testSetNextPlayerTurn" time="0.002"/>
+  <testcase classname="edu.wiu.gofish.GameTest" name="testGetWinner" time="0"/>
+  <testcase classname="edu.wiu.gofish.PlayerTest" name="testGetScore" time="0"/>
+  <testcase classname="edu.wiu.gofish.PlayerTest" name="testSetPlayerid" time="0"/>
+  <testcase classname="edu.wiu.gofish.PlayerTest" name="testGetCard" time="0"/>
+  <testcase classname="edu.wiu.gofish.PlayerTest" name="testGetHand" time="0"/>
+  <testcase classname="edu.wiu.gofish.PlayerTest" name="testGetName" time="0"/>
+  <testcase classname="edu.wiu.gofish.PlayerTest" name="testRemoveCard" time="0"/>
+  <testcase classname="edu.wiu.gofish.PlayerTest" name="testIncreaseScore" time="0"/>
+  <testcase classname="edu.wiu.gofish.PlayerTest" name="testGetAmountInHand" time="0"/>
+  <testcase classname="edu.wiu.gofish.PlayerTest" name="testGetPlayernumber" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundAA" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundAAAdeckcount" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundAACgetcurrentplayer" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundAB" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundABAdeckcount" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundABCgetcurrentplayer" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundBA" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundBAAdeckcount" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundBABgetcurrentplayer" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundBB" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundBBAdeckcount" time="0.001"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundBBCgetcurrentplayer" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundCA" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundCAAdeckcount" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundCABgetcurrentplayer" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundCB" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundCBAdeckcount" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundCBCgetcurrentplayer" time="0"/>
+  <testcase classname="edu.wiu.gofish.GoFishTest" name="testRoundDA" time="0.001"/>
+</testsuite>
