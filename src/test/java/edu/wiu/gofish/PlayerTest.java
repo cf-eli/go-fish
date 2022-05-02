@@ -122,7 +122,7 @@ public class PlayerTest {
     }
 
 //    /**
-//     * Test of getLast_Ai_Target method, of class Player.
+//     * AI only
 //     */
 //    @Test
 //    public void testGetLast_Ai_Target() {
@@ -136,7 +136,7 @@ public class PlayerTest {
 //    }
 //
 //    /**
-//     * Test of setlast_Ai_tart method, of class Player.
+//     * AI only 
 //     */
 //    @Test
 //    public void testSetlast_Ai_tart() {
@@ -176,50 +176,44 @@ public class PlayerTest {
 //        fail("The test case is a prototype.");
 //    }
 //
-//    /**
-//     * Test of checkHand method, of class Player.
-//     */
-//    @Test
-//    public void testCheckHand() {
-//        System.out.println("checkHand");
-//        Player instance = null;
-//        int expResult = 0;
-//        int result = instance.checkHand();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    /**
+     * Test to make sure checkhand finds 4 cards
+     */
+    @Test
+    public void testCheckHand() {
+        assertEquals(0,eli.checkHand());
+        eli.addCard(card);
+        eli.addCard(card);
+        eli.addCard(card);
+        assertEquals(1,eli.checkHand());
+    }
+
+    /**
+     * Test to make sure correct img is returned
+     */
+    @Test
+    public void testGetImg() {
+        String img = "/1d.png";
+        assertEquals(img,eli.getImg().get(0));
+    }
+
+    /**
+     * Test to make sure given card show up 1, add another of same card
+     * and make sure it shows up as freq 2
+     */
+    @Test
+    public void testGetHandFreq() {
+        int freq = eli.getHandFreq().get(0);
+        assertEquals(1,freq);
+        eli.addCard(card);
+        freq = eli.getHandFreq().get(0);
+        assertEquals(2,freq);
+                
+        
+    }
 //
 //    /**
-//     * Test of getImg method, of class Player.
-//     */
-//    @Test
-//    public void testGetImg() {
-//        System.out.println("getImg");
-//        Player instance = null;
-//        ArrayList<String> expResult = null;
-//        ArrayList<String> result = instance.getImg();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getHandFreq method, of class Player.
-//     */
-//    @Test
-//    public void testGetHandFreq() {
-//        System.out.println("getHandFreq");
-//        Player instance = null;
-//        ArrayList<Integer> expResult = null;
-//        ArrayList<Integer> result = instance.getHandFreq();
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of inHand method, of class Player.
+//     * This was a debug only method.
 //     */
 //    @Test
 //    public void testInHand() {
@@ -231,20 +225,17 @@ public class PlayerTest {
 //        fail("The test case is a prototype.");
 //    }
 //
-//    /**
-//     * Test of isMatch method, of class Player.
-//     */
-//    @Test
-//    public void testIsMatch() {
-//        System.out.println("isMatch");
-//        Card card = null;
-//        Player instance = null;
-//        ArrayList<Card> expResult = null;
-//        ArrayList<Card> result = instance.isMatch(card);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    /**
+     * Test of isMatch method, of class Player.
+     */
+    @Test
+    public void testIsMatch() {
+        eli.isMatch(card);
+        assertEquals(0,eli.getAmountInHand());
+        Card card2 = new Card(3,2);
+        eli.addCard(card2);
+        assertEquals(1,eli.getAmountInHand());
+    }
 //
 //    /**
 //     * Test of toString method, of class Player.

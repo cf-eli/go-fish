@@ -176,7 +176,7 @@ public class Player {
     }
     
     public ArrayList<Card> isMatch(Card card){//player and ai - Remove ALL ranks that is similar to rank asked for
-        Boolean match = false;
+        Boolean match = false;//unused
         ArrayList<Card> matches = new ArrayList<>();
         if (!this.recently_lost.isEmpty()){
             this.recently_lost.clear();
